@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hover-active-effect {
+    @apply hover:scale-[.9] transition-all duration-150 active:scale-[.75];
+  }
+  .bg-1 {
+    @apply bg-gradient-to-b from-[#0f0f0f]/75 to-[#0f0f0f]/90
+  }
+  .fg-1 {
+    @apply bg-white/[.03]
+  }
+}
+
+@keyframes colourChange {
+  0% {
+    background-color: #0db7ff;
+  }
+  50% {
+    background-color: #4E00FF;
+  }
+  100% {
+    background-color: #0db7ff;
+  }
+}
+
+.animate-colour-change {
+  animation: colourChange 15s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #0db7ff;
+}
+
+::-webkit-scrollbar {
+  border-radius: 100px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: rgb(250, 250, 250, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(250, 250, 250, 0.2);
+}
