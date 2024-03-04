@@ -13,12 +13,12 @@ const getProjectContent = (slug: string) => {
   if (fs.existsSync(`${folder}${slug}.md`)) {
       file = `${folder}${slug}.md`;
   } else {
-      const whiteFolder = `${folder}white/`;
+      const butterflyFolder = `${folder}butterfly/`;
       const blackFolder = `${folder}black/`;
       const squareFolder = `${folder}square/`;
 
-      if (fs.existsSync(`${whiteFolder}${slug}.md`)) {
-          file = `${whiteFolder}${slug}.md`;
+      if (fs.existsSync(`${butterflyFolder}${slug}.md`)) {
+          file = `${butterflyFolder}${slug}.md`;
       } else if (fs.existsSync(`${blackFolder}${slug}.md`)) {
           file = `${blackFolder}${slug}.md`;
       } else if (fs.existsSync(`${squareFolder}${slug}.md`)) {

@@ -2,12 +2,12 @@ import fs from "fs";
 import matter from "gray-matter";
 import { ProjectMetadata } from "./ProjectMetadata";
 
-const getWhiteProjects = (): ProjectMetadata[] => {
-  const whiteFolder = "projects/white/";
-  const whiteFiles = fs.readdirSync(whiteFolder).filter((file) => file.endsWith(".md"));
+const getButterflyProjects = (): ProjectMetadata[] => {
+  const butterflyFolder = "projects/butterfly/";
+  const butterflyFiles = fs.readdirSync(butterflyFolder).filter((file) => file.endsWith(".md"));
 
-  const whiteProjects = whiteFiles.map((filename) => {
-    const fileContents = fs.readFileSync(`${whiteFolder}/${filename}`, "utf8");
+  const butterflyProjects = butterflyFiles.map((filename) => {
+    const fileContents = fs.readFileSync(`${butterflyFolder}/${filename}`, "utf8");
     const matterResult = matter(fileContents);
     return {
       title: matterResult.data.title,
@@ -18,7 +18,7 @@ const getWhiteProjects = (): ProjectMetadata[] => {
     };
   });
 
-  return whiteProjects;
+  return butterflyProjects;
 };
 
 const getBlackProjects = (): ProjectMetadata[] => {
@@ -60,11 +60,11 @@ const getSquareProjects = (): ProjectMetadata[] => {
 };
 
 const getProjectMetadata = (): ProjectMetadata[] => {
-  const whiteProjects = getWhiteProjects();
+  const butterflyProjects = getButterflyProjects();
   const blackProjects = getBlackProjects();
   const squareProjects = getSquareProjects();
 
-  const allProjects = [...whiteProjects, ...blackProjects, ... squareProjects];
+  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects];
 
   return allProjects;
 };

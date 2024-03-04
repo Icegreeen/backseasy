@@ -4,6 +4,7 @@ import "./globals.css";
 import { Viewport } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -55,6 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={outfit.className}>
+      <GoogleAnalytics gaId="G-JKC1QKPHY4" />
       <body className="bg-[#050505] text-white flex flex-col items-center w-screen gap-24 p-48 max-[630px]:px-[20px] overflow-x-hidden">
         <Nav />
         {children}

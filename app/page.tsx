@@ -15,8 +15,8 @@ export default function Home() {
   const allProjects = getProjectMetadata();
 
   // Filtrar projetos brancos e pretos
-  const whiteProjects = allProjects.filter((project) => {
-    return project.type === "white"; 
+  const butterflyProjects = allProjects.filter((project) => {
+    return project.type === "butterfly"; 
   });
   const blackProjects = allProjects.filter((project) => {
     return project.type === "black";
@@ -27,8 +27,8 @@ export default function Home() {
   });
 
   // Mapear os projetos em pré-visualizações
-  const whiteProjectPreviews = whiteProjects.map((project) => (
-    <ProjectPreview category={"white"} key={project.slug} {...project} />
+  const butterflyProjectPreviews = butterflyProjects.map((project) => (
+    <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
   ));
 
   const blackProjectPreviews = blackProjects.map((project) => (
@@ -36,7 +36,7 @@ export default function Home() {
   ));
 
   const squareProjectPreviews = squareProjects.map((project) => (
-    <ProjectPreview category={""} key={project.slug} {...project} />
+    <ProjectPreview category={"square"} key={project.slug} {...project} />
   ));
 
   return (
@@ -107,9 +107,9 @@ export default function Home() {
             {squareProjectPreviews}
           </div>
 
-          <h2>White </h2>
+          <h2>Butterfly </h2>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {whiteProjectPreviews}
+            {butterflyProjectPreviews}
           </div>
       </div>
       
