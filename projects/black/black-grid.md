@@ -1,5 +1,5 @@
 ---
-title: "Black Grid"
+title: "Black Purple"
 type: "black"
 date: "2024-02-18"
 image: "https://github.com/Icegreeen/blog-graphQL/assets/56550632/ad7b52fd-7ad8-4330-b886-c44feac3621e"
@@ -26,6 +26,6 @@ View background:
 
 #### Note
 
-If this background has served you in any way, consider following me on github or supporting me to continue working at BacktoEasy.
+If this background has served you in any way, consider following me on github or supporting me to continue working at BacksEasy.
 
 Any questions, criticisms or improvements, please suggest them through my [Linkdin.](https://www.linkedin.com/in/flavioaquila/).

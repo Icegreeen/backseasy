@@ -46,7 +46,7 @@ export default function Home() {
           <h1
             className={`${hanson.className} text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
           >
-            Backtoeasy
+            Backseasy
           </h1>
           <p className="text-body">Make the best background for your aplications</p>
         </div>

@@ -15,8 +15,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://backtoeasy.com"),
-  title: "BacktoEasy",
+  metadataBase: new URL("https://back.com"),
+  title: "Backseasy",
   description: "Make the best background for your aplications.",
   keywords: [
     "Backgrounds",
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
   creator: "Flavio",
   publisher: "Flavio",
   openGraph: {
-    title: "Backtoeasy",
+    title: "Backseasy",
     description: "Make the best background for your aplications.",
     url: "",
-    siteName: "backtoeasy",
+    siteName: "backseasy",
     images: [
       {
         url: "/seoCover.png",

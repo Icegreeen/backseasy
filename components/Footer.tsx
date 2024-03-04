@@ -18,7 +18,7 @@ export default function Footer() {
             href={"https://google.com"}
             className="text-4 hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
           >
-            @ Backtoeasy 
+            @ Backseasy 
           </Link>
         </Link>
       </div>
