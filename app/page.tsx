@@ -12,10 +12,31 @@ const hanson = localFont({
 });
 
 export default function Home() {
-  const projectMetadata = getProjectMetadata();
+  const allProjects = getProjectMetadata();
 
-  const projectPreviews = projectMetadata.map((project) => (
-    <ProjectPreview key={project.slug} {...project} />
+  // Filtrar projetos brancos e pretos
+  const whiteProjects = allProjects.filter((project) => {
+    return project.type === "white"; 
+  });
+  const blackProjects = allProjects.filter((project) => {
+    return project.type === "black";
+  });
+
+  const squareProjects = allProjects.filter((project) => {
+    return project.type === "square";
+  });
+
+  // Mapear os projetos em pré-visualizações
+  const whiteProjectPreviews = whiteProjects.map((project) => (
+    <ProjectPreview category={"white"} key={project.slug} {...project} />
+  ));
+
+  const blackProjectPreviews = blackProjects.map((project) => (
+    <ProjectPreview category={"black"} key={project.slug} {...project} />
+  ));
+
+  const squareProjectPreviews = squareProjects.map((project) => (
+    <ProjectPreview category={""} key={project.slug} {...project} />
   ));
 
   return (
@@ -36,7 +57,7 @@ export default function Home() {
             alt={"imagem"}
             width={40}
             height={40}
-            className="rounded-md"
+            className="rounded-md mr-18"
           />
 
           <Image
@@ -44,7 +65,7 @@ export default function Home() {
             alt={"imagem"}
             width={40}
             height={40}
-            className="rounded-md"
+            className="rounded-md mr-18"
           />
 
           <Image
@@ -52,7 +73,15 @@ export default function Home() {
             alt={"imagem"}
             width={40}
             height={40}
-            className="rounded-md"
+            className="rounded-md mr-18"
+          />
+
+          <Image
+            src={"/icons/angular.svg"}
+            alt={"imagem"}
+            width={40}
+            height={40}
+            className="rounded-md mr-18"
           />
         </div>
 
@@ -61,19 +90,27 @@ export default function Home() {
           <SecondaryButton
             text="Tutorial"
             type="secondary"
-            link="https://github.com/"
+            link="/blogs"
           />
         </div>
       </div>
       
-      <div
-        className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24"
-        id="projects"
-      >
+      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
         <h2 className="text-3 font-medium">Backgrounds concepts</h2>
-        <div className="grid grid-cols-4 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-          {projectPreviews}
-        </div>
+          <h2>Black</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {blackProjectPreviews}
+          </div>
+
+          <h2>Square </h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {squareProjectPreviews}
+          </div>
+
+          <h2>White </h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {whiteProjectPreviews}
+          </div>
       </div>
       
       <div

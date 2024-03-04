@@ -16,13 +16,41 @@ export default function Footer() {
 
           <Link
             href={"https://google.com"}
-            className="text-sub hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
+            className="text-4 hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
           >
-            Backtoeasy @copy
+            @ Backtoeasy 
           </Link>
         </Link>
-        
       </div>
+
+      <div className="p-8 border border border-stroke-1 rounded-out flex items-center hover-active-effect">
+        <Image
+            src={"/icons/coffee.png"}
+            width={40}
+            height={40}
+            alt="Coffee"
+            className=""
+          />
+        <a 
+          href="https://www.buymeacoffee.com/icegreen"
+          className=""
+        >
+          Buy me a coffee
+          </a>
+      </div>
+
+      {/*
+      <div>
+          <Image
+            src={"/icons/bymycoffee/white-button.png"}
+            width={160}
+            height={160}
+            alt="Coffee"
+            className=""
+          />
+      </div>
+      */}
+
       <div className="flex flex-col gap-8 place-items-end max-[450px]:place-items-center">
         <div className="flex gap-16">
           <Link href={"https://google.com"}>
@@ -35,11 +63,12 @@ export default function Footer() {
             />
           </Link>
         </div>
+
         <Link
           href={"https://github.com/Icegreeen"}
           className="text-sub hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
         >
-          by Flávio Aquila
+          Build by Flávio Aquila 
         </Link>
       </div>
     </footer>

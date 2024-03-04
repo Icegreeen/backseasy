@@ -24,7 +24,7 @@ export default function Nav() {
     { text: "Blog", link: "/blogs" },
   ];
   return (
-    <nav className="fixed top-28 max-[630px]:top-24 place-self-center z-50 flex flex-col gap-12 max-w-[1800px] w-full mx-20 ms-24 ms-24">
+    <nav className="fixed top-28 max-[630px]:top-24 place-self-center z-50 flex flex-col gap-12 max-w-[1800px] w-full mx-20">
       <div className="px-128 py-16 flex max-[630px]:px-32 w-full z-50 place-content-between place-items-center backdrop-blur-main border border-stroke-1 rounded-out max-[1300px]:border-x-0 max-[1300px]:rounded-none">
         <Link href={"/"}>
           <Image

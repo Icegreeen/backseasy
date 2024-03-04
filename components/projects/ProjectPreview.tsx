@@ -14,7 +14,7 @@ const tiltOptions = {
   transition: false,
 };
 
-export default function ProjectPreview(props: ProjectMetadata) {
+export default function ProjectPreview(props: ProjectMetadata & {category: string}) {
   return (
     <motion.div
       initial={{ y: -50, opacity: 0 }}

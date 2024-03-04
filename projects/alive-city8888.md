@@ -1,41 +1,32 @@
 ---
-title: "Background 2 pourple"
-type: "Background 3 black"
+title: "Grid - Black and purple"
+type: "Type: Grid"
 date: "2024-02-18"
 image: "https://github.com/Icegreeen/blog-graphQL/assets/56550632/ad7b52fd-7ad8-4330-b886-c44feac3621e"
 ---
+#### How to implement:
 
-Coming soon.
+With tailwind installed in your project (tutorial), implement these tailwind classes in your parent div where it will reflect the background.
 
+```
+<div className="relative min-h-screen flex-col items-center px-4 sm:px-6 lg:px-8 flex flex-col justify-center sm:items-center mx-auto">
+  <div className="absolute top-0 start-1/2 w-full h-full bg-no-repeat bg-top bg-cover z-0 transform -translate-x-1/2 bg-[url('https://preline.co/assets/svg/examples-dark/squared-bg-element.svg')]"></div>
 
-Focuses & Style:
+  {your page / component}
+</div>
+```
 
-- Pedestrian focused
-- Quiet roads, easy for cars to navigate, safe for pedestrians to move
-- Modern, futuristic, some cyberpunk, neuclassical?
-- Lots of monochrome, with bright / wooden accents here and there
-- 100% green and _zero carbon footprint_
-  - Green buildings with plant roofs and wind/solar on rooftops
-- Preserving nature around us
-  - Lots of parks & activities
-- _Not_ a concrete wasteland with just concrete everywhere
-- Unique road layouts, not a straight grid
-- Based on:
-  - Montreal, Quebec, Canada
-  - Vancouver, British Columbia, Canada
-  - Edmonton, Alberta, Canada
-  - Amsterdam, Netherlands
+#### 
+View background:
 
-#### Image of the beta map:
+![Captura de tela 2024-02-19 024803](https://github.com/Icegreeen/auth-nextjs-prisma/assets/56550632/909a99e6-0bc8-43bc-af0b-2418f9b42cee)
 
-![Beta map image]()
+### Mobile and Desktop:
+
+![254062375-6ad82148-544d-4a82-9f2d-ecb15f64a48e (1)](https://github.com/Icegreeen/auth-nextjs-prisma/assets/56550632/1ca6605b-0f6c-496e-845d-9b27c313d7f6)
 
 #### Note
 
-This entire project is subject to change.
-This project is also going to be over multiple years, and will have slow progress because my personal focuses are design and code, this is just a passion. I might document my progress over on a blog on my [personal website.](https://dukc.dev)
+If this background has served you in any way, consider following me on github or supporting me to continue working at BacktoEasy.
 
-This project is also in the alpha stage, I need to research city, building, and road design, then make a high quality map.
-
-\- Written by dukc <br>
-\- Project by dukc
+Any questions, criticisms or improvements, please suggest them through my [Linkdin.](https://www.linkedin.com/in/flavioaquila/).

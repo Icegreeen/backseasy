@@ -17,16 +17,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://backtoeasy.com"),
   title: "BacktoEasy",
-  description: "Resource libary.",
+  description: "Make the best background for your aplications.",
   keywords: [
     "Backgrounds",
+    "TailwindCSS",
+    "Tailwind",
+    "NextJS",
+    "Vue",
+    "React",
+    "Nuxt",
+    "Javascript",
+    "Typescript"
   ],
-  authors: [{ name: "Flavio", url: "https://flavio.dev" }],
-  creator: "dukc",
-  publisher: "dukc",
+  authors: [{ name: "Flávio", url: "https://github.com/Icegreeen" }],
+  creator: "Flavio",
+  publisher: "Flavio",
   openGraph: {
-    title: "Project",
-    description: ".",
+    title: "Backtoeasy",
+    description: "Make the best background for your aplications.",
     url: "",
     siteName: "backtoeasy",
     images: [
@@ -51,7 +59,9 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
-        <div className="w-[35rem] h-[30rem] animate-spin-slow animate-colour-change opacity-40 rounded-full blur-[400px] absolute bottom-[0%] left-[36%] -z-50"></div>
+        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0]  opacity-40 rounded-full blur-[400px] absolute bottom-[80%] left-[86%] -z-50"></div>
+        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-20 rounded-full blur-[400px] absolute bottom-[40%] left-[36%] -z-50"></div>
+        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-40 rounded-full blur-[400px] absolute bottom-[-40%] left-[35%] -z-50"></div>
       </body>
     </html>
   );

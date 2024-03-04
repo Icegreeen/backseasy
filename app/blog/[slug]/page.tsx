@@ -4,6 +4,7 @@ import Markdown from "markdown-to-jsx";
 import getBlogMetadata from "../../../components/blog/getBlogMetadata";
 import matter from "gray-matter";
 import moment from "moment";
+import Link from "next/link";
 
 const getBlogContent = (slug: string) => {
   const folder = "blog/";
@@ -33,21 +34,32 @@ export default function Blog(props: any) {
   return (
     <div className="flex flex-col gap-64 max-[600px]:gap-36 items-center align-middle p-48 mt-128 border border-stroke-1 rounded-out max-w-[1300px] min-h-screen w-full">
       <div className="flex flex-col gap-48 max-[600px]:gap-32">
+        <Link href={"/blogs"} className="flex items-center transition-transform  hover:opacity-45">
+          <img src="/icons/back.svg" alt="back" />
+          <h1 className="text-4">Back</h1>
+        </Link>
+
         <h1 className="text-1 font-bold leading-none">{title}</h1>
-        <div className="flex justify-between max-[450px]:justify-start max-[420px]:flex-wrap gap-16">
-          <p className="text-body whitespace-nowrap">{type}</p>
-          <p className="text-body whitespace-nowrap">{author}</p>
-          <p className="text-body whitespace-nowrap">
-            {moment(date).format("MMMM D, YYYY")}
-          </p>
-        </div>
-        <Image
-          src={image}
-          width={1220}
-          height={714}
-          alt="Banner"
-          className="aspect-[16/6] object-cover w-full h-auto border border-stroke-2 rounded-in"
-        />
+          <div className="flex justify-between max-[450px]:justify-start max-[420px]:flex-wrap gap-16">
+            <p className="text-body whitespace-nowrap">{type}</p>
+
+            <a className="flex items-center transition-transform hover:opacity-45 hover:scale-105" href="https://github.com/Icegreeen">
+              <img src="/icons/github.png" className="h-24 mx-8" alt="github" />
+              <p className="text-body whitespace-nowrap ">{author}</p>
+            </a>
+
+            <p className="text-body whitespace-nowrap">
+              {moment(date).format("MMMM D, YYYY")}
+            </p>
+          </div>
+          <Image
+            src={image}
+            width={1220}
+            height={714}
+            quality={100}
+            alt="Banner"
+            className="aspect-[12/6] object-cover w-full h-auto border border-stroke-2 rounded-in"
+          />
       </div>
       <article className="prose w-full prose-img:rounded-out prose-img:border prose-img:border-stroke-2 lg:prose-xl prose-h1:text-1 prose-h1:font-bold prose-h2:text-2 prose-h3:text-3 prose-p:text-text-1 prose-p:text-body prose-li:text-body prose-ul:text-body prose-p:font-normal prose-headings:w-full prose-headings:text-text-1 prose-a:text-brand-blue prose-a:font-normal prose-a:ease-out prose-a:transition-all prose-a:duration-150 hover:prose-a:text-brand-blue/80 prose-code:text-[#b3b3b3] prose-li:text-text-1 prose-ul:text-text-1 prose-blockquote:text-[#d3d3d3]">
         <Markdown>{content}</Markdown>
