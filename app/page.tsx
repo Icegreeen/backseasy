@@ -128,14 +128,16 @@ export default function Home() {
           </p>
         </div>
         
-        <Image
-            src={"/1.jpg"}
+          <Image
+            src={"/3.jpg"}
             alt={"imagem"}
-            width={700}
-            height={700}
+            width={900}
+            height={900}
+            quality={100}
             className="rounded-md"
           /> 
 
+          {/*
           <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
             <h2 className="text-2 font-medium">Tutorial / Explorer</h2>
             <p className="text-body leading-[200%]">
@@ -144,6 +146,7 @@ export default function Home() {
               implementation of each background, ensuring seamless integration into your designs.
             </p>
           </div>
+          */}
       </div>
 
       {/*
