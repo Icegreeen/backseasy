@@ -16,6 +16,7 @@ const getProjectContent = (slug: string) => {
       const butterflyFolder = `${folder}butterfly/`;
       const blackFolder = `${folder}black/`;
       const squareFolder = `${folder}square/`;
+      const skyFolder = `${folder}sky/`;
 
       if (fs.existsSync(`${butterflyFolder}${slug}.md`)) {
           file = `${butterflyFolder}${slug}.md`;
@@ -23,6 +24,8 @@ const getProjectContent = (slug: string) => {
           file = `${blackFolder}${slug}.md`;
       } else if (fs.existsSync(`${squareFolder}${slug}.md`)) {
           file = `${squareFolder}${slug}.md`;
+      } else if(fs.existsSync(`${skyFolder}${slug}.md`)) {
+        file = `${skyFolder}${slug}.md`;
       } else {
           throw new Error(`File not found for slug: ${slug}`);
       }
