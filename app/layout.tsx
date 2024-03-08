@@ -64,6 +64,8 @@ export default function RootLayout({
         <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0]  opacity-40 rounded-full blur-[400px] absolute bottom-[80%] left-[86%] -z-50"></div>
         <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-20 rounded-full blur-[400px] absolute bottom-[40%] left-[36%] -z-50"></div>
         <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-40 rounded-full blur-[400px] absolute bottom-[-40%] left-[35%] -z-50"></div>
+
+        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-40 rounded-full blur-[400px] absolute bottom-[-150%] left-[-15%] -z-50"></div>
       </body>
     </html>
   );

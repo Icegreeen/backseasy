@@ -203,6 +203,56 @@ export default function Home() {
         </div>
       </div>
       */}
+
+      <div
+        className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip"
+        id="streams"
+      >
+        <Image
+          src={"/exit.png"}
+          alt={"testimonials"}
+          width={600}
+          height={600}
+          quality={100}
+          className="w-fscreen h-auto"
+        />
+        <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[1280px]:gap-24 h-fit items-end">
+          <h2 className="text-2 font-medium text-left">Do you want to feature on our page as a testimonial?</h2>
+          <p className="text-body text-right leading-[200%]">
+            Send your experience with Backseasy solutions, the outcome (link to the project you used), and your position job via DM on LinkedIn.
+          </p>
+
+          <div className="flex flex-wrap gap-12">
+          <Link
+              href={"https://www.linkedin.com/in/flavioaquila/"}
+                className="bg-indigo-600 border-stroke-2 text-white hover:bg-purple active:bg-indigo-800 
+            text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+            hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+              >
+              Linkedin
+            </Link>
+
+            {/*
+            <Link
+              href={"https://www.twitch.tv/"}
+                className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
+          text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+          hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+              >
+              Twitch
+            </Link>
+            <Link
+              href={"https://www.youtube.com"}
+              className="bg-red/75 border-stroke-2 text-white hover:bg-red active:bg-red/50 disabled:bg-red/25
+        text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+        hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+            >
+              YouTube
+            </Link>
+            */}
+          </div>
+        </div>
+      </div>
     </>
   );
 }
