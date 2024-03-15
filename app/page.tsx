@@ -30,6 +30,10 @@ export default function Home() {
     return project.type === "sky";
   });
 
+  const whiteProjects = allProjects.filter((project) => {
+    return project.type === "white";
+  });
+
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
     <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
@@ -45,6 +49,10 @@ export default function Home() {
 
   const skyProjectPreviews = skyProjects.map((project) => (
     <ProjectPreview category={"sky"} key={project.slug} {...project} />
+  ));
+
+  const whiteProjectPreviews = whiteProjects.map((project) => (
+    <ProjectPreview category={"white"} key={project.slug} {...project} />
   ));
 
   return (
@@ -123,6 +131,11 @@ export default function Home() {
           <h2>Butterfly </h2>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {butterflyProjectPreviews}
+          </div>
+
+          <h2>White</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {whiteProjectPreviews}
           </div>
       </div>
       

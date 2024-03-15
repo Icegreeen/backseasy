@@ -78,13 +78,33 @@ const getSkyProjects = (): ProjectMetadata[] => {
   return skyProjects;
 };
 
+const getWhiteProjects = (): ProjectMetadata[] => {
+  const whiteFolder = "projects/white/";
+  const whiteFiles = fs.readdirSync(whiteFolder).filter((file) => file.endsWith(".md"));
+
+  const whiteProjects = whiteFiles.map((filename) => {
+    const fileContents = fs.readFileSync(`${whiteFolder}/${filename}`, "utf8");
+    const matterResult = matter(fileContents);
+    return {
+      title: matterResult.data.title,
+      image: matterResult.data.image,
+      type: matterResult.data.type,
+      date: matterResult.data.date,
+      slug: filename.replace(".md", ""),
+    };
+  });
+
+  return whiteProjects;
+};
+
 const getProjectMetadata = (): ProjectMetadata[] => {
   const butterflyProjects = getButterflyProjects();
   const blackProjects = getBlackProjects();
   const squareProjects = getSquareProjects();
   const skyProjects = getSkyProjects();
+  const whiteProjects = getWhiteProjects();
 
-  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects];
+  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects];
 
   return allProjects;
 };
