@@ -110,7 +110,11 @@ export default function Home() {
           />
         </div>
       </div>
-      
+
+    <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+      <h1>Animated backgrounds, coming soon....</h1> 
+    </div>
+     
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
         <h2 className="text-3 font-medium">Backgrounds concepts</h2>
           <h2>Black</h2>
