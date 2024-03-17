@@ -5,46 +5,36 @@ import matter from "gray-matter";
 import Image from "next/image";
 import moment from "moment";
 import Link from "next/link";
+import path from "path";
 
 const getProjectContent = (slug: string) => {
   const folder = "projects/";
-   
-  let file: string;
-  if (fs.existsSync(`${folder}${slug}.md`)) {
-      file = `${folder}${slug}.md`;
-  } else {
-      const butterflyFolder = `${folder}butterfly/`;
-      const blackFolder = `${folder}black/`;
-      const squareFolder = `${folder}square/`;
-      const skyFolder = `${folder}sky/`;
-      const whiteFolder = `${folder}white/`;
+  const possibleFolders = ['butterfly', 'black', 'square', 'sky', 'white'];
 
-      if (fs.existsSync(`${butterflyFolder}${slug}.md`)) {
-          file = `${butterflyFolder}${slug}.md`;
-      } else if (fs.existsSync(`${blackFolder}${slug}.md`)) {
-          file = `${blackFolder}${slug}.md`;
-      } else if (fs.existsSync(`${squareFolder}${slug}.md`)) {
-          file = `${squareFolder}${slug}.md`;
-      } else if(fs.existsSync(`${whiteFolder}${slug}.md`)) {
-        file = `${whiteFolder}${slug}.md`;
-      } else if(fs.existsSync(`${skyFolder}${slug}.md`)) {
-        file = `${skyFolder}${slug}.md`;
-      } else {
-          throw new Error(`File not found for slug: ${slug}`);
+  const findFile = (folderName: string) => path.join(folder, folderName, `${slug}.md`);
+
+  let file: string | undefined;
+
+  for (const folderName of possibleFolders) {
+      const filePath = findFile(folderName);
+      if (fs.existsSync(filePath)) {
+          file = filePath;
+          break;
       }
-};
+  }
+
+  if (!file) {
+      throw new Error(`File not found for slug: ${slug}`);
+  }
 
   const content = fs.readFileSync(file, "utf8");
   const matterResult = matter(content);
-  return {
-    content: matterResult.content,
-    image: matterResult.data.image,
-    date: matterResult.data.date,
-    author: matterResult.data.author,
-    type: matterResult.data.type,
-    title: matterResult.data.title,
-  };
+
+  const { content: matterContent, data: { image, date, author, type, title } } = matterResult;
+
+  return { content: matterContent, image, date, author, type, title };
 };
+
 
 export const generateStaticParams = async () => {
   const projects = getProjectMetadata();
