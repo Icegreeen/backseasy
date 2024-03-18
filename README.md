@@ -63,5 +63,5 @@ Feel free to **file a new issue** with a respective title and description. If yo
 
 # :tada: Contributing
 
-Check out the [contributing](https://github.com/Icegreeen/backseasy/main/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing
+Check out the [contributing](https://github.com/Icegreeen/backseasy/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing
 
