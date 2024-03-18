@@ -16,8 +16,8 @@
     <img src="https://img.shields.io/twitter/follow/Icegreen__?style=flat&label=Icegreen__&logo=twitter&color=0bf&logoColor=fff" alt="Icegreen Twitter" />
   </a>
   
-   <a href="https://github.com/laurabeatris/starry">
-    <img src="https://img.shields.io/github/stars/icegreeen/backseasy?label=icegreeen%2Fbackseasy" alt="Spirals repository stars count" />
+   <a href="https://github.com/Icegreeen/backseasy">
+    <img src="https://img.shields.io/github/stars/icegreeen/backseasy?label=Icegreeen%2Fbackseasy" alt="Spirals repository stars count" />
   </a>
 </p>
 
