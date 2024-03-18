@@ -1,6 +1,7 @@
 {
   "name": "backeasy",
   "version": "0.1.0",
+  "author": "Icegreen",
   "private": true,
   "scripts": {
     "dev": "next dev",
