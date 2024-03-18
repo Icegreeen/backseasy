@@ -166,17 +166,6 @@ export default function Home() {
             quality={100}
             className="rounded-md"
           /> 
-
-          {/*
-          <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-            <h2 className="text-2 font-medium">Tutorial / Explorer</h2>
-            <p className="text-body leading-[200%]">
-              Explore our selection and instantly transform the look of your projects with ease and 
-              style. Plus, take advantage of our step-by-step tutorials guiding you through the 
-              implementation of each background, ensuring seamless integration into your designs.
-            </p>
-          </div>
-          */}
       </div>
 
       {/*
@@ -248,25 +237,6 @@ export default function Home() {
               >
               Linkedin
             </Link>
-
-            {/*
-            <Link
-              href={"https://www.twitch.tv/"}
-                className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
-          text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
-          hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
-              >
-              Twitch
-            </Link>
-            <Link
-              href={"https://www.youtube.com"}
-              className="bg-red/75 border-stroke-2 text-white hover:bg-red active:bg-red/50 disabled:bg-red/25
-        text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
-        hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
-            >
-              YouTube
-            </Link>
-            */}
           </div>
         </div>
       </div>

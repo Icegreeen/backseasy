@@ -1,1 +1,0 @@
-mudar as cores automatico: animate-colour-change

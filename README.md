@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+   <img src="https://github.com/Icegreeen/blog-graphQL/assets/56550632/90a972b9-5325-4066-91b8-5a1c704d8132" />
+</p>
 
-## Getting Started
+<h1 align="center">
+    <a">Backseasy</a>
+</h1>
 
-First, run the development server:
+<p align="center">
+    Make the best background for your aplications
+</p>
 
+<p align="center">
+    
+   <a href="https://twitter.com/Icegreen__">
+    <img src="https://img.shields.io/twitter/follow/Icegreen__?style=flat&label=Icegreen__&logo=twitter&color=0bf&logoColor=fff" alt="Icegreen Twitter" />
+  </a>
+  
+   <a href="https://github.com/laurabeatris/starry">
+    <img src="https://img.shields.io/github/stars/icegreeen/backseasy?label=icegreeen%2Fbackseasy" alt="Spirals repository stars count" />
+  </a>
+</p>
+
+# 🖍 How to works
+
+Na backseasy you find a diverse collection of backgrounds ready to be used in your front-end interfaces. From smooth gradients to stunning images, our library offers a variety of options to bring your screens to life and provide elegant visual experiences.
+                             
+# :pushpin: Table of Contents
+
+* [Running Locally](#construction_worker-running-locally)
+* [FAQ](#postbox-faq)
+* [Issues](#bug-issues)
+* [Contributing](#tada-contributing)
+
+## :construction_worker: Running Locally
+
+This project is an application that offers email or GitHub authentication, providing users with a seamless login experience. Users can easily access the platform, staying connected through their GitHub accounts or using their personal email address.
+
+#### Clone repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Icegreeen/backseasy
 ```
+#### Install dependencies & execute web application in development mode
+```bash
+yarn
+yarn dev
+```
+Open this address in your browser [http://localhost:3000](http://localhost:3000/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# :postbox: Faq
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Question:** What are the technologies used in this project?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Answer:** [Next.js-14](https://nextjs.org/) and [Tailwind](https://tailwindcss.com/)
 
-## Learn More
+# :bug: Issues
 
-To learn more about Next.js, take a look at the following resources:
+Feel free to **file a new issue** with a respective title and description. If you already found a solution to your problem, **I would love to review your pull request**!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 💡 Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Flávio Aquila ([@Icegreen](https://twitter.com/Icegreen__))
 
-## Deploy on Vercel
+# :tada: Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check out the [contributing](https://github.com/Icegreeen/backseasy/main/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
