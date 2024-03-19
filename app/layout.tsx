@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://back.com"),
   title: "Backseasy",
   description: "Make the best background for your aplications.",
+  icons: {
+    apple: "/favicon.svg",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   keywords: [
     "Backgrounds",
     "TailwindCSS",
@@ -28,11 +33,12 @@ export const metadata: Metadata = {
     "React",
     "Nuxt",
     "Javascript",
-    "Typescript"
+    "Typescript",
+    "Component library",
   ],
   authors: [{ name: "Flávio", url: "https://github.com/Icegreeen" }],
-  creator: "Flavio",
-  publisher: "Flavio",
+  creator: "Flavio Aquila",
+  publisher: "Flavio Aquila",
   openGraph: {
     title: "Backseasy",
     description: "Make the best background for your aplications.",
