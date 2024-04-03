@@ -53,7 +53,7 @@ export default function Footer() {
 
       <div className="flex flex-col gap-8 place-items-end max-[450px]:place-items-center">
         <div className="flex gap-16">
-          <Link href={"https://google.com"}>
+          <Link href={"https://github.com/Icegreeen"}>
             <Image
               src={"/icons/github.png"}
               alt={"github"}

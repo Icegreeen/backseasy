@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Backseasy",
     description: "Make the best background for your aplications.",
-    url: "",
+    url: "https://backseasy.com",
     siteName: "backseasy",
     images: [
       {
