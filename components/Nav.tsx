@@ -44,6 +44,16 @@ export default function Nav() {
           {navItems.map((link, index) => {
             return <NavLink text={link.text} link={link.link} key={index} />;
           })}
+         
+            <Link href={"https://github.com/Icegreeen/backseasy"}>
+              <Image
+                src={"/icons/github.png"}
+                alt={"github"}
+                width={22}
+                height={20}
+                className="hover-active-effect"
+              />
+            </Link>
         </motion.div>
         <button
           onClick={() => setNavbar(!navbar)}
@@ -66,7 +76,18 @@ export default function Nav() {
             <NavLink textBig text={link.text} link={link.link} key={index} />
           );
         })}
+            <Link href={"https://github.com/Icegreeen/backseasy"}>
+              <Image
+                src={"/icons/github.png"}
+                alt={"github"}
+                width={22}
+                height={20}
+                className="hover-active-effect"
+              />
+            </Link>
       </motion.div>
+     
+      
     </nav>
   );
 }
