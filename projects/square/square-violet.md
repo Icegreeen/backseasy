@@ -1,6 +1,6 @@
 ---
 title: "Violet"
-type: "black"
+type: "square"
 date: "2024-02-18"
 image: "https://github.com/Icegreeen/blog-graphQL/assets/56550632/421958d0-3092-4693-9082-280a0d313652"
 ---
