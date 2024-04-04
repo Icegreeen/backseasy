@@ -97,14 +97,34 @@ const getWhiteProjects = (): ProjectMetadata[] => {
   return whiteProjects;
 };
 
+const getAnimatedProjects = (): ProjectMetadata[] => {
+  const animatedFolder = "projects/animated/";
+  const animatedFiles = fs.readdirSync(animatedFolder).filter((file) => file.endsWith(".md"));
+
+  const animatedProjects = animatedFiles.map((filename) => {
+    const fileContents = fs.readFileSync(`${animatedFolder}/${filename}`, "utf8");
+    const matterResult = matter(fileContents);
+    return {
+      title: matterResult.data.title,
+      image: matterResult.data.image,
+      type: matterResult.data.type,
+      date: matterResult.data.date,
+      slug: filename.replace(".md", ""),
+    };
+  });
+
+  return animatedProjects;
+};
+
 const getProjectMetadata = (): ProjectMetadata[] => {
   const butterflyProjects = getButterflyProjects();
   const blackProjects = getBlackProjects();
   const squareProjects = getSquareProjects();
   const skyProjects = getSkyProjects();
   const whiteProjects = getWhiteProjects();
+  const animatedProjects = getAnimatedProjects();
 
-  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects];
+  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects, ...animatedProjects];
 
   return allProjects;
 };
