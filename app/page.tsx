@@ -14,10 +14,10 @@ const hanson = localFont({
 export default function Home() {
   const allProjects = getProjectMetadata();
 
-  // Filtrar projetos brancos e pretos
   const butterflyProjects = allProjects.filter((project) => {
     return project.type === "butterfly"; 
   });
+
   const blackProjects = allProjects.filter((project) => {
     return project.type === "black";
   });
@@ -32,6 +32,10 @@ export default function Home() {
 
   const whiteProjects = allProjects.filter((project) => {
     return project.type === "white";
+  });
+
+  const animatedProjects = allProjects.filter((project) => {
+    return project.type === "animated";
   });
 
   // Mapear os projetos em pré-visualizações
@@ -53,6 +57,10 @@ export default function Home() {
 
   const whiteProjectPreviews = whiteProjects.map((project) => (
     <ProjectPreview category={"white"} key={project.slug} {...project} />
+  ));
+
+  const animatedProjectPreviews = animatedProjects.map((project) => (
+    <ProjectPreview category={"animated"} key={project.slug} {...project} />
   ));
 
   return (
@@ -110,43 +118,46 @@ export default function Home() {
           />
         </div>
       </div>
-
-    <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-      <h1>Animated backgrounds, coming soon....</h1> 
-    </div>
      
-      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-        <h2 className="text-3 font-medium">Backgrounds concepts</h2>
+      <div className="flex flex-col md:flex-row w-full">
+        <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24 md:mr-12" id="projects">
+          <h2 className="text-3 font-medium">Backgrounds concepts</h2>
           <h2>Black</h2>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {blackProjectPreviews}
           </div>
 
           <h2>Square </h2>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {squareProjectPreviews}
           </div>
 
           <h2>Sky </h2>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {skyProjectPreviews}
           </div>
 
           <h2>Butterfly </h2>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {butterflyProjectPreviews}
           </div>
 
           <h2>White</h2>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {whiteProjectPreviews}
           </div>
+        </div>
+
+        <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+          <h2 className="text-3 font-medium">Animated backgrounds</h2>
+          <h2>Animated</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {animatedProjectPreviews}
+          </div>
+        </div>
       </div>
       
-      <div
-        className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip"
-        id="about"
-      >
+      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
           <h2 className="text-2 font-medium">About</h2>
 

@@ -9,7 +9,7 @@ import path from "path";
 
 const getProjectContent = (slug: string) => {
   const folder = "projects/";
-  const possibleFolders = ['butterfly', 'black', 'square', 'sky', 'white'];
+  const possibleFolders = ['butterfly', 'black', 'square', 'sky', 'white', 'animated'];
 
   const findFile = (folderName: string) => path.join(folder, folderName, `${slug}.md`);
 
