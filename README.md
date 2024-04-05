@@ -34,8 +34,6 @@ Na backseasy you find a diverse collection of backgrounds ready to be used in yo
 
 ## :construction_worker: Running Locally
 
-This project is an application that offers email or GitHub authentication, providing users with a seamless login experience. Users can easily access the platform, staying connected through their GitHub accounts or using their personal email address.
-
 #### Clone repository
 ```bash
 git clone https://github.com/Icegreeen/backseasy
