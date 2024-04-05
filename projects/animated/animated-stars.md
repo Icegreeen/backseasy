@@ -6,7 +6,7 @@ image: "https://github.com/Icegreeen/blog-graphQL/assets/56550632/bc9303cc-be30-
 ---
 #### How to implement:
 
-With tailwind installed in your project (tutorial), implement these tailwind classes in your parent div where it will reflect the background.
+With tailwind installed in your project [tutorial](https://backseasy.com/blog/install-tailwind-nextjs), implement these tailwind classes in your parent div where it will reflect the background.
 
 Code:
 
