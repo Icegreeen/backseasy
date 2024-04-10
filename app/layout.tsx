@@ -63,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.className}>
       <GoogleAnalytics gaId="G-JKC1QKPHY4" />
+      <meta name="google-site-verification" content="7dViSr2b9UG4Q41X5i-3U2ii-MO4je52CwcQeOd0GRg" /> 
       <body className="bg-[#050505] text-white flex flex-col items-center w-screen gap-24 p-48 max-[630px]:px-[20px] overflow-x-hidden">
         <Nav />
         {children}
