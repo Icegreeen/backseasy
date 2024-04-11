@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -39,12 +40,13 @@ export default function Nav() {
           initial="hidden"
           whileInView="show"
           variants={containerVars}
-          className="flex gap-32 max-[630px]:gap-16 max-[700px]:hidden"
+          className="flex items-center gap-32 max-[630px]:gap-16 max-[700px]:hidden"
         >
           {navItems.map((link, index) => {
             return <NavLink text={link.text} link={link.link} key={index} />;
           })}
          
+            {/*
             <Link href={"https://github.com/Icegreeen/backseasy"}>
               <Image
                 src={"/icons/github.png"}
@@ -54,6 +56,20 @@ export default function Nav() {
                 className="hover-active-effect"
               />
             </Link>
+            */}
+
+            
+              <Link
+                href={""}
+                className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
+                          text-body border w-fit h-[40px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+                          hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+              >
+                Get Plus
+                <img className="h-18" src="star.png" alt="star" />
+              </Link>
+          
+            
         </motion.div>
         <button
           onClick={() => setNavbar(!navbar)}
@@ -63,6 +79,7 @@ export default function Nav() {
         </button>
       </div>
       
+      {/* Mobile */}
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -76,6 +93,7 @@ export default function Nav() {
             <NavLink textBig text={link.text} link={link.link} key={index} />
           );
         })}
+            {/*
             <Link href={"https://github.com/Icegreeen/backseasy"}>
               <Image
                 src={"/icons/github.png"}
@@ -85,9 +103,8 @@ export default function Nav() {
                 className="hover-active-effect"
               />
             </Link>
+            */}
       </motion.div>
-     
-      
     </nav>
   );
 }
