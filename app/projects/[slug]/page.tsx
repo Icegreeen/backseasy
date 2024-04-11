@@ -47,7 +47,7 @@ export default function Project(props: any) {
   const slug = props.params.slug;
   const { content, image, date, author, type, title } = getProjectContent(slug);
   return (
-      <div className="flex flex-col gap-64 max-[600px]:gap-36 items-center align-middle p-48 mt-128 border border-stroke-1 rounded-out max-w-[1300px] min-h-screen w-full">
+      <div className="flex flex-col gap-64 max-[600px]:gap-36 items-center align-middle p-48 my-48 border border-stroke-1 rounded-out max-w-[1300px] min-h-screen w-full">
         <div className="flex flex-col gap-48 max-[600px]:gap-32">
 
           <Link href={"/"} className="flex items-center transition-transform  hover:opacity-45">

@@ -7,7 +7,7 @@ export default function Blogs() {
   ));
   return (
     <div
-      className="border border-stroke-1 rounded-out max-w-[1800px] min-h-screen w-full p-64 gap-32 mt-96 flex flex-col max-[580px]:p-32 max-[580px]:gap-24"
+      className="my-12 border border-stroke-1 rounded-out max-w-[1800px] min-h-screen w-full p-64 gap-32 mt-96 flex flex-col max-[580px]:p-32 max-[580px]:gap-24"
       id="blogs"
     >
       <h2 className="text-2 font-medium">Blog</h2>

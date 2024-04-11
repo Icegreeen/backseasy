@@ -25,6 +25,10 @@ export default function Home() {
     return project.type === "white";
   });
 
+  const animatedProjects = allProjects.filter((project) => {
+    return project.type === "animated";
+  });
+
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
     <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
@@ -46,13 +50,19 @@ export default function Home() {
     <ProjectPreview category={"white"} key={project.slug} {...project} />
   ));
 
+  const animatedProjectPreviews = animatedProjects.map((project) => (
+    <ProjectPreview category={"animated"} key={project.slug} {...project} />
+  ));
+
   return (
     <>
-    <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-      <h1>Animated backgrounds, coming soon....</h1> 
-    </div>
      
-    <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+     <div className="border my-12 border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+        <h2 className="text-3 font-medium">Animated backgrounds</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {animatedProjectPreviews}
+          </div>
+
         <h2 className="text-3 font-medium">Backgrounds concepts</h2>
           <h2>Black</h2>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
@@ -79,6 +89,7 @@ export default function Home() {
             {whiteProjectPreviews}
           </div>
       </div>
+     
 
     </>
   );

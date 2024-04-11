@@ -65,99 +65,130 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
-        <div className="flex flex-col justify-center items-center">
-          <h1
-            className={`${hanson.className} text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
-          >
-            Backseasy
-          </h1>
-          <p className="text-body">Make the best background for your aplications</p>
+          <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-6xl md:px-12">
+              <div className="relative flex-col items-start m-auto align-middle">
+                <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
+                  <div className="relative items-center gap-1 m-auto lg:inline-flex">
+                    <div className="max-w-xl text-center lg:text-left">
+                      <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
+                      <div className="flex flex-col ">
+                        <h1
+                          className={`${hanson.className} bg-gradient-to-t from-zinc-100 via-slate-300 to-slate-400 bg-clip-text text-transparent text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
+                        >
+                          Backseasy
+                        </h1>
+
+                        <p className="mt-3 text-slate-300">Make the best background for your aplications</p>
+                      </div>
+
+                      <div className="flex">
+                        <Image
+                          src={"/icons/next.svg"}
+                          alt={"imagem"}
+                          width={40}
+                          height={40}
+                          className="rounded-md mr-18"
+                        />
+
+                        <Image
+                          src={"/icons/vue.svg"}
+                          alt={"imagem"}
+                          width={40}
+                          height={40}
+                          className="rounded-md mr-18"
+                        />
+
+                        <Image
+                          src={"/icons/tailwind.svg"}
+                          alt={"imagem"}
+                          width={40}
+                          height={40}
+                          className="rounded-md mr-18"
+                        />
+
+                        <Image
+                          src={"/icons/angular.svg"}
+                          alt={"imagem"}
+                          width={40}
+                          height={40}
+                          className="rounded-md mr-18"
+                        />
+                      </div>
+
+                    <div className="flex flex-wrap gap-24">
+                      <PrimaryButton text="Explorer" type="primary" link="/all_backgrounds" />
+                      <SecondaryButton
+                        text="Tutorial"
+                        type="secondary"
+                        link="/blogs"
+                      />
+                    </div>
+                  </div> 
+                </div>
+              </div>
+                    <div className="block w-full p-8 mt-12 lg:mt-0 rounded-3xl">
+                      <img  src="3.png" alt="hero" className="object-cover object-center w-full h-full mx-auto lg:ml-auto rounded-2xl" />
+                    </div>
+                    </div>
+                  </div>
+          </div>
+
+        <div className="max-w-[1800px] w-full my-12 flex items-start" id="projects">
+            <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+              <h1>Backgrounds 3D (In development)...</h1> 
+            </div>
+
+            <div className="my-12 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+              <h1>Backgrounds SVGs (In Development)...</h1> 
+            </div>
         </div>
 
-        <div className="flex  justify-center items-center">
-          <Image
-            src={"/icons/next.svg"}
-            alt={"imagem"}
-            width={40}
-            height={40}
-            className="rounded-md mr-18"
-          />
 
-          <Image
-            src={"/icons/vue.svg"}
-            alt={"imagem"}
-            width={40}
-            height={40}
-            className="rounded-md mr-18"
-          />
+      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+        <h2 className="text-3 font-medium">Animated backgrounds</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {animatedProjectPreviews}
+          </div>
 
-          <Image
-            src={"/icons/tailwind.svg"}
-            alt={"imagem"}
-            width={40}
-            height={40}
-            className="rounded-md mr-18"
-          />
-
-          <Image
-            src={"/icons/angular.svg"}
-            alt={"imagem"}
-            width={40}
-            height={40}
-            className="rounded-md mr-18"
-          />
-        </div>
-
-        <div className="flex flex-wrap gap-24 justify-center items-center">
-          <PrimaryButton text="Explorer" type="primary" link="#projects" />
-          <SecondaryButton
-            text="Tutorial"
-            type="secondary"
-            link="/blogs"
-          />
-        </div>
-      </div>
-     
-      <div className="flex flex-col md:flex-row w-full">
-        <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24 md:mr-12" id="projects">
-          <h2 className="text-3 font-medium">Backgrounds concepts</h2>
+        <h2 className="text-3 font-medium">Backgrounds concepts</h2>
           <h2>Black</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {blackProjectPreviews}
           </div>
 
           <h2>Square </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {squareProjectPreviews}
           </div>
 
           <h2>Sky </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {skyProjectPreviews}
           </div>
 
           <h2>Butterfly </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {butterflyProjectPreviews}
           </div>
 
           <h2>White</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {whiteProjectPreviews}
           </div>
-        </div>
+      </div>
+     
 
-        <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+      {/*
+      <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
           <h2 className="text-3 font-medium">Animated backgrounds</h2>
           <h2>Animated</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {animatedProjectPreviews}
           </div>
         </div>
-      </div>
+      */}
       
-      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
+      <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
           <h2 className="text-2 font-medium">About</h2>
 
@@ -219,8 +250,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      */}
+   
 
+      {/*
+      
       <div
         className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip"
         id="streams"
@@ -250,7 +283,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </div>*/}
     </>
   );
 }
