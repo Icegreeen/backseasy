@@ -69,11 +69,15 @@ export default function Home() {
               <div className="relative flex-col items-start m-auto align-middle">
                 <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
                   <div className="relative items-center gap-1 m-auto lg:inline-flex">
-                    <div className="max-w-xl text-center lg:text-left">
+                    <div className="max-w-xl lg:text-left">
                       <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
                       <div className="flex flex-col ">
+
+                        <p className="text-body mb-8">Make by <a className="text-purple" href="https://github.com/Icegreeen">Flávio Áquila</a></p>
+                        
                         <h1
-                          className={`${hanson.className} bg-gradient-to-t from-zinc-100 via-slate-300 to-slate-400 bg-clip-text text-transparent text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
+                          className={`${hanson.className} bg-gradient-to-t from-zinc-100 via-slate-300 to-slate-400 bg-clip-text 
+                          text-transparent text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
                         >
                           Backseasy
                         </h1>
