@@ -131,7 +131,7 @@ export default function Home() {
                     </div>
                     </div>
                   </div>
-          </div>
+        </div>
 
         <div className="max-w-[1800px] w-full my-12 flex items-start" id="projects">
             <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
@@ -177,7 +177,6 @@ export default function Home() {
           </div>
       </div>
      
-
       {/*
       <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
           <h2 className="text-3 font-medium">Animated backgrounds</h2>
@@ -209,6 +208,74 @@ export default function Home() {
             className="rounded-md"
           /> 
       </div>
+
+      <div className="grid gap-4 grid-cols-2">
+      <div className="flex-1 flex flex-col justify-between">
+          <div className="border border-stroke-1 m-28 p-4 rounded-out">
+            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
+
+            <p className="text-purple">Standard Lifetime</p>
+
+            <div>
+              <img src="/3d.png" alt="" />
+            </div>
+          </div>
+          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
+            <img className="" src="/3.png" alt="" />
+          </div>
+        </div>
+
+        <div className="flex-1 flex flex-col justify-between">
+          <div className="border border-stroke-1 m-28 p-4 rounded-out">
+            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
+
+            <p className="text-purple">Standard Lifetime</p>
+
+            <div>
+              <img src="/3d.png" alt="" />
+            </div>
+          </div>
+          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
+            <img className="h-" src="/3.png" alt="" />
+          </div>
+        </div>
+
+        
+      </div>
+
+
+    {/*
+        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
+     
+        <div className="flex-1 flex flex-col justify-between">
+          <div className="border border-stroke-1 m-28 p-4 rounded-out">
+            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
+
+            <p className="text-purple">Standard Lifetime</p>
+
+            <div>
+              <img src="/3d.png" alt="" />
+            </div>
+          </div>
+          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
+            <img className="" src="/3.png" alt="" />
+          </div>
+        </div>
+  
+      
+          <div className="w-4"></div>
+    
+      
+        <div className="flex-1 flex flex-col justify-between">
+          <div className="border border-stroke-1 m-28 p-4 rounded-out">
+            <img src="/3.png" alt="" />
+          </div>
+          <div className="border border-stroke-1 m-28 p-4 rounded-out">
+            <img src="/3d.png" alt="" />
+          </div>
+        </div>
+      </div>
+    */}
 
       {/*
       <div

@@ -58,9 +58,8 @@ export default function Nav() {
             </Link>
             */}
 
-            
               <Link
-                href={""}
+                href={"/auth"}
                 className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
                           text-body border w-fit h-[40px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
                           hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
@@ -68,8 +67,7 @@ export default function Nav() {
                 Get Plus
                 <img className="h-18" src="star.png" alt="star" />
               </Link>
-          
-            
+             
         </motion.div>
         <button
           onClick={() => setNavbar(!navbar)}
@@ -104,6 +102,16 @@ export default function Nav() {
               />
             </Link>
             */}
+
+              <Link
+                href={"/auth"}
+                className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
+                          text-body border w-fit h-[40px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+                          hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+              >
+                Get Plus
+                <img className="h-18" src="star.png" alt="star" />
+              </Link>
       </motion.div>
     </nav>
   );
