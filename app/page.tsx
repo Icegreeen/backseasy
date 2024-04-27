@@ -166,7 +166,7 @@ export default function Home() {
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">Next release</span>)</h2>
+              <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">New release</span>)</h2>
               <p className="text-white my-18">The best backgrounds used ⭐</p>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
                 {svgProjectPreviews}
