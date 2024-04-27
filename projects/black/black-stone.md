@@ -1,6 +1,6 @@
 ---
 title: "Square Stone"
-type: "square"
+type: "black"
 date: "2024-03-03"
 image: "https://github.com/Icegreeen/blog-graphQL/assets/56550632/13c78cf0-209a-4054-958c-7c9693663e5b"
 ---

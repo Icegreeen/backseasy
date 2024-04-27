@@ -24,6 +24,7 @@ export default function Footer() {
       </div>
 
       <div className="p-8 border border border-stroke-1 rounded-out flex items-center hover-active-effect">
+        {/*
         <Image
             src={"/icons/coffee.png"}
             width={40}
@@ -37,6 +38,23 @@ export default function Footer() {
         >
           Buy me a coffee
           </a>
+
+        */}
+          <Link
+            href={"https://www.buymeacoffee.com/icegreen"}
+            className="bg-yellow border-stroke-2 text-white hover:bg-yellow/75 active:bg-yellow/50 disabled:bg-yellow/25
+            text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
+            hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
+          >
+            <Image
+            src={"/icons/coffee.png"}
+            width={40}
+            height={40}
+            alt="Coffee"
+            className=""
+          />
+            Buy me a coffee
+          </Link>
       </div>
 
       {/*

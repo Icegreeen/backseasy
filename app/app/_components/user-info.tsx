@@ -1,15 +1,17 @@
 'use client'
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 
+
 type Props = {
     user: Session['user']
 }
 
-export async function UserInfo({ user }: Props) {
-    if(!user) return;
+export function UserInfo({ user }: Props) {
+    if(!user) return ;
     
     return (
             <div className="flex flex-col items-center justify-center space-y-4">
@@ -21,7 +23,7 @@ export async function UserInfo({ user }: Props) {
 
                 <span>{user.email}</span>
 
-                <Button variant="outline" onClick={()=> signOut()}>
+                <Button variant="outline" onClick={() => signOut()}>
                     Sign out
                 </Button>
             </div>

@@ -4,7 +4,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
-import Link from "next/link";
+import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 
 const hanson = localFont({
   src: "./hanson.woff2",
@@ -38,6 +38,10 @@ export default function Home() {
     return project.type === "animated";
   });
 
+  const svgProjects = allProjects.filter((project) => {
+    return project.type === "svg";
+  });
+
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
     <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
@@ -63,9 +67,13 @@ export default function Home() {
     <ProjectPreview category={"animated"} key={project.slug} {...project} />
   ));
 
+  const svgProjectPreviews = svgProjects.map((project) => (
+    <ProjectPreview category={"svg"} key={project.slug} {...project} />
+  ));
+
   return (
     <>
-          <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-6xl md:px-12">
+      <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-6xl md:px-12">
               <div className="relative flex-col items-start m-auto align-middle">
                 <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
                   <div className="relative items-center gap-1 m-auto lg:inline-flex">
@@ -133,59 +141,118 @@ export default function Home() {
                   </div>
         </div>
 
-        <div className="max-w-[1800px] w-full my-12 flex items-start" id="projects">
+        <div className="max-w-[1800px] w-full flex items-start" id="projects">
+            {/*
+            <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+              <h1>See all backgrounds </h1> 
+            </div>
+            
             <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
               <h1>Backgrounds 3D (In development)...</h1> 
             </div>
+            */}
 
-            <div className="my-12 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-              <h1>Backgrounds SVGs (In Development)...</h1> 
+            <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+              border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+              font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+              <h1>Backgrounds 3D ⭐ (In development)...</h1> 
             </div>
         </div>
 
+        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
+          <div className="w-full md:w-1/2">
+            <div className="border border-stroke-1 m-28 p-28 rounded-out">
+              <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">Next release</span>)</h2>
+              <p className="text-white my-18">The best backgrounds used ⭐</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
+                {svgProjectPreviews}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <div className="border border-stroke-1 m-28 p-28 rounded-out">
+              <h2 className="text-2 font-medium">3D backgrounds... (<span className="text-yellow">Next release</span>)</h2>
+              <p className="text-white my-18">Custom 3d backgrounds ready to use.</p>
+              
+              <br /><br />
+              <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
+                <img className="w-full h-auto max-w-full"  src="ghost.png" alt="" />
+                <img className="w-full h-auto max-w-full"  src="aquiles2.png" alt="" />    
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-        <h2 className="text-3 font-medium">Animated backgrounds</h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">
+              Svg backgrounds
+            </h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {svgProjectPreviews}
+          </div>
+
+          <div className="flex">
+            <h2 className="text-3 font-medium">Animated backgrounds</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+        
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {animatedProjectPreviews}
           </div>
 
-        <h2 className="text-3 font-medium">Backgrounds concepts</h2>
-          <h2>Black</h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">Black</h2>
+            <NavigationAllBackgrounds />
+          </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {blackProjectPreviews}
           </div>
 
-          <h2>Square </h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">Square</h2>
+            <NavigationAllBackgrounds />
+          </div>
+
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {squareProjectPreviews}
           </div>
 
-          <h2>Sky </h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">Sky</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {skyProjectPreviews}
           </div>
 
-          <h2>Butterfly </h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">Butterfly</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {butterflyProjectPreviews}
           </div>
 
-          <h2>White</h2>
+          <div className="flex">
+            <h2 className="text-3 font-medium">White</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {whiteProjectPreviews}
           </div>
       </div>
-     
-      {/*
-      <div className="border border-stroke-1 flex-1 rounded-out max-w-[1800px] p-6 md:p-64 gap-6 md:gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-          <h2 className="text-3 font-medium">Animated backgrounds</h2>
-          <h2>Animated</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 md:gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {animatedProjectPreviews}
-          </div>
-        </div>
-      */}
       
       <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
@@ -209,148 +276,35 @@ export default function Home() {
           /> 
       </div>
 
-      <div className="grid gap-4 grid-cols-2">
-      <div className="flex-1 flex flex-col justify-between">
-          <div className="border border-stroke-1 m-28 p-4 rounded-out">
-            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
 
-            <p className="text-purple">Standard Lifetime</p>
+      {/* Cards */}
 
-            <div>
-              <img src="/3d.png" alt="" />
+        {/*
+        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip">
+          <div className="w-1/2">
+            <div className="border border-stroke-1 m-28 p-28 rounded-out">
+              <h2 className="text-2 font-medium">Backgrounds SVGS</h2>
+              <p className="text-white my-18">The best backgrounds used ⭐</p>
+              <div className="grid grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+                    {svgProjectPreviews}
+                  </div>
             </div>
           </div>
-          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
-            <img className="" src="/3.png" alt="" />
-          </div>
-        </div>
 
-        <div className="flex-1 flex flex-col justify-between">
-          <div className="border border-stroke-1 m-28 p-4 rounded-out">
-            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
 
-            <p className="text-purple">Standard Lifetime</p>
-
-            <div>
-              <img src="/3d.png" alt="" />
+          <div className="w-1/2">
+            <div className="border border-stroke-1 m-28 p-28 rounded-out">
+              <h2 className="text-2 font-medium">3D backgrounds... (<span className="text-yellow">Next release</span>)</h2>
+              <p className="text-white my-18">Custom 3d backgrounds ready to use.</p>
+              <br /><br />
+              <div className="grid grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+                <img className="w-full h-auto max-w-full"  src="ghost.png" alt="" />
+                <img className="w-full h-auto max-w-full"  src="aquiles2.png" alt="" />    
+              </div>
             </div>
           </div>
-          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
-            <img className="h-" src="/3.png" alt="" />
-          </div>
         </div>
-
-        
-      </div>
-
-
-    {/*
-        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
-     
-        <div className="flex-1 flex flex-col justify-between">
-          <div className="border border-stroke-1 m-28 p-4 rounded-out">
-            <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
-
-            <p className="text-purple">Standard Lifetime</p>
-
-            <div>
-              <img src="/3d.png" alt="" />
-            </div>
-          </div>
-          <div className="border border-stroke-1 m-28 p-4 mt-4 rounded-out">
-            <img className="" src="/3.png" alt="" />
-          </div>
-        </div>
-  
-      
-          <div className="w-4"></div>
-    
-      
-        <div className="flex-1 flex flex-col justify-between">
-          <div className="border border-stroke-1 m-28 p-4 rounded-out">
-            <img src="/3.png" alt="" />
-          </div>
-          <div className="border border-stroke-1 m-28 p-4 rounded-out">
-            <img src="/3d.png" alt="" />
-          </div>
-        </div>
-      </div>
-    */}
-
-      {/*
-      <div
-        className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip"
-        id="streams"
-      >
-        <Image
-          src={"/screenshots/mc2.png"}
-          alt={""}
-          width={500}
-          height={500}
-          className="w-full h-full"
-        />
-        <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[1280px]:gap-24 h-fit items-end">
-          <h2 className="text-2 font-medium text-right">Live Streams</h2>
-          <p className="text-body text-right leading-[220%]">
-            dukc streams every {sunday} and {thursday} on Twitch. <br />
-            The vods, and clips are uploaded to YouTube. <br />
-            The dates are local to your timezone. Current game: Valheim
-          </p>
-
-          <div className="flex flex-wrap gap-12">
-            <Link
-              href={"https://www.twitch.tv/"}
-              className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
-        text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
-        hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
-            >
-              Twitch
-            </Link>
-            <Link
-              href={"https://www.youtube.com"}
-              className="bg-red/75 border-stroke-2 text-white hover:bg-red active:bg-red/50 disabled:bg-red/25
-              text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
-              hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
-            >
-              YouTube
-            </Link>
-          </div>
-        </div>
-      </div>
-   
-
-      {/*
-      
-      <div
-        className="border border-stroke-1 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip"
-        id="streams"
-      >
-        <Image
-          src={"/exit.png"}
-          alt={"testimonials"}
-          width={600}
-          height={600}
-          quality={100}
-          className="w-fscreen h-auto"
-        />
-        <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[1280px]:gap-24 h-fit items-end">
-          <h2 className="text-2 font-medium text-left">Do you want to feature on our page as a testimonial?</h2>
-          <p className="text-body text-right leading-[200%]">
-            Send your experience with Backseasy solutions, the outcome (link to the project you used), and your position job via DM on LinkedIn.
-          </p>
-
-          <div className="flex flex-wrap gap-12">
-          <Link
-              href={"https://www.linkedin.com/in/flavioaquila/"}
-                className="bg-indigo-600 border-stroke-2 text-white hover:bg-purple active:bg-indigo-800 
-            text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
-            hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
-              >
-              Linkedin
-            </Link>
-          </div>
-        </div>
-      </div>*/}
+        */}
     </>
   );
 }

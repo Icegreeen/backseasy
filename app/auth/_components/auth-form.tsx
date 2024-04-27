@@ -1,5 +1,4 @@
 'use client'
-
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import Image from "next/image";
@@ -29,7 +28,6 @@ export default function AuthForm() {
   return (
     <main className="my-18 h-full">
       <div className=" max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="streams">
-        
       <form onSubmit={handleSubmit} className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-12">
           <div className="grid gap-2 text-center">
@@ -82,12 +80,12 @@ export default function AuthForm() {
       <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[1280px]:gap-24 h-fit items-start">
         <h2 className="text-2 font-medium">Backseasy | Collection resource</h2>
 
-        <p className="text-purple">Standard Lifetime</p>
+        <p className="text-purple">Gold Subscription⭐</p>
 
         <h2 className="text-1 font-medium text-right">$ 11 / <span className="text-2 font-medium text-[#949494] text-right">$19</span></h2>
 
         <p className="text-body leading-[120%]">
-          - dukc streams every  on Twitch.
+          - Access to all platform features.
         </p>
 
         <p className="text-body  leading-[120%]">
@@ -95,7 +93,7 @@ export default function AuthForm() {
         </p>
 
         <p className="text-body  leading-[120%]">
-        - Evebody fool backgrounds
+        - Dedicated technical support.
         </p>
 
         <div className="flex flex-wrap gap-12">
@@ -108,6 +106,8 @@ export default function AuthForm() {
             Upgrade Now
             <img className="h-18" src="star.png" alt="star" />
           </Link>
+          
+          {/*
           <Link
             href={"https://www.buymeacoffee.com/icegreen"}
             className="bg-yellow border-stroke-2 text-white hover:bg-yellow/75 active:bg-yellow/50 disabled:bg-yellow/25
@@ -123,6 +123,8 @@ export default function AuthForm() {
           />
             Buy me a coffee
           </Link>
+          */}
+
         </div>
       </div>
       </div>
