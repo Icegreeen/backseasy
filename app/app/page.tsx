@@ -1,6 +1,15 @@
 
-export default function Page() {
+import { auth } from "../service/auth";
+import { UserInfo } from "./_components/user-info";
+
+
+export default async function Page() {
+   const session = await auth();
+   console.log("Session:", session);
+
     return (
-        <h1>App page</h1>
+        <main className="flex items-center justify-center h-screen">
+            <UserInfo user={session?.user} />
+        </main>
     )
 }
