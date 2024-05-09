@@ -6,6 +6,8 @@ import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 
+import SenjaForm from "@/components/SenjaForm";
+
 const hanson = localFont({
   src: "./hanson.woff2",
   display: "swap",
@@ -145,7 +147,7 @@ export default function Home() {
                   </div>
         </div>
 
-        <div className="max-w-[1800px] w-full flex items-start" id="projects">
+        <div className="max-w-[1800px] w-full flex items-start justify-between" id="projects">
             {/*
             <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
               <h1>See all backgrounds </h1> 
@@ -161,6 +163,20 @@ export default function Home() {
               font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
               <h1>Backgrounds 3D ⭐ (In development)...</h1> 
             </div>
+
+            <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+              border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+              font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+              <button 
+                data-senja-collector-open="backseasy"
+                data-project="backseasy"
+                data-form="OdQq6O"
+              >
+                Do you want to contribute a testimonial ? <strong className="text-purple/75">Clique here ❤️</strong>
+              </button> 
+              <SenjaForm />
+            </div>
+            
         </div>
 
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
@@ -280,9 +296,23 @@ export default function Home() {
           /> 
       </div>
 
+      {/*
+      <div className="fixed bottom-4 right-4">
+        <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            data-senja-collector-open="backseasy"
+            data-project="backseasy"
+            data-form="OdQq6O"
+          >
+            Do you want to contribute a testimonial ? 
+          </button>
+          <SenjaForm />
+        </div>
+      </div>
+      */}
 
       {/* Cards */}
-
         {/*
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip">
           <div className="w-1/2">
