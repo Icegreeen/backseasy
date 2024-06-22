@@ -7,6 +7,7 @@ import ProjectPreview from "@/components/projects/ProjectPreview";
 import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 
 import SenjaForm from "@/components/SenjaForm";
+import { PickerExample } from "@/components/PickerExample";
 
 const hanson = localFont({
   src: "./hanson.woff2",
@@ -76,7 +77,7 @@ export default function Home() {
   return (
     <>
       <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-6xl md:px-12">
-              <div className="relative flex-col items-start m-auto align-middle">
+          <div className="relative flex-col items-start m-auto align-middle">
                 <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
                   <div className="relative items-center gap-1 m-auto lg:inline-flex">
                     <div className="max-w-xl lg:text-left">
@@ -140,43 +141,53 @@ export default function Home() {
                   </div> 
                 </div>
               </div>
-                    <div className="block w-full p-8 mt-12 lg:mt-0 rounded-3xl">
-                      <img  src="3.png" alt="hero" className="object-cover object-center w-full h-full mx-auto lg:ml-auto rounded-2xl" />
-                    </div>
-                    </div>
+                  <div className="block w-full p-8 mt-12 lg:mt-0 rounded-3xl">
+                    <img  src="3.png" alt="hero" className="object-cover object-center w-full h-full mx-auto lg:ml-auto rounded-2xl" />
                   </div>
+                </div>
+              </div>
+          </div>
+
+        <div className="max-w-[1800px] w-full flex items-start justify-between pb-12" id="projects">
+            <div>
+              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+                  border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+                  font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                  <h1>Background selector 📌</h1> {/* 📍 */}
+              </div>
+            </div>
+
+            <div className="flex gap-8">
+              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+                font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                <h1>Backgrounds 3D ⭐ (In development)...</h1> 
+              </div>
+
+              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+                font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                <button 
+                  data-senja-collector-open="backseasy"
+                  data-project="backseasy"
+                  data-form="OdQq6O"
+                >
+                  Do you want to contribute a testimonial ? <strong className="text-purple/75">Clique here ❤️</strong>
+                </button> 
+                <SenjaForm />
+              </div>
+            </div>
+
         </div>
 
-        <div className="max-w-[1800px] w-full flex items-start justify-between" id="projects">
-            {/*
-            <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-              <h1>See all backgrounds </h1> 
+        <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-48 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects"> 
+            <div>
+              <h1 className="pb-16">Background select</h1>
             </div>
             
-            <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-              <h1>Backgrounds 3D (In development)...</h1> 
+            <div className="rounded-md">
+              <PickerExample />
             </div>
-            */}
-
-            <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
-              border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-              font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-              <h1>Backgrounds 3D ⭐ (In development)...</h1> 
-            </div>
-
-            <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
-              border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-              font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-              <button 
-                data-senja-collector-open="backseasy"
-                data-project="backseasy"
-                data-form="OdQq6O"
-              >
-                Do you want to contribute a testimonial ? <strong className="text-purple/75">Clique here ❤️</strong>
-              </button> 
-              <SenjaForm />
-            </div>
-            
         </div>
 
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
@@ -205,7 +216,7 @@ export default function Home() {
 
         </div>
 
-      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
             <h2 className="text-3 font-medium">
               Svg backgrounds
