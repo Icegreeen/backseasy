@@ -204,7 +204,7 @@ export default function Home() {
               <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">New release</span>)</h2>
               <p className="text-white my-18">The best backgrounds used ⭐</p>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-                {svgProjectPreviews}
+              {svgProjectPreviews.slice(0, 6)}
               </div>
             </div>
           </div>
