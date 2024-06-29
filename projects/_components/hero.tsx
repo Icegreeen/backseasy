@@ -1,4 +1,9 @@
-<div className="relative items-center w-full gap-12 p-8 mx-auto lg:inline-flex mt-24 max-w-7xl rounded-3xl">
+
+
+export default function L() {
+  return (
+    <div>
+      <div className="relative items-center w-full gap-12 p-8 mx-auto lg:inline-flex mt-24 max-w-7xl rounded-3xl">
     <div className="max-w-xl mx-auto text-center">
       <div>
         <span className="inline-flex items-center">
@@ -65,3 +70,6 @@
       https://brightlight.lexingtonthemes.com/assets/dashboardDouble.svg
       */}
   </div>
+    </div>
+  )
+}
