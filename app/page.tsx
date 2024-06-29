@@ -45,6 +45,10 @@ export default function Home() {
     return project.type === "svg";
   });
 
+  const atmosphereProjects = allProjects.filter((project) => {
+    return project.type === "atmosphere";
+  });
+
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
     <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
@@ -72,6 +76,10 @@ export default function Home() {
 
   const svgProjectPreviews = svgProjects.map((project) => (
     <ProjectPreview category={"svg"} key={project.slug} {...project} />
+  ));
+
+  const atmosphereProjectPreviews = atmosphereProjects.map((project) => (
+    <ProjectPreview category={"atmosphere"} key={project.slug} {...project} />
   ));
 
   return (
@@ -226,6 +234,16 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {svgProjectPreviews}
+          </div>
+
+          <div className="flex">
+            <h2 className="text-3 font-medium">Atmosphere</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+        
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {atmosphereProjectPreviews}
           </div>
 
           <div className="flex">
