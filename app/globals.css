@@ -26,6 +26,10 @@
   }
 }
 
+.texture-noise {
+  opacity: 0.4;
+}
+
 .animate-colour-change {
   animation: colourChange 15s linear infinite;
 }
