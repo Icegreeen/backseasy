@@ -92,7 +92,7 @@ const BackgroundCustomizer = () => {
 
         <div className="col-span-1 justify-center items-center sm:col-span-1 flex flex-col sm:flex-row gap-8">
           <div className="flex-auto">
-            <label className="block text-sm font-medium mb-1 text-white">Gradient Direction:</label>
+            <label className="block text-sm font-medium mb-4 text-white">Gradient Direction:</label>
             <select
               value={gradientDirection}
               onChange={(e) => setGradientDirection(e.target.value)}
@@ -106,7 +106,7 @@ const BackgroundCustomizer = () => {
           </div>
 
           <div className="flex-auto">
-            <label className="block text-sm font-medium mb-1 text-white">Blackout Effect:</label>
+            <label className="block text-sm font-medium mb-4 text-white">Blackout Effect:</label>
             <div
               className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${
                 blackoutActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
@@ -118,7 +118,7 @@ const BackgroundCustomizer = () => {
           </div>
 
           <div className="flex-auto">
-            <label className="block text-sm font-medium mb-1 text-white">Grainy Effect:</label>
+            <label className="block text-sm font-medium mb-4 text-white">Grainy Effect:</label>
             <div
               className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${
                 grainyActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
