@@ -8,6 +8,7 @@ import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 
 import SenjaForm from "@/components/SenjaForm";
 import { PickerExample } from "@/components/PickerExample";
+import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
 
 const hanson = localFont({
   src: "./hanson.woff2",
@@ -188,14 +189,24 @@ export default function Home() {
 
         </div>
 
-        <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-48 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects"> 
-            <div>
-              <h1 className="pb-16">Background select</h1>
-            </div>
-            
-            <div className="rounded-md">
+        <div
+          className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-[30px] flex flex-wrap gap-8"
+          id="projects"
+        >
+          <div className="w-full">
+            <h1 className="pb-4 text-lg font-semibold">Background Select</h1>
+          </div>
+
+          <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
+            <div className="w-full lg:w-1/2 flex  p-4">
               <PickerExample />
             </div>
+
+            <div className="w-full lg:w-1/2 flex  p-4">
+              <BackgroundCustomizer />
+            </div>
+          </div>
+
         </div>
 
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">

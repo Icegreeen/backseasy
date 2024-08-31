@@ -14,7 +14,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
 export function PickerExample() {
-  const [background, setBackground] = useState('url(https://github.com/Icegreeen/backseasy/assets/56550632/4908cbb2-6f2a-4723-b2b7-b638e1aa1108)')
+  const [background, setBackground] = useState('url(https://github.com/Icegreeen/backseasy/assets/56550632/a1b71648-6f93-4a19-a46e-e7c71a8e3e1d)')
 
   return (
     <div
@@ -88,16 +88,17 @@ export function GradientPicker({
             className
           )}
         >
-          <div className="flex w-full items-center gap-2">
+          <div className="flex w-full items-center gap-2 ">
             {background ? (
               <div
-                className="h-4 w-4 rounded !bg-cover !bg-center transition-all"
+                className="h-4 w-4 rounded  !bg-cover !bg-center transition-all "
                 style={{ background }}
               ></div>
             ) : (
               <Paintbrush className="h-4 w-4" />
             )}
-            <div className="flex-1 truncate">
+            <div className="flex-1  py-8 truncate">
+
               {background ? background : 'Pick a color'}
             </div>
           </div>
@@ -113,7 +114,7 @@ export function GradientPicker({
             <TabsTrigger className="flex-1" value="gradient">
               Gradient
             </TabsTrigger>
-            <TabsTrigger className="flex-1" value="image">
+            <TabsTrigger className="flex-1 rounded-[15px] py-4" value="image">
               Image
             </TabsTrigger>
           </TabsList>
@@ -123,7 +124,7 @@ export function GradientPicker({
               <div
                 key={s}
                 style={{ background: s }}
-                className="h-56 w-56 cursor-pointer rounded-full active:scale-105"
+                className="h-56 w-56 cursor-pointer rounded-full  active:scale-105"
                 onClick={() => setBackground(s)}
               />
             ))}
@@ -153,7 +154,6 @@ export function GradientPicker({
                 />
               ))}
             </div>
-
           </TabsContent>
         </Tabs>
         
@@ -163,6 +163,7 @@ export function GradientPicker({
           className="col-span-2 rounded-24 mt-8 h-20 bg-transparent"
           onChange={(e) => setBackground(e.currentTarget.value)}
         />
+        
     </PopoverContent>
 
     </Popover>
