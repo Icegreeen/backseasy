@@ -264,14 +264,16 @@ export default function Home() {
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {objectsProjectPreviews}
-            <h2 className="text-3 font-medium">Atmosphere</h2>
+          </div>
 
-            <NavigationAllBackgrounds />
+          <div className="flex">
+              <h2 className="text-3 font-medium">Atmosphere</h2>
+
+              <NavigationAllBackgrounds />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {atmosphereProjectPreviews}
-
           </div>
 
           <div className="flex">
