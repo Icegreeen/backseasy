@@ -85,10 +85,10 @@ export default function Home() {
 
   const objectsProjectPreviews = objectsProjects.map((project) => (
     <ProjectPreview category={"objects"} key={project.slug} {...project} />
-    
+  ));
+  
   const atmosphereProjectPreviews = atmosphereProjects.map((project) => (
     <ProjectPreview category={"atmosphere"} key={project.slug} {...project} />
-
   ));
 
   return (
