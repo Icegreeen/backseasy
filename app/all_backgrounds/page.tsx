@@ -29,6 +29,15 @@ export default function Home() {
     return project.type === "animated";
   });
 
+  const svgProjects = allProjects.filter((project) => {
+    return project.type === "svg";
+  });
+
+  const objectsProjects = allProjects.filter((project) => {
+    return project.type === "objects";
+  });
+
+
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
     <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
@@ -54,6 +63,14 @@ export default function Home() {
     <ProjectPreview category={"animated"} key={project.slug} {...project} />
   ));
 
+  const svgProjectPreviews = svgProjects.map((project) => (
+    <ProjectPreview category={"svg"} key={project.slug} {...project} />
+  ));
+
+  const objectsProjectPreviews = objectsProjects.map((project) => (
+    <ProjectPreview category={"objects"} key={project.slug} {...project} />
+  ));
+
   return (
     <>
      
@@ -61,6 +78,11 @@ export default function Home() {
         <h2 className="text-3 font-medium">Animated backgrounds</h2>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {animatedProjectPreviews}
+          </div>
+
+          <h2>Svgs</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {svgProjectPreviews}
           </div>
 
         <h2 className="text-3 font-medium">Backgrounds concepts</h2>
@@ -88,8 +110,12 @@ export default function Home() {
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {whiteProjectPreviews}
           </div>
+
+          <h2>Object</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {objectsProjectPreviews}
+          </div>
       </div>
-     
 
     </>
   );

@@ -46,6 +46,10 @@ export default function Home() {
     return project.type === "svg";
   });
 
+  const objectsProjects = allProjects.filter((project) => {
+    return project.type === "objects";
+  });
+
   const atmosphereProjects = allProjects.filter((project) => {
     return project.type === "atmosphere";
   });
@@ -79,6 +83,10 @@ export default function Home() {
     <ProjectPreview category={"svg"} key={project.slug} {...project} />
   ));
 
+  const objectsProjectPreviews = objectsProjects.map((project) => (
+    <ProjectPreview category={"objects"} key={project.slug} {...project} />
+  ));
+  
   const atmosphereProjectPreviews = atmosphereProjects.map((project) => (
     <ProjectPreview category={"atmosphere"} key={project.slug} {...project} />
   ));
@@ -161,17 +169,18 @@ export default function Home() {
             <div>
               <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
                   border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                  font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                  font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
                   <h1>Background selector 📌</h1> {/* 📍 */}
+              </div>
+
+              <div className="mx-8 inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+                font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                <h1>Backgrounds 3D ⭐ (building)...</h1> 
               </div>
             </div>
 
             <div className="flex gap-8">
-              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
-                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-                <h1>Backgrounds 3D ⭐ (In development)...</h1> 
-              </div>
 
               <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
@@ -248,9 +257,19 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Atmosphere</h2>
+            <h2 className="text-3 font-medium">Objects</h2>
 
             <NavigationAllBackgrounds />
+          </div>
+
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {objectsProjectPreviews}
+          </div>
+
+          <div className="flex">
+              <h2 className="text-3 font-medium">Atmosphere</h2>
+
+              <NavigationAllBackgrounds />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">

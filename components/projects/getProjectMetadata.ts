@@ -135,6 +135,25 @@ const getSvgProjects = (): ProjectMetadata[] => {
   return svgProjects;
 };
 
+const getObjectsProjects = (): ProjectMetadata[] => {
+  const objectsFolder = "projects/objects/";
+  const objectsFiles = fs.readdirSync(objectsFolder).filter((file) => file.endsWith(".md"));
+
+  const objectsProjects = objectsFiles.map((filename) => {
+    const fileContents = fs.readFileSync(`${objectsFolder}/${filename}`, "utf8");
+    const matterResult = matter(fileContents);
+    return {
+      title: matterResult.data.title,
+      image: matterResult.data.image,
+      type: matterResult.data.type,
+      date: matterResult.data.date,
+      slug: filename.replace(".md", ""),
+    };
+  });
+
+  return objectsProjects;
+};
+
 const getAtmosphereProjects = (): ProjectMetadata[] => {
   const atmosphereFolder = "projects/atmosphere/";
   const atmosphereFiles = fs.readdirSync(atmosphereFolder).filter((file) => file.endsWith(".md"));
@@ -150,7 +169,7 @@ const getAtmosphereProjects = (): ProjectMetadata[] => {
       slug: filename.replace(".md", ""),
     };
   });
-
+  
   return atmosphereProjects;
 };
 
@@ -162,9 +181,10 @@ const getProjectMetadata = (): ProjectMetadata[] => {
   const whiteProjects = getWhiteProjects();
   const animatedProjects = getAnimatedProjects();
   const svgProjects = getSvgProjects();
+  const objectsProjects = getObjectsProjects();
   const atmosphereProjects = getAtmosphereProjects();
 
-  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects, ...animatedProjects, ...svgProjects, ...atmosphereProjects];
+  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects, ...animatedProjects, ...svgProjects, ...atmosphereProjects, ...objectsProjects];
 
   return allProjects;
 };
