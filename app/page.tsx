@@ -50,6 +50,9 @@ export default function Home() {
     return project.type === "objects";
   });
 
+  const atmosphereProjects = allProjects.filter((project) => {
+    return project.type === "atmosphere";
+  });
 
   // Mapear os projetos em pré-visualizações
   const butterflyProjectPreviews = butterflyProjects.map((project) => (
@@ -82,6 +85,10 @@ export default function Home() {
 
   const objectsProjectPreviews = objectsProjects.map((project) => (
     <ProjectPreview category={"objects"} key={project.slug} {...project} />
+    
+  const atmosphereProjectPreviews = atmosphereProjects.map((project) => (
+    <ProjectPreview category={"atmosphere"} key={project.slug} {...project} />
+
   ));
 
   return (
@@ -217,7 +224,7 @@ export default function Home() {
               <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">New release</span>)</h2>
               <p className="text-white my-18">The best backgrounds used ⭐</p>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-                {svgProjectPreviews}
+              {svgProjectPreviews.slice(0, 6)}
               </div>
             </div>
           </div>
@@ -257,6 +264,14 @@ export default function Home() {
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {objectsProjectPreviews}
+            <h2 className="text-3 font-medium">Atmosphere</h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+        
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {atmosphereProjectPreviews}
+
           </div>
 
           <div className="flex">
