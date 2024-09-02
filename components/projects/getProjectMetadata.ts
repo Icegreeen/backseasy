@@ -135,6 +135,25 @@ const getSvgProjects = (): ProjectMetadata[] => {
   return svgProjects;
 };
 
+const getObjectsProjects = (): ProjectMetadata[] => {
+  const objectsFolder = "projects/objects/";
+  const objectsFiles = fs.readdirSync(objectsFolder).filter((file) => file.endsWith(".md"));
+
+  const objectsProjects = objectsFiles.map((filename) => {
+    const fileContents = fs.readFileSync(`${objectsFolder}/${filename}`, "utf8");
+    const matterResult = matter(fileContents);
+    return {
+      title: matterResult.data.title,
+      image: matterResult.data.image,
+      type: matterResult.data.type,
+      date: matterResult.data.date,
+      slug: filename.replace(".md", ""),
+    };
+  });
+
+  return objectsProjects;
+};
+
 const getProjectMetadata = (): ProjectMetadata[] => {
   const butterflyProjects = getButterflyProjects();
   const blackProjects = getBlackProjects();
@@ -142,10 +161,10 @@ const getProjectMetadata = (): ProjectMetadata[] => {
   const skyProjects = getSkyProjects();
   const whiteProjects = getWhiteProjects();
   const animatedProjects = getAnimatedProjects();
-
   const svgProjects = getSvgProjects();
+  const objectsProjects = getObjectsProjects();
 
-  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects, ...animatedProjects, ...svgProjects];
+  const allProjects = [...butterflyProjects, ...blackProjects, ... squareProjects, ...skyProjects, ...whiteProjects, ...animatedProjects, ...svgProjects, ...objectsProjects];
 
   return allProjects;
 };
