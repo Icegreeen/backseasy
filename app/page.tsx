@@ -246,17 +246,6 @@ export default function Home() {
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
-            <h2 className="text-3 font-medium">
-              Svg backgrounds
-            </h2>
-
-            <NavigationAllBackgrounds />
-          </div>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {svgProjectPreviews}
-          </div>
-
-          <div className="flex">
             <h2 className="text-3 font-medium">Objects</h2>
 
             <NavigationAllBackgrounds />
@@ -277,13 +266,24 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Animated backgrounds</h2>
+            <h2 className="text-3 font-medium">Animated backgrounds ⭐</h2>
 
             <NavigationAllBackgrounds />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
             {animatedProjectPreviews}
+          </div>
+
+          <div className="flex">
+            <h2 className="text-3 font-medium">
+              Svg backgrounds
+            </h2>
+
+            <NavigationAllBackgrounds />
+          </div>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {svgProjectPreviews}
           </div>
 
           <div className="flex">
