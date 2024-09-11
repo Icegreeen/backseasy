@@ -9,6 +9,7 @@ import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 import SenjaForm from "@/components/SenjaForm";
 import { PickerExample } from "@/components/PickerExample";
 import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
+import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
 
 const hanson = localFont({
   src: "./hanson.woff2",
@@ -166,25 +167,33 @@ export default function Home() {
           </div>
 
         <div className="max-w-[1800px] w-full flex items-start justify-between pb-12" id="projects">
-            <div>
-              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+            <a href="#frosted">       
+              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-16 border border-stroke-1 text-white rounded-lg shadow-md w-[400px] h-[100px]">
+                <div className="flex flex-col">
+                  <span className="text-lg font-semibold">Frosted Glass Effect <span className="border border-[#14532d] px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span></span>
+                  <span className="text-sm text-gray-400">Background with mirror effect</span>
+                </div>
+                <img src="/cubo.png" alt="Asset Icon"className="h-[100px] rounded-md"/>
+              </div>
+            </a>
+
+            <div className="flex gap-8 mt-[55px]">
+
+              <div className="mx-8 inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
+                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
+                font-medium text-neutral-400 transition-colors border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                <h1>Backgrounds 3D ⭐ (building)...</h1> 
+              </div>
+
+              <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                   border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                  font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                  font-medium text-neutral-400 transition-colors border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
                   <h1>Background selector 📌</h1> {/* 📍 */}
               </div>
 
-              <div className="mx-8 inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
+              <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                font-medium text-neutral-400 transition-colors border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-                <h1>Backgrounds 3D ⭐ (building)...</h1> 
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-
-              <div className="inline-flex animate-shine items-center justify-center rounded-lg text-sm border 
-                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                font-medium text-neutral-400 transition-colors  border-stroke-1 rounded-out max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+                font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
                 <button 
                   data-senja-collector-open="backseasy"
                   data-project="backseasy"
@@ -203,7 +212,7 @@ export default function Home() {
           id="projects"
         >
           <div className="w-full">
-            <h1 className="pb-4 text-lg font-semibold">Background Select</h1>
+            <h1 className="text-[18px] font-semibold">Background Select</h1>
           </div>
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
@@ -216,6 +225,12 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+
+        <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
+          <div className="w-full flex flex-col p-[30px] gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
+          <FrostedGlassGenerator />
+          </div>
         </div>
 
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
