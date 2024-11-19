@@ -86,7 +86,7 @@ export default function Footer() {
           href={"https://github.com/Icegreeen"}
           className="text-sub hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
         >
-          Build by Flávio Aquila 
+          Built by Flávio Aquila 
         </Link>
       </div>
     </footer>
