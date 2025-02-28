@@ -20,8 +20,8 @@ const FrostedGlassGenerator: React.FC = () => {
     gradient === 'light'
       ? 'linear-gradient(to top right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0))'
       : gradient === 'dark'
-      ? 'linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))'
-      : 'none';
+        ? 'linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))'
+        : 'none';
 
   const combinedBackground = grainyActive
     ? `${gradientBackground}, ${grainyBackground}`
@@ -54,10 +54,10 @@ const FrostedGlassGenerator: React.FC = () => {
         Frosted Glass Effect
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[30px]">
         {/* Pré-visualizações */}
         <div
-          className="frosted-glass-preview flex-1 h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
+          className="frosted-glass-preview w-full h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
           style={{
             backgroundImage:
               'url(https://github.com/user-attachments/assets/bb052fda-d221-411e-b244-2d352c4cba2e)',
@@ -67,7 +67,7 @@ const FrostedGlassGenerator: React.FC = () => {
           }}
         >
           <div
-            className="frosted-glass w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
+            className="frosted-glass w-full max-w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
             style={{
               backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
@@ -90,7 +90,7 @@ const FrostedGlassGenerator: React.FC = () => {
         </div>
 
         <div
-          className="frosted-glass-preview flex-1 h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
+          className="frosted-glass-preview w-full h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
           style={{
             backgroundImage:
               'url(https://github.com/user-attachments/assets/9abefce5-3d52-449a-a7e4-e728d2974bf1)',
@@ -100,7 +100,7 @@ const FrostedGlassGenerator: React.FC = () => {
           }}
         >
           <div
-            className="frosted-glass w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
+            className="frosted-glass w-full max-w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
             style={{
               backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
@@ -123,7 +123,7 @@ const FrostedGlassGenerator: React.FC = () => {
         </div>
 
         {/* Layout dos Controles e Código Gerado */}
-        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
           <div className="flex-1 p-6 rounded-lg shadow-md text-gray-100">
             <h2 className="text-lg font-semibold mb-8">Effect Customizer:</h2>
 
@@ -201,14 +201,14 @@ const FrostedGlassGenerator: React.FC = () => {
 
               {/* Toggle para o efeito granulado */}
               <label className="flex items-center mb-4 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={grainyActive}
-                    onChange={() => setGrainyActive(!grainyActive)}
-                    className="mr-2 w-[20px] rounded-full cursor-pointer"
-                  />
-                  <span className="font-semibold">Granulated Effect</span>
-                </label>
+                <input
+                  type="checkbox"
+                  checked={grainyActive}
+                  onChange={() => setGrainyActive(!grainyActive)}
+                  className="mr-2 w-[20px] rounded-full cursor-pointer"
+                />
+                <span className="font-semibold">Granulated Effect</span>
+              </label>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -219,9 +219,8 @@ const FrostedGlassGenerator: React.FC = () => {
                     <button
                       key={type}
                       onClick={() => setGradient(type)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        gradient === type ? 'border w-[100px] cursor-pointer border-stroke-1 text-white rounded-[10px]' : 'w-[100px] text-gray-300'
-                      } hover:bg-blue-500 focus:outline-none`}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${gradient === type ? 'border w-[100px] cursor-pointer border-stroke-1 text-white rounded-[10px]' : 'w-[100px] text-gray-300'
+                        } hover:bg-blue-500 focus:outline-none`}
                     >
                       {type.charAt(0).toUpperCase() + type.slice(1)}
                     </button>
@@ -259,17 +258,17 @@ const FrostedGlassGenerator: React.FC = () => {
           {/* Código Gerado */}
           <div className="flex-1 p-6 shadow-md text-gray-100">
             <div className='flex justify-start gap-4 items-center mb-12'>
-            <h2 className="text-lg font-semibold ">Generated CSS:</h2> <button
-              onClick={() => navigator.clipboard.writeText(generatedCSS)}
-              className="border text-center p-2 border-[#14532d] text-[#22c55e] rounded-[8px] w-[100px] hover:opacity-70 "
-            >
-              Copy CSS
-            </button>
+              <h2 className="text-lg font-semibold ">Generated CSS:</h2> <button
+                onClick={() => navigator.clipboard.writeText(generatedCSS)}
+                className="border text-center p-2 border-[#14532d] text-[#22c55e] rounded-[8px] w-[100px] hover:opacity-70 "
+              >
+                Copy CSS
+              </button>
             </div>
             <pre className="border border-stroke-1 rounded-[10px] p- overflow-x-auto text-sm text-gray-100">
               <code>{generatedCSS}</code>
             </pre>
-            
+
           </div>
         </div>
       </div>
