@@ -199,7 +199,7 @@ export default function Home() {
               data-project="backseasy"
               data-form="OdQq6O"
             >
-              Do you want to contribute a testimonial ? <strong className="text-purple/75">Clique here ❤️</strong>
+              Do you want to contribute a testimonial ? <strong className="text-purple/75">Click here ❤️</strong>
             </button>
             <SenjaForm />
           </div>
