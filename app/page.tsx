@@ -1,15 +1,18 @@
 import localFont from "next/font/local";
 import Image from "next/image";
-import PrimaryButton from "@/components/PrimaryButton";
-import SecondaryButton from "@/components/SecondaryButton";
+
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
-import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
+import dynamic from "next/dynamic";
 
-import SenjaForm from "@/components/SenjaForm";
-import { PickerExample } from "@/components/PickerExample";
-import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
-import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
+const PrimaryButton = dynamic(() => import("@/components/PrimaryButton"));
+const SecondaryButton = dynamic(() => import("@/components/SecondaryButton"));
+const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });
+
+const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { ssr: false });
+const PickerExample = dynamic(() => import("@/components/PickerExample"), { ssr: false });
+const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { ssr: false });
+const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { ssr: false });
 
 const hanson = localFont({
   src: "./hanson.woff2",
@@ -19,78 +22,33 @@ const hanson = localFont({
 export default function Home() {
   const allProjects = getProjectMetadata();
 
-  const butterflyProjects = allProjects.filter((project) => {
-    return project.type === "butterfly"; 
+  const projectCategories: Record<string, typeof allProjects> = {
+    butterfly: [],
+    black: [],
+    square: [],
+    sky: [],
+    white: [],
+    animated: [],
+    svg: [],
+    objects: [],
+    atmosphere: [],
+  };
+
+  allProjects.forEach((project) => {
+    if (projectCategories[project.type]) {
+      projectCategories[project.type].push(project);
+    }
   });
 
-  const blackProjects = allProjects.filter((project) => {
-    return project.type === "black";
-  });
-
-  const squareProjects = allProjects.filter((project) => {
-    return project.type === "square";
-  });
-
-  const skyProjects = allProjects.filter((project) => {
-    return project.type === "sky";
-  });
-
-  const whiteProjects = allProjects.filter((project) => {
-    return project.type === "white";
-  });
-
-  const animatedProjects = allProjects.filter((project) => {
-    return project.type === "animated";
-  });
-
-  const svgProjects = allProjects.filter((project) => {
-    return project.type === "svg";
-  });
-
-  const objectsProjects = allProjects.filter((project) => {
-    return project.type === "objects";
-  });
-
-  const atmosphereProjects = allProjects.filter((project) => {
-    return project.type === "atmosphere";
-  });
-
-  // Mapear os projetos em pré-visualizações
-  const butterflyProjectPreviews = butterflyProjects.map((project) => (
-    <ProjectPreview category={"butterfly"} key={project.slug} {...project} />
-  ));
-
-  const blackProjectPreviews = blackProjects.map((project) => (
-    <ProjectPreview category={"black"} key={project.slug} {...project} />
-  ));
-
-  const squareProjectPreviews = squareProjects.map((project) => (
-    <ProjectPreview category={"square"} key={project.slug} {...project} />
-  ));
-
-  const skyProjectPreviews = skyProjects.map((project) => (
-    <ProjectPreview category={"sky"} key={project.slug} {...project} />
-  ));
-
-  const whiteProjectPreviews = whiteProjects.map((project) => (
-    <ProjectPreview category={"white"} key={project.slug} {...project} />
-  ));
-
-  const animatedProjectPreviews = animatedProjects.map((project) => (
-    <ProjectPreview category={"animated"} key={project.slug} {...project} />
-  ));
-
-  const svgProjectPreviews = svgProjects.map((project) => (
-    <ProjectPreview category={"svg"} key={project.slug} {...project} />
-  ));
-
-  const objectsProjectPreviews = objectsProjects.map((project) => (
-    <ProjectPreview category={"objects"} key={project.slug} {...project} />
-  ));
-  
-  const atmosphereProjectPreviews = atmosphereProjects.map((project) => (
-    <ProjectPreview category={"atmosphere"} key={project.slug} {...project} />
-  ));
+  const projectPreviews = Object.entries(projectCategories).reduce(
+    (acc, [category, projects]) => {
+      acc[category] = projects.map((project) => (
+        <ProjectPreview category={category} key={project.slug} {...project} />
+      ));
+      return acc;
+    },
+    {} as Record<string, JSX.Element[]>
+  );
 
   return (
     <>
@@ -239,7 +197,7 @@ export default function Home() {
               <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">New release</span>)</h2>
               <p className="text-white my-18">The best backgrounds used ⭐</p>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-              {svgProjectPreviews.slice(0, 6)}
+               {projectPreviews["svg"]?.slice(0, 6)}
               </div>
             </div>
           </div>
@@ -262,32 +220,29 @@ export default function Home() {
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
             <h2 className="text-3 font-medium">Objects</h2>
-
             <NavigationAllBackgrounds />
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {objectsProjectPreviews}
+            {projectPreviews["objects"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
               <h2 className="text-3 font-medium">Atmosphere</h2>
-
               <NavigationAllBackgrounds />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {atmosphereProjectPreviews}
+            {projectPreviews["atmosphere"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Animated backgrounds ⭐</h2>
-
             <NavigationAllBackgrounds />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {animatedProjectPreviews}
+            {projectPreviews["animated"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -298,7 +253,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {svgProjectPreviews}
+            {projectPreviews["svg"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -306,7 +261,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {blackProjectPreviews}
+            {projectPreviews["black"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -315,7 +270,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {squareProjectPreviews}
+            {projectPreviews["square"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -325,7 +280,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {skyProjectPreviews}
+            {projectPreviews["sky"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -335,7 +290,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {butterflyProjectPreviews}
+            {projectPreviews["butterfly"]?.slice(0, 6)}
           </div>
 
           <div className="flex">
@@ -344,7 +299,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {whiteProjectPreviews}
+            {projectPreviews["white"]?.slice(0, 6)}
           </div>
       </div>
       
@@ -359,7 +314,6 @@ export default function Home() {
             of your projects with ease and style.
           </p>
         </div>
-        
           <Image
             src={"/3.jpg"}
             alt={"imagem"}
@@ -370,7 +324,6 @@ export default function Home() {
           /> 
       </div>
 
-      {/*
       <div className="fixed bottom-4 right-4">
         <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
           <button
@@ -384,35 +337,7 @@ export default function Home() {
           <SenjaForm />
         </div>
       </div>
-      */}
-
-      {/* Cards */}
-        {/*
-        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip">
-          <div className="w-1/2">
-            <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">Backgrounds SVGS</h2>
-              <p className="text-white my-18">The best backgrounds used ⭐</p>
-              <div className="grid grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-                    {svgProjectPreviews}
-                  </div>
-            </div>
-          </div>
-
-
-          <div className="w-1/2">
-            <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">3D backgrounds... (<span className="text-yellow">Next release</span>)</h2>
-              <p className="text-white my-18">Custom 3d backgrounds ready to use.</p>
-              <br /><br />
-              <div className="grid grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-                <img className="w-full h-auto max-w-full"  src="ghost.png" alt="" />
-                <img className="w-full h-auto max-w-full"  src="aquiles2.png" alt="" />    
-              </div>
-            </div>
-          </div>
-        </div>
-        */}
+       
     </>
   );
 }
