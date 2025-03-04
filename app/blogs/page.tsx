@@ -1,5 +1,6 @@
 import getBlogMetadata from "@/components/blog/getBlogMetadata";
 import BlogPreview from "@/components/blog/BlogPreview";
+
 export default function Blogs() {
   const blogMetadata = getBlogMetadata();
   const blogPreviews = blogMetadata.map((blog) => (
