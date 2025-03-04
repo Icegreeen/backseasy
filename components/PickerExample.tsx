@@ -13,7 +13,7 @@ import { Paintbrush } from 'lucide-react'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
-export function PickerExample() {
+export default function PickerExample() {
   const [background, setBackground] = useState('url(https://github.com/Icegreeen/backseasy/assets/56550632/a1b71648-6f93-4a19-a46e-e7c71a8e3e1d)')
 
   return (
