@@ -125,7 +125,7 @@ export default function Home() {
           </div>
 
         <div className="max-w-[1800px] w-full flex items-start justify-between pb-12" id="projects">
-            <a href="#frosted">       
+            <a href="/glass-effect">       
               <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-16 border border-stroke-1 text-white rounded-lg shadow-md w-[400px] h-[100px]">
                 <div className="flex flex-col">
                   <span className="text-lg font-semibold">Frosted Glass Effect <span className="border border-[#14532d] px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span></span>
@@ -136,7 +136,6 @@ export default function Home() {
             </a>
 
             <div className="flex gap-8 mt-[55px]">
-
               <div className="mx-8 inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
                 font-medium text-neutral-400 transition-colors border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
@@ -162,7 +161,6 @@ export default function Home() {
                 <SenjaForm />
               </div>
             </div>
-
         </div>
 
         <div
@@ -182,12 +180,11 @@ export default function Home() {
               <BackgroundCustomizer />
             </div>
           </div>
-
         </div>
 
         <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
           <div className="w-full flex flex-col p-[30px] gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-          <FrostedGlassGenerator />
+            <FrostedGlassGenerator />
           </div>
         </div>
 

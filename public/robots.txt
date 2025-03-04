@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://backseasy.com/sitemap.xml
