@@ -1,14 +1,16 @@
-import { MetadataRoute } from "next";
+export const GET = async () => {
+  const robots = `
+  User-agent: *
+  Allow: /
 
-export default function GET(): MetadataRoute.Robots {
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/private", "/api"],
-      },
-    ],
-    sitemap: "https://backseasy.com/sitemap.xml",
-  };
-}
+  Disallow: /dashboard
+
+  Sitemap: https://backseasy.com/sitemap.xml
+  `;
+
+  return new Response(robots, {
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
+};
