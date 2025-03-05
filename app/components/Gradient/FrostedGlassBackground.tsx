@@ -123,7 +123,7 @@ const FrostedGlassGenerator: React.FC = () => {
         </div>
 
         {/* Layout dos Controles e Código Gerado */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] w-[81vw] sm:w-[92vw]">
           <div className="flex-1 p-6 rounded-lg shadow-md text-gray-100">
             <h2 className="text-lg font-semibold mb-8">Effect Customizer:</h2>
 
