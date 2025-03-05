@@ -7,7 +7,7 @@ import ProjectPreview from "@/components/projects/ProjectPreview";
 import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 
 import SenjaForm from "@/components/SenjaForm";
-import { PickerExample } from "@/components/PickerExample";
+import PickerExample from "../components/PickerExample";
 import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
 import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
 
