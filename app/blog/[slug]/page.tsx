@@ -5,7 +5,6 @@ import getBlogMetadata from "../../../components/blog/getBlogMetadata";
 import matter from "gray-matter";
 import moment from "moment";
 import Link from "next/link";
-import { PickerExample } from "@/components/PickerExample";
 
 const getBlogContent = (slug: string) => {
   const folder = "blog/";
