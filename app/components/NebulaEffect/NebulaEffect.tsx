@@ -67,7 +67,7 @@ export default function NebulaEffect() {
                 min="300"
                 max="800"
                 value={size}
-                onChange={(e) => setSize(e.target.value)}
+                onChange={(e) => setSize(parseInt(e.target.value))}
                 className="w-full h-2 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
               <span className="text-sm text-gray-400">{size}px</span>
@@ -80,7 +80,7 @@ export default function NebulaEffect() {
                 min="5"
                 max="50"
                 value={speed}
-                onChange={(e) => setSpeed(e.target.value)}
+                onChange={(e) => setSpeed(parseInt(e.target.value))}
                 className="w-full h-2 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
               <span className="text-sm text-gray-400">{speed}s</span>
@@ -93,7 +93,7 @@ export default function NebulaEffect() {
                 min="0"
                 max="200"
                 value={blur}
-                onChange={(e) => setBlur(e.target.value)}
+                onChange={(e) => setBlur(parseInt(e.target.value))}
                 className="w-full h-2 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
               <span className="text-sm text-gray-400">{blur}px</span>
@@ -107,7 +107,7 @@ export default function NebulaEffect() {
                 max="1"
                 step="0.1"
                 value={opacity}
-                onChange={(e) => setOpacity(e.target.value)}
+                onChange={(e) => setOpacity(parseFloat(e.target.value))}
                 className="w-full h-2 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
               <span className="text-sm text-gray-400">{opacity}</span>
