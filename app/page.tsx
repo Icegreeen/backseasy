@@ -55,7 +55,7 @@ export default function Home() {
           {[
             { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect" },
             { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!" },
-            { href: "/", img: "/plant.png", title: "Backgrind Effect", desc: "" },
+            { href: "/", img: "/plant.png", title: "Backgrind Effect", desc: "Next release" },
             { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!" }
           ].map(({ href, img, title, desc }, index) => (
             <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
