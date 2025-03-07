@@ -5,7 +5,6 @@ import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
 import Hero from "./components/Landing/Hero";
-import Link from "next/link";
 import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });

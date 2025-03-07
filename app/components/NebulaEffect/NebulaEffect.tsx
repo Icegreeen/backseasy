@@ -61,7 +61,7 @@ export default function NebulaEffect() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <label className="flex flex-col">
-              <span className="font-semibold">Tamanho:</span>
+              <span className="font-semibold">Size:</span>
               <input
                 type="range"
                 min="300"
@@ -74,7 +74,7 @@ export default function NebulaEffect() {
             </label>
 
             <label className="flex flex-col">
-              <span className="font-semibold">Velocidade:</span>
+              <span className="font-semibold">Speed:</span>
               <input
                 type="range"
                 min="5"
@@ -100,7 +100,7 @@ export default function NebulaEffect() {
             </label>
 
             <label className="flex flex-col">
-              <span className="font-semibold">Opacidade:</span>
+              <span className="font-semibold">Opacity:</span>
               <input
                 type="range"
                 min="0"
@@ -116,7 +116,7 @@ export default function NebulaEffect() {
 
           <div className="grid grid-cols-2 gap-6 mt-6">
             <label className="flex flex-col">
-              <span className="font-semibold">Cor 1:</span>
+              <span className="font-semibold">Color 1:</span>
               <input
                 type="color"
                 value={color1}
@@ -126,7 +126,7 @@ export default function NebulaEffect() {
             </label>
 
             <label className="flex flex-col">
-              <span className="font-semibold">Cor 2:</span>
+              <span className="font-semibold">Color 2:</span>
               <input
                 type="color"
                 value={color2}
