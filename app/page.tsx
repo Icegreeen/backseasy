@@ -54,12 +54,12 @@ export default function Home() {
         <div className="max-w-[1800px] w-full flex flex-wrap justify-between gap-4 pb-4" id="projects">
           {[
             { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect" },
-            { href: "/glass-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "" },
+            { href: "/glass-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!" },
             { href: "/glass-effect", img: "/plant.png", title: "Backgrind Effect", desc: "" },
-            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "" }
+            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!" }
           ].map(({ href, img, title, desc }, index) => (
             <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
-              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-16 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
+              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-18 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
                 <div className="flex flex-col">
                   <span className="text-[16px] font-semibold">
                     {title} 
@@ -104,7 +104,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
             <div className="w-full lg:w-1/2 flex  p-4">
-              x
+              <PickerExample />
             </div>
 
             <div className="w-full lg:w-1/2 flex  p-4">

@@ -21,7 +21,8 @@ export default function Nav() {
   };
   const navItems = [
     { text: "Home", link: "/" },
-    { text: "Glass Effect", link: "/blogs" },
+    { text: "Glass Effect", link: "/glass-effect" },
+    { text: "Nebula Effect", link: "/nebula-effect" },
     { text: "About", link: "/#about" },
     { text: "Blog", link: "/blogs" },
   ];
