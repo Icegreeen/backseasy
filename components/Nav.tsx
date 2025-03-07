@@ -21,6 +21,7 @@ export default function Nav() {
   };
   const navItems = [
     { text: "Home", link: "/" },
+    { text: "Glass Effect", link: "/blogs" },
     { text: "About", link: "/#about" },
     { text: "Blog", link: "/blogs" },
   ];
@@ -44,19 +45,7 @@ export default function Nav() {
         >
           {navItems.map((link, index) => {
             return <NavLink text={link.text} link={link.link} key={index} />;
-          })}
-         
-            {/*
-            <Link href={"https://github.com/Icegreeen/backseasy"}>
-              <Image
-                src={"/icons/github.png"}
-                alt={"github"}
-                width={22}
-                height={20}
-                className="hover-active-effect"
-              />
-            </Link>
-            */}
+          })}  
 
               <Link
                 href={"/auth"}
@@ -66,6 +55,16 @@ export default function Nav() {
               >
                 Get Plus
                 <img className="h-18" src="star.png" alt="star" />
+              </Link>
+
+              <Link href={"https://buymeacoffee.com/icegreen"}>
+                <Image
+                  src={"/icons/coffee2.svg"}
+                  alt={"bymycoffee"}
+                  width={22}
+                  height={20}
+                  className="hover-active-effect"
+                />
               </Link>
              
         </motion.div>
@@ -91,18 +90,6 @@ export default function Nav() {
             <NavLink textBig text={link.text} link={link.link} key={index} />
           );
         })}
-            {/*
-            <Link href={"https://github.com/Icegreeen/backseasy"}>
-              <Image
-                src={"/icons/github.png"}
-                alt={"github"}
-                width={22}
-                height={20}
-                className="hover-active-effect"
-              />
-            </Link>
-            */}
-
               <Link
                 href={"/auth"}
                 className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
