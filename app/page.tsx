@@ -6,6 +6,8 @@ import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
 import Hero from "./components/Landing/Hero";
 import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
+import BackgroundGenerator from "./test";
+import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });
 
@@ -55,7 +57,7 @@ export default function Home() {
           {[
             { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect" },
             { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!" },
-            { href: "/", img: "/plant.png", title: "Backgrind Effect", desc: "Next release" },
+            { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Next release" },
             { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!" }
           ].map(({ href, img, title, desc }, index) => (
             <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
@@ -72,7 +74,7 @@ export default function Home() {
             </a>
           ))}
 
-          {/*
+          {/* h-[500px] w-[1000px] 
           <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
                 font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
@@ -86,6 +88,20 @@ export default function Home() {
                 <SenjaForm />
               </div>
           */}
+        </div>
+
+        {/*
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <BackgroundGenerator />
+          </div>
+        </div>
+        */}
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+          <BlackHoleCustomizer />
+          </div>
         </div>
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">

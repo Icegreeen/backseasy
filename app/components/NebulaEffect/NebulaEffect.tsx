@@ -121,7 +121,7 @@ export default function NebulaEffect() {
                 type="color"
                 value={color1}
                 onChange={(e) => setColor1(e.target.value)}
-                className="w-full cursor-pointer"
+                className="w-full h-2 p-4 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
             </label>
 
@@ -131,7 +131,7 @@ export default function NebulaEffect() {
                 type="color"
                 value={color2}
                 onChange={(e) => setColor2(e.target.value)}
-                className="w-full cursor-pointer"
+                className="w-full h-2 p-4 border border-stroke-1 rounded-[10px] appearance-none cursor-pointer bg-transparent"
               />
             </label>
           </div>
