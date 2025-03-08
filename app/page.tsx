@@ -1,23 +1,20 @@
-import localFont from "next/font/local";
+
 import Image from "next/image";
 
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
+import Hero from "./components/Landing/Hero";
+import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
+import BackgroundGenerator from "./test";
+import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 
-const PrimaryButton = dynamic(() => import("@/components/PrimaryButton"));
-const SecondaryButton = dynamic(() => import("@/components/SecondaryButton"));
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });
 
 const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { ssr: false });
 const PickerExample = dynamic(() => import("@/components/PickerExample"), { ssr: false });
 const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { ssr: false });
 const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { ssr: false });
-
-const hanson = localFont({
-  src: "./hanson.woff2",
-  display: "swap",
-});
 
 export default function Home() {
   const allProjects = getProjectMetadata();
@@ -52,103 +49,33 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-6xl md:px-12">
-          <div className="relative flex-col items-start m-auto align-middle">
-                <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
-                  <div className="relative items-center gap-1 m-auto lg:inline-flex">
-                    <div className="max-w-xl lg:text-left">
-                      <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
-                      <div className="flex flex-col ">
+        <div>
+         <Hero />
+        </div>
 
-                        <p className="text-body mb-8">Made by <a className="text-purple" href="https://github.com/Icegreeen">Flávio Áquila</a></p>
-                        
-                        <h1
-                          className={`${hanson.className} bg-gradient-to-t from-zinc-100 via-slate-300 to-slate-400 bg-clip-text 
-                          text-transparent text-[56px] max-[670px]:text-1 max-[450px]:text-2 leading-none`}
-                        >
-                          Backseasy
-                        </h1>
-
-                        <p className="mt-3 text-slate-300">Make the best background for your aplications</p>
-                      </div>
-
-                      <div className="flex">
-                        <Image
-                          src={"/icons/next.svg"}
-                          alt={"imagem"}
-                          width={40}
-                          height={40}
-                          className="rounded-md mr-18"
-                        />
-
-                        <Image
-                          src={"/icons/vue.svg"}
-                          alt={"imagem"}
-                          width={40}
-                          height={40}
-                          className="rounded-md mr-18"
-                        />
-
-                        <Image
-                          src={"/icons/tailwind.svg"}
-                          alt={"imagem"}
-                          width={40}
-                          height={40}
-                          className="rounded-md mr-18"
-                        />
-
-                        <Image
-                          src={"/icons/angular.svg"}
-                          alt={"imagem"}
-                          width={40}
-                          height={40}
-                          className="rounded-md mr-18"
-                        />
-                      </div>
-
-                    <div className="flex flex-wrap gap-24">
-                      <PrimaryButton text="Explorer" type="primary" link="/all_backgrounds" />
-                      <SecondaryButton
-                        text="Tutorial"
-                        type="secondary"
-                        link="/blogs"
-                      />
-                    </div>
-                  </div> 
-                </div>
-              </div>
-                  <div className="block w-full p-8 mt-12 lg:mt-0 rounded-3xl">
-                    <img  src="3.png" alt="hero" className="object-cover object-center w-full h-full mx-auto lg:ml-auto rounded-2xl" />
-                  </div>
-                </div>
-              </div>
-          </div>
-
-        <div className="max-w-[1800px] w-full flex items-start justify-between pb-12" id="projects">
-            <a href="/glass-effect">       
-              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-16 border border-stroke-1 text-white rounded-lg shadow-md w-[400px] h-[100px]">
+        <div className="max-w-[1800px] w-full flex flex-wrap justify-between gap-4 pb-4" id="projects">
+          {[
+            { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect" },
+            { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!" },
+            { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Create beautiful Black Hole" },
+            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!" }
+          ].map(({ href, img, title, desc }, index) => (
+            <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
+              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-18 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
                 <div className="flex flex-col">
-                  <span className="text-lg font-semibold">Frosted Glass Effect <span className="border border-[#14532d] px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span></span>
-                  <span className="text-sm text-gray-400">Background with mirror effect</span>
+                  <span className="text-[16px] font-semibold">
+                    {title} 
+                    <span className="border border-[#14532d] ml-6 px-6 md:px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span>
+                  </span>
+                  {desc && <span className="text-[12px] text-gray-400">{desc}</span>}
                 </div>
-                <img src="/cubo.png" alt="Asset Icon"className="h-[100px] rounded-md"/>
+                <img src={img} alt="Asset Icon" className="h-[40px] md:h-[45px] rounded-md transition-all duration-300 ease-in-out hover:scale-110"/>
               </div>
             </a>
+          ))}
 
-            <div className="flex gap-8 mt-[55px]">
-              <div className="mx-8 inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
-                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                font-medium text-neutral-400 transition-colors border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-                <h1>Backgrounds 3D ⭐ (building)...</h1> 
-              </div>
-
-              <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
-                  border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                  font-medium text-neutral-400 transition-colors border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-                  <h1>Background selector 📌</h1> {/* 📍 */}
-              </div>
-
-              <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
+          {/* h-[500px] w-[1000px] 
+          <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
                 font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
                 <button 
@@ -156,11 +83,31 @@ export default function Home() {
                   data-project="backseasy"
                   data-form="OdQq6O"
                 >
-                  Do you want to contribute a testimonial ? <strong className="text-purple/75">Clique here ❤️</strong>
+                  Leave a testimonial! <strong className="text-purple/75">Click here ❤️</strong>
                 </button> 
                 <SenjaForm />
               </div>
-            </div>
+          */}
+        </div>
+
+        {/*
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <BackgroundGenerator />
+          </div>
+        </div>
+        */}
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+          <BlackHoleCustomizer />
+          </div>
+        </div>
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <NebulaEffect />
+          </div>
         </div>
 
         <div
@@ -319,20 +266,6 @@ export default function Home() {
             quality={100}
             className="rounded-md"
           /> 
-      </div>
-
-      <div className="fixed bottom-4 right-4">
-        <div className="my-12 mr-8 border border-stroke-1 rounded-out max-w-[800px] p-12 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-            data-senja-collector-open="backseasy"
-            data-project="backseasy"
-            data-form="OdQq6O"
-          >
-            Do you want to contribute a testimonial ? 
-          </button>
-          <SenjaForm />
-        </div>
       </div>
        
     </>
