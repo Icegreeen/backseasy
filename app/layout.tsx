@@ -114,12 +114,10 @@ export default function RootLayout({
     <html lang="en" className={outfit.className}>
       <GoogleAnalytics gaId="G-JKC1QKPHY4" />
       <meta name="google-site-verification" content="7dViSr2b9UG4Q41X5i-3U2ii-MO4je52CwcQeOd0GRg" />
-      <body className="bg-[#050505] text-white flex flex-col items-center w-screen gap-2 p-24 max-[630px]:px-[20px] overflow-x-hidden">
+      <body className="bg-[#000] text-white flex flex-col items-center w-screen gap-2 p-24 max-[630px]:px-[20px] overflow-x-hidden">
         <Nav />
         {children}
         <Footer />
-        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#ffffff] opacity-40 rounded-full blur-[400px] absolute bottom-[80%] left-[86%] -z-50"></div>
-        <div className="w-[35rem] h-[30rem] animate-spin-slow bg-[#6227b0] opacity-20 rounded-full blur-[400px] absolute bottom-[40%] left-[36%] -z-50"></div>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import type { CSSProperties } from 'react';
-import { FiCopy } from 'react-icons/fi';
+import type { CSSProperties } from 'react'; 
+import { FiCopy } from 'react-icons/fi'; 
 
 const BackgroundCustomizer = () => {
   const [color1, setColor1] = useState('#1c4b4f');
@@ -20,20 +20,20 @@ const BackgroundCustomizer = () => {
 
   const grainyStyle: CSSProperties = grainyActive
     ? {
-      content: '""',
-      backgroundColor: 'transparent',
-      backgroundImage:
-        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E\")",
-      backgroundRepeat: 'repeat',
-      backgroundSize: '182px',
-      opacity: 0.12,
-      top: 0,
-      left: 0,
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      zIndex: 0,
-    }
+        content: '""',
+        backgroundColor: 'transparent',
+        backgroundImage:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E\")",
+        backgroundRepeat: 'repeat',
+        backgroundSize: '182px',
+        opacity: 0.12,
+        top: 0,
+        left: 0,
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+      }
     : {};
 
   const toggleBlackout = () => {
@@ -48,9 +48,10 @@ const BackgroundCustomizer = () => {
     return `
       background: linear-gradient(${gradientDirection}, ${color1}, ${color2});
       ${blackoutActive ? `opacity: 0.3;` : ''}
-      ${grainyActive
-        ? `background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"); background-size: 182px; background-repeat: repeat; opacity: 0.12;`
-        : ''
+      ${
+        grainyActive
+          ? `background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"); background-size: 182px; background-repeat: repeat; opacity: 0.12;`
+          : ''
       }
     `;
   };
@@ -64,35 +65,33 @@ const BackgroundCustomizer = () => {
     <div className="w-[800px] mx-auto rounded-lg rounded-[8px] p-12 border border-stroke-1">
       <h1 className="text-2xl font-semibold mb-8 mt-4 text-center text-white">Background Customizer</h1>
 
-      <div className="flex flex-col gap-6 mb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-          <div>
-            <label className="block text-sm font-medium mb-1 text-white">Color 1:</label>
-            <div className="relative">
-              <input
-                type="color"
-                value={color1}
-                onChange={(e) => setColor1(e.target.value)}
-                className="w-full h-[30px] cursor-pointer rounded-[15px] appearance-none border-none outline-none rounded-md bg-transparent"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1 text-white">Color 2:</label>
-            <div className="relative">
-              <input
-                type="color"
-                value={color2}
-                onChange={(e) => setColor2(e.target.value)}
-                className="w-full h-[30px] cursor-pointer rounded-[15px] appearance-none border-none outline-none rounded-md bg-transparent"
-              />
-            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label className="block text-sm font-medium mb-1 text-white">Color 1:</label>
+          <div className="relative">
+            <input
+              type="color"
+              value={color1}
+              onChange={(e) => setColor1(e.target.value)}
+              className="w-full h-[30px] cursor-pointer rounded-[15px] appearance-none border-none outline-none rounded-md bg-transparent"
+            />
           </div>
         </div>
 
-        <div className="w-full flex flex-col sm:flex-row gap-4 mb-12">
-          <div className="flex-1">
+        <div>
+          <label className="block text-sm font-medium mb-1 text-white">Color 2:</label>
+          <div className="relative">
+            <input
+              type="color"
+              value={color2}
+              onChange={(e) => setColor2(e.target.value)}
+              className="w-full h-[30px] cursor-pointer rounded-[15px] appearance-none border-none outline-none rounded-md bg-transparent"
+            />
+          </div>
+        </div>
+
+        <div className="col-span-1 justify-center items-center sm:col-span-1 flex flex-col sm:flex-row gap-8">
+          <div className="flex-auto">
             <label className="block text-sm font-medium mb-4 text-white">Gradient Direction:</label>
             <select
               value={gradientDirection}
@@ -106,22 +105,24 @@ const BackgroundCustomizer = () => {
             </select>
           </div>
 
-          <div className="flex-1">
+          <div className="flex-auto">
             <label className="block text-sm font-medium mb-4 text-white">Blackout Effect:</label>
             <div
-              className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${blackoutActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
-                }`}
+              className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${
+                blackoutActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+              }`}
               onClick={toggleBlackout}
             >
               {blackoutActive ? 'On' : 'Off'}
             </div>
           </div>
 
-          <div className="flex-1">
+          <div className="flex-auto">
             <label className="block text-sm font-medium mb-4 text-white">Grainy Effect:</label>
             <div
-              className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${grainyActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
-                }`}
+              className={`w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent rounded-[8px] ${
+                grainyActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+              }`}
               onClick={toggleGrainy}
             >
               {grainyActive ? 'On' : 'Off'}

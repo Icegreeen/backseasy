@@ -54,10 +54,10 @@ const FrostedGlassGenerator: React.FC = () => {
         Frosted Glass Effect
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[30px]">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-[30px]">
         {/* Pré-visualizações */}
         <div
-          className="frosted-glass-preview w-full h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
+          className="frosted-glass-preview h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
           style={{
             backgroundImage:
               'url(https://github.com/user-attachments/assets/bb052fda-d221-411e-b244-2d352c4cba2e)',
@@ -67,7 +67,7 @@ const FrostedGlassGenerator: React.FC = () => {
           }}
         >
           <div
-            className="frosted-glass w-full max-w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
+            className="frosted-glass w-full md:w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
             style={{
               backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
@@ -90,7 +90,7 @@ const FrostedGlassGenerator: React.FC = () => {
         </div>
 
         <div
-          className="frosted-glass-preview w-full h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
+          className="frosted-glass-preview h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
           style={{
             backgroundImage:
               'url(https://github.com/user-attachments/assets/9abefce5-3d52-449a-a7e4-e728d2974bf1)',
@@ -100,7 +100,7 @@ const FrostedGlassGenerator: React.FC = () => {
           }}
         >
           <div
-            className="frosted-glass w-full max-w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
+            className="frosted-glass w-full md:w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
             style={{
               backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
@@ -123,7 +123,7 @@ const FrostedGlassGenerator: React.FC = () => {
         </div>
 
         {/* Layout dos Controles e Código Gerado */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] w-[81vw] sm:w-[92vw]">
+        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-[30px]">
           <div className="flex-1 p-6 rounded-lg shadow-md text-gray-100">
             <h2 className="text-lg font-semibold mb-8">Effect Customizer:</h2>
 
