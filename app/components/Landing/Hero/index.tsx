@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import BlackHole from "../../black-hole/black-hole";
-
+import Link from "next/link";
 const hanson = localFont({
     src: "../../../hanson.woff2",
     display: "swap",
@@ -22,7 +22,7 @@ export default function Hero() {
                       <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
                       <div className="flex flex-col ">
 
-                        <p className="text-body mb-8">Made by <a className="text-purple text-[18px]" href="https://github.com/Icegreeen">Flávio Áquila</a></p>
+                        <p className="text-body mb-8">Made by <Link className="text-purple text-[18px]" href="https://github.com/Icegreeen">Flávio Áquila</Link></p>
                         
                         <h1
                           className={`${hanson.className} bg-gradient-to-t from-zinc-100 via-slate-300 to-slate-400 bg-clip-text 
