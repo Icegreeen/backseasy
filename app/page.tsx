@@ -6,13 +6,11 @@ import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
 import Hero from "./components/Landing/Hero";
 import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
-import BackgroundGenerator from "./test";
 import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });
 
 const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { ssr: false });
-const PickerExample = dynamic(() => import("@/components/PickerExample"), { ssr: false });
 const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { ssr: false });
 const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { ssr: false });
 
@@ -30,7 +28,7 @@ export default function Home() {
     objects: [],
     atmosphere: [],
   };
-
+  
   allProjects.forEach((project) => {
     if (projectCategories[project.type]) {
       projectCategories[project.type].push(project);
@@ -120,7 +118,19 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
             <div className="w-full lg:w-1/2 flex  p-4">
-              <PickerExample />
+
+              <div className="w-full ">
+                <div className="border border-stroke-1 m-28 p-28 rounded-out">
+                  <h2 className="text-2 font-medium">3D backgrounds... (<span className="text-yellow">Next release</span>)</h2>
+                  <p className="text-white my-18">Custom 3d backgrounds ready to use.</p>
+                  
+                  <br /><br />
+                  <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
+                    <img className="w-full h-auto max-w-full"  src="ghost.png" alt="" />
+                    <img className="w-full h-auto max-w-full"  src="aquiles2.png" alt="" />    
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="w-full lg:w-1/2 flex  p-4">
@@ -135,6 +145,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/*
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="border border-stroke-1 m-28 p-28 rounded-out">
@@ -158,8 +169,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
+        */}
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
@@ -168,7 +179,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["objects"]?.slice(0, 6)}
+            {projectPreviews["objects"]}
           </div>
 
           <div className="flex">
@@ -177,7 +188,7 @@ export default function Home() {
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["atmosphere"]?.slice(0, 6)}
+            {projectPreviews["atmosphere"]}
           </div>
 
           <div className="flex">
@@ -186,7 +197,7 @@ export default function Home() {
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["animated"]?.slice(0, 6)}
+            {projectPreviews["animated"]}
           </div>
 
           <div className="flex">
@@ -197,7 +208,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["svg"]?.slice(0, 6)}
+            {projectPreviews["svg"]}
           </div>
 
           <div className="flex">
@@ -205,7 +216,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["black"]?.slice(0, 6)}
+            {projectPreviews["black"]}
           </div>
 
           <div className="flex">
@@ -214,7 +225,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["square"]?.slice(0, 6)}
+            {projectPreviews["square"]}
           </div>
 
           <div className="flex">
@@ -224,7 +235,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["sky"]?.slice(0, 6)}
+            {projectPreviews["sky"]}
           </div>
 
           <div className="flex">
@@ -234,7 +245,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["butterfly"]?.slice(0, 6)}
+            {projectPreviews["butterfly"]}
           </div>
 
           <div className="flex">
@@ -243,7 +254,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["white"]?.slice(0, 6)}
+            {projectPreviews["white"]}
           </div>
       </div>
       
@@ -266,8 +277,7 @@ export default function Home() {
             quality={100}
             className="rounded-md"
           /> 
-      </div>
-       
+      </div> 
     </>
   );
 }
