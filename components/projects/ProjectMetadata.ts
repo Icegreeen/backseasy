@@ -4,4 +4,5 @@ export interface ProjectMetadata {
   type: string;
   date: string;
   slug: string;
+  author: string;
 }

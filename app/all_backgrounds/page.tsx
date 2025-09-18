@@ -1,6 +1,51 @@
 
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Backgrounds - Free Background Collection | Backseasy",
+  description: "Browse our complete collection of free backgrounds for web design. Animated backgrounds, gradients, glassmorphism effects, and modern UI patterns. Download and customize instantly!",
+  keywords: [
+    "all backgrounds",
+    "background collection",
+    "free backgrounds",
+    "web design backgrounds",
+    "animated backgrounds",
+    "gradient backgrounds",
+    "glassmorphism backgrounds",
+    "CSS backgrounds",
+    "background patterns",
+    "UI/UX backgrounds",
+    "frontend backgrounds",
+    "design backgrounds"
+  ],
+  openGraph: {
+    title: "All Backgrounds - Free Background Collection | Backseasy",
+    description: "Browse our complete collection of free backgrounds for web design. Animated backgrounds, gradients, glassmorphism effects, and modern UI patterns.",
+    url: "https://backseasy.com/all_backgrounds",
+    siteName: "Backseasy",
+    images: [
+      {
+        url: "https://backseasy.com/seoBack.png",
+        width: 1200,
+        height: 630,
+        alt: "Backseasy Background Collection",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Backgrounds - Free Background Collection | Backseasy",
+    description: "Browse our complete collection of free backgrounds for web design. Animated backgrounds, gradients, and modern UI patterns.",
+    images: ["https://backseasy.com/seoBack.png"],
+  },
+  alternates: {
+    canonical: "https://backseasy.com/all_backgrounds",
+  },
+};
 
 export default function Home() {
   const allProjects = getProjectMetadata();
@@ -71,9 +116,60 @@ export default function Home() {
     <ProjectPreview category={"objects"} key={project.slug} {...project} />
   ));
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "All Backgrounds - Free Background Collection",
+    "description": "Complete collection of free backgrounds for web design including animated backgrounds, gradients, glassmorphism effects, and modern UI patterns.",
+    "url": "https://backseasy.com/all_backgrounds",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": allProjects.length,
+      "itemListElement": allProjects.map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": project.title,
+          "description": `Free ${project.type} background for web design`,
+          "url": `https://backseasy.com/projects/${project.slug}`,
+          "image": project.image.startsWith('http') ? project.image : `https://backseasy.com${project.image}`,
+          "author": {
+            "@type": "Person",
+            "name": project.author
+          },
+          "genre": project.type,
+          "isAccessibleForFree": true
+        }
+      }))
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://backseasy.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Backgrounds",
+          "item": "https://backseasy.com/all_backgrounds"
+        }
+      ]
+    }
+  };
+
   return (
     <>
-     
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
      <div className="border my-12 border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
         <h2 className="text-3 font-medium">Animated backgrounds</h2>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">

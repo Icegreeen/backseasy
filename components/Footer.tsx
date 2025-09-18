@@ -23,7 +23,7 @@ export default function Footer() {
         </Link>
       </div>
 
-      <div className="p-8 border border border-stroke-1 rounded-out flex items-center hover-active-effect">
+      <div className="p-8 border border-stroke-1 rounded-out flex items-center hover-active-effect">
         {/*
         <Image
             src={"/icons/coffee.png"}

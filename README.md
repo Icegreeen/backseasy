@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/Icegreeen/backseasy/assets/56550632/f7b21447-d213-4f97-a3d4-9f4238a05b57" />
+   <img src="/test1.png" />
 </p>
 
 <h1 align="center">

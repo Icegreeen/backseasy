@@ -56,7 +56,7 @@ export default function Nav() {
                           hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
               >
                 Get Plus
-                <img className="h-18" src="star.png" alt="star" />
+                <img className="h-18" src="/star.png" alt="star" />
               </Link>
 
               <Link href={"https://buymeacoffee.com/icegreen"}>
@@ -99,7 +99,7 @@ export default function Nav() {
                           hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
               >
                 Get Plus
-                <img className="h-18" src="star.png" alt="star" />
+                <img className="h-18" src="/star.png" alt="star" />
               </Link>
       </motion.div>
     </nav>

@@ -8,7 +8,7 @@ export default function BlackHoleCustomizer() {
   const [coreSize, setCoreSize] = useState(40);
   const [outerSize, setOuterSize] = useState(80);
   const [color1, setColor1] = useState("#000000");
-  const [color2, setColor2] = useState("#300303");
+  const [color2, setColor2] = useState("#3b3a3a");
   const [color3, setColor3] = useState("#000");
   const [blur, setBlur] = useState(10);
   const [position, setPosition] = useState("bottom");

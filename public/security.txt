@@ -1,0 +1,12 @@
+# security.txt file for backseasy.com
+# This file is used to provide security contact information
+# For more information, visit: https://securitytxt.org/
+
+Contact: mailto:security@backseasy.com
+Contact: https://backseasy.com/security
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://backseasy.com/pgp-key.txt
+Acknowledgments: https://backseasy.com/security/acknowledgments
+Preferred-Languages: en, pt
+Canonical: https://backseasy.com/.well-known/security.txt
+Policy: https://backseasy.com/security/policy
