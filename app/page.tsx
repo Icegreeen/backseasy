@@ -9,12 +9,27 @@ import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
 import BackgroundGenerator from "./test";
 import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 
-const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { ssr: false });
+const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-12 w-full rounded"></div>
+});
 
-const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { ssr: false });
-const PickerExample = dynamic(() => import("@/components/PickerExample"), { ssr: false });
-const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { ssr: false });
-const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { ssr: false });
+const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { 
+  ssr: false,
+  loading: () => null
+});
+const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-32 w-full rounded"></div>
+});
+const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
 
 export default function Home() {
   const allProjects = getProjectMetadata();

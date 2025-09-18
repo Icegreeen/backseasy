@@ -31,6 +31,7 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  output: 'standalone',
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

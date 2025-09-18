@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Backseasy",
     images: [
       {
-        url: "https://backseasy.com/seoCover.png",
+        url: "https://backseasy.com/seoBack.png",
         width: 1200,
         height: 630,
         alt: "Backseasy Background Collection",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "All Backgrounds - Free Background Collection | Backseasy",
     description: "Browse our complete collection of free backgrounds for web design. Animated backgrounds, gradients, and modern UI patterns.",
-    images: ["https://backseasy.com/seoCover.png"],
+    images: ["https://backseasy.com/seoBack.png"],
   },
   alternates: {
     canonical: "https://backseasy.com/all_backgrounds",

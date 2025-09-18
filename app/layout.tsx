@@ -97,7 +97,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
       {
-        url: "https://backseasy.com/seoCover.png",
+        url: "https://backseasy.com/seoBack.png",
         width: 1200,
         height: 630,
         alt: "Backseasy Background Examples",
