@@ -153,6 +153,7 @@ export default function Home() {
             </a>
           ))}
 
+          {/*
           <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
                 font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
@@ -165,8 +166,10 @@ export default function Home() {
                 </button> 
                 <SenjaForm />
               </div>
+           */}
         </div>
 
+        {/*
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
             <div className="text-center text-gray-400">
@@ -175,6 +178,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        */}
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
@@ -327,7 +331,7 @@ export default function Home() {
       
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-          <h2 className="text-2 font-medium">About Backseasy - Free Background Generator</h2>
+          <h2 className="text-2 font-medium">About Backseasy</h2>
 
           <p className="text-body leading-[200%]">
             Backseasy is the ultimate <strong>free background generator</strong> for web designers and developers. 
