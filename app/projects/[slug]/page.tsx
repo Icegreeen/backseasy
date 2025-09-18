@@ -6,6 +6,7 @@ import Image from "next/image";
 import moment from "moment";
 import Link from "next/link";
 import path from "path";
+import { Metadata } from "next";
 
 const getProjectContent = (slug: string) => {
   const folder = "projects/";
@@ -43,10 +44,100 @@ export const generateStaticParams = async () => {
   }));
 };
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { title, type, image, date, author } = getProjectContent(params.slug);
+  const description = `Free ${type} background for web design. Download and customize this ${title} background pattern for your projects. Created by ${author}.`;
+  
+  return {
+    title: `${title} - Free ${type} Background | Backseasy`,
+    description,
+    keywords: [
+      `${type} background`,
+      `${title} background`,
+      "free background",
+      "web design background",
+      "CSS background",
+      "background pattern",
+      "download background",
+      "custom background",
+      "animated background",
+      "gradient background"
+    ],
+    openGraph: {
+      title: `${title} - Free ${type} Background`,
+      description,
+      url: `https://backseasy.com/projects/${params.slug}`,
+      siteName: "Backseasy",
+      images: [
+        {
+          url: image.startsWith('http') ? image : `https://backseasy.com${image}`,
+          width: 1200,
+          height: 630,
+          alt: `${title} - ${type} Background`,
+        },
+      ],
+      locale: "en_US",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} - Free ${type} Background`,
+      description,
+      images: [image.startsWith('http') ? image : `https://backseasy.com${image}`],
+    },
+    alternates: {
+      canonical: `https://backseasy.com/projects/${params.slug}`,
+    },
+  };
+}
+
 export default function Project(props: any) {
   const slug = props.params.slug;
   const { content, image, date, author, type, title } = getProjectContent(slug);
+  
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": title,
+    "description": `Free ${type} background for web design. Download and customize this ${title} background pattern for your projects.`,
+    "url": `https://backseasy.com/projects/${slug}`,
+    "image": image.startsWith('http') ? image : `https://backseasy.com${image}`,
+    "author": {
+      "@type": "Person",
+      "name": author
+    },
+    "creator": {
+      "@type": "Person",
+      "name": author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Backseasy",
+      "url": "https://backseasy.com"
+    },
+    "dateCreated": date,
+    "dateModified": date,
+    "inLanguage": "en-US",
+    "genre": type,
+    "keywords": `${type} background, ${title} background, free background, web design background, CSS background`,
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "DigitalDocument",
+      "name": title,
+      "description": `Free ${type} background pattern for web design`,
+      "encodingFormat": "text/markdown"
+    }
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="flex flex-col gap-64 max-[600px]:gap-36 items-center align-middle p-48 my-48 border border-stroke-1 rounded-out max-w-[1300px] min-h-screen w-full">
         <div className="flex flex-col gap-48 max-[600px]:gap-32">
 
@@ -68,7 +159,7 @@ export default function Project(props: any) {
             width={1220}
             height={714}
             quality={100}
-            alt="Banner"
+            alt={`${title} - ${type} Background`}
             className="aspect-[12/6] object-cover w-full h-auto border border-stroke-2 rounded-in"
           />
           {/* aspect-[12/6] */}
@@ -77,5 +168,6 @@ export default function Project(props: any) {
           <Markdown>{content}</Markdown>
         </article>
       </div>
+    </>
   );
 }

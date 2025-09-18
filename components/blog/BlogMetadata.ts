@@ -5,4 +5,5 @@ export interface BlogMetadata {
   author: string;
   date: string;
   slug: string;
+  description: string;
 }

@@ -1,0 +1,41 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Developer: Flavio Aquila
+    Contact: https://github.com/Icegreeen
+    From: Brazil
+
+# THANKS
+
+    Name: Next.js Team
+    URL: https://nextjs.org/
+
+    Name: Tailwind CSS Team
+    URL: https://tailwindcss.com/
+
+    Name: Framer Motion Team
+    URL: https://www.framer.com/motion/
+
+# TECHNOLOGY COLOPHON
+
+    Backend: Next.js 14
+    Frontend: React 18, TypeScript
+    Styling: Tailwind CSS
+    Animations: Framer Motion
+    Database: Prisma
+    Authentication: NextAuth.js
+    Deployment: Vercel
+    Analytics: Google Analytics
+    Search: Google Search Console
+    CDN: Vercel Edge Network
+    Fonts: Google Fonts (Outfit)
+    Icons: Lucide React
+    UI Components: Radix UI
+    Package Manager: Yarn
+    Version Control: Git
+    Repository: GitHub
+    License: MIT
+    Language: English, Portuguese
+    Country: Brazil

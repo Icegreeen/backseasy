@@ -18,6 +18,7 @@ const getBlogMetadata = (): BlogMetadata[] => {
         author: matterResult.data.author,
         date: matterResult.data.date,
         slug: filename.replace(".md", ""),
+        description: matterResult.data.description || matterResult.data.title,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

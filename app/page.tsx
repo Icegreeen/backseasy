@@ -18,6 +18,47 @@ const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/Froste
 
 export default function Home() {
   const allProjects = getProjectMetadata();
+  
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://backseasy.com"
+      }
+    ]
+  };
+
+  const collectionStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Backseasy Background Collection",
+    "description": "Free collection of customizable backgrounds for web designers and developers",
+    "url": "https://backseasy.com",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": allProjects.length,
+      "itemListElement": allProjects.slice(0, 10).map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": project.title,
+          "description": `Free ${project.type} background for web design`,
+          "url": `https://backseasy.com/projects/${project.slug}`,
+          "image": project.image.startsWith('http') ? project.image : `https://backseasy.com${project.image}`,
+          "author": {
+            "@type": "Person",
+            "name": project.author
+          },
+          "genre": project.type
+        }
+      }))
+    }
+  };
 
   const projectCategories: Record<string, typeof allProjects> = {
     butterfly: [],
@@ -49,6 +90,18 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionStructuredData),
+        }}
+      />
         <div>
          <Hero />
         </div>
@@ -69,7 +122,15 @@ export default function Home() {
                   </span>
                   {desc && <span className="text-[12px] text-gray-400">{desc}</span>}
                 </div>
-                <img src={img} alt="Asset Icon" className="h-[40px] md:h-[45px] rounded-md transition-all duration-300 ease-in-out hover:scale-110"/>
+                <Image 
+                  src={img} 
+                  alt={`${title} - Background Generator Tool`} 
+                  width={45} 
+                  height={45} 
+                  className="h-[40px] md:h-[45px] rounded-md transition-all duration-300 ease-in-out hover:scale-110"
+                  loading="lazy"
+                  quality={85}
+                />
               </div>
             </a>
           ))}
@@ -115,7 +176,7 @@ export default function Home() {
           id="projects"
         >
           <div className="w-full">
-            <h1 className="text-[18px] font-semibold">Background Select</h1>
+            <h1 className="text-[18px] font-semibold">Free Background Generator & Customizer</h1>
           </div>
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
@@ -138,8 +199,8 @@ export default function Home() {
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">Backgrounds SVGS (<span className="text-yellow">New release</span>)</h2>
-              <p className="text-white my-18">The best backgrounds used ⭐</p>
+              <h2 className="text-2 font-medium">Free SVG Backgrounds Collection (<span className="text-yellow">New release</span>)</h2>
+              <p className="text-white my-18">High-quality vector backgrounds for modern web design ⭐</p>
               <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
                {projectPreviews["svg"]?.slice(0, 6)}
               </div>
@@ -148,13 +209,13 @@ export default function Home() {
 
           <div className="w-full md:w-1/2">
             <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">3D backgrounds... (<span className="text-yellow">Next release</span>)</h2>
-              <p className="text-white my-18">Custom 3d backgrounds ready to use.</p>
+              <h2 className="text-2 font-medium">3D Web Backgrounds Collection (<span className="text-yellow">Next release</span>)</h2>
+              <p className="text-white my-18">Immersive 3D backgrounds for modern web applications and landing pages.</p>
               
               <br /><br />
               <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-                <img className="w-full h-auto max-w-full"  src="ghost.png" alt="" />
-                <img className="w-full h-auto max-w-full"  src="aquiles2.png" alt="" />    
+                <Image className="w-full h-auto max-w-full" src="/ghost.png" alt="3D Ghost Background Preview" width={400} height={300} quality={85} loading="lazy" />
+                <Image className="w-full h-auto max-w-full" src="/aquiles2.png" alt="3D Character Background Preview" width={400} height={300} quality={85} loading="lazy" />    
               </div>
             </div>
           </div>
@@ -163,7 +224,7 @@ export default function Home() {
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
-            <h2 className="text-3 font-medium">Objects</h2>
+            <h2 className="text-3 font-medium">Object Backgrounds for Web Design</h2>
             <NavigationAllBackgrounds />
           </div>
 
@@ -172,7 +233,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-              <h2 className="text-3 font-medium">Atmosphere</h2>
+              <h2 className="text-3 font-medium">Atmospheric Background Effects</h2>
               <NavigationAllBackgrounds />
           </div>
         
@@ -181,7 +242,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Animated backgrounds ⭐</h2>
+            <h2 className="text-3 font-medium">Animated CSS Backgrounds ⭐</h2>
             <NavigationAllBackgrounds />
           </div>
         
@@ -191,7 +252,7 @@ export default function Home() {
 
           <div className="flex">
             <h2 className="text-3 font-medium">
-              Svg backgrounds
+              Vector SVG Backgrounds
             </h2>
 
             <NavigationAllBackgrounds />
@@ -201,7 +262,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Black</h2>
+            <h2 className="text-3 font-medium">Dark Mode Backgrounds</h2>
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
@@ -209,7 +270,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Square</h2>
+            <h2 className="text-3 font-medium">Geometric Pattern Backgrounds</h2>
             <NavigationAllBackgrounds />
           </div>
 
@@ -218,7 +279,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Sky</h2>
+            <h2 className="text-3 font-medium">Sky & Nature Backgrounds</h2>
 
             <NavigationAllBackgrounds />
           </div>
@@ -228,7 +289,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">Butterfly</h2>
+            <h2 className="text-3 font-medium">Artistic Butterfly Backgrounds</h2>
 
             <NavigationAllBackgrounds />
           </div>
@@ -238,7 +299,7 @@ export default function Home() {
           </div>
 
           <div className="flex">
-            <h2 className="text-3 font-medium">White</h2>
+            <h2 className="text-3 font-medium">Light Mode & Minimalist Backgrounds</h2>
 
             <NavigationAllBackgrounds />
           </div>
@@ -247,24 +308,33 @@ export default function Home() {
           </div>
       </div>
       
-      <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
+        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-          <h2 className="text-2 font-medium">About</h2>
+          <h2 className="text-2 font-medium">About Backseasy - Free Background Generator</h2>
 
           <p className="text-body leading-[200%]">
-            Here, you find a diverse collection of backgrounds ready to be used in your front-end interfaces. 
-            From smooth gradients to stunning images, our library offers a variety of options to bring your screens
-            to life and provide elegant visual experiences. Explore our selection and instantly transform the look 
-            of your projects with ease and style.
+            Backseasy is the ultimate <strong>free background generator</strong> for web designers and developers. 
+            Our comprehensive collection features <strong>animated CSS backgrounds</strong>, <strong>gradient generators</strong>, 
+            <strong>glassmorphism effects</strong>, and <strong>modern UI patterns</strong> that are perfect for 
+            <strong>Next.js projects</strong>, <strong>React applications</strong>, and <strong>Tailwind CSS designs</strong>.
+          </p>
+          
+          <p className="text-body leading-[200%]">
+            Whether you need <strong>dark mode backgrounds</strong>, <strong>responsive patterns</strong>, 
+            <strong>SVG backgrounds</strong>, or <strong>3D web backgrounds</strong>, our library provides 
+            high-quality, customizable options that enhance your <strong>frontend development</strong> workflow. 
+            All backgrounds are optimized for performance and ready to download instantly.
           </p>
         </div>
           <Image
             src={"/3.jpg"}
-            alt={"imagem"}
+            alt="Backseasy Background Generator - About Section"
             width={900}
             height={900}
-            quality={100}
+            quality={85}
             className="rounded-md"
+            loading="lazy"
+            priority={false}
           /> 
       </div>
        

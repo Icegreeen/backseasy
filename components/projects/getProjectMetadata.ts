@@ -15,6 +15,7 @@ const getButterflyProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -34,6 +35,7 @@ const getBlackProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -53,6 +55,7 @@ const getSquareProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -72,6 +75,7 @@ const getSkyProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -91,6 +95,7 @@ const getWhiteProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -110,6 +115,7 @@ const getAnimatedProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -129,6 +135,7 @@ const getSvgProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -148,6 +155,7 @@ const getObjectsProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
 
@@ -167,6 +175,7 @@ const getAtmosphereProjects = (): ProjectMetadata[] => {
       type: matterResult.data.type,
       date: matterResult.data.date,
       slug: filename.replace(".md", ""),
+      author: matterResult.data.author || "Backseasy",
     };
   });
   

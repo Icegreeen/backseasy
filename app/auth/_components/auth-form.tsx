@@ -104,7 +104,7 @@ export default function AuthForm() {
       hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
           >
             Upgrade Now
-            <img className="h-18" src="star.png" alt="star" />
+            <img className="h-18" src="/star.png" alt="star" />
           </Link>
           
           {/*
