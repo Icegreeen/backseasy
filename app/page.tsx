@@ -8,6 +8,9 @@ import Hero from "./components/Landing/Hero";
 import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
 // import BackgroundGenerator from "./test";
 import BlackHoleCustomizer from "./black-hole/background-customizatizer";
+import PickerExample from "@/components/PickerExample";
+import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
+import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
   ssr: false,
