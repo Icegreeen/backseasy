@@ -1,5 +1,5 @@
-<p align="center">
-   ![Backseasy Preview](public/seoBack.png)
+<p>
+   <img src="public/seoBack.png" alt='back' />
 </p>
 
 <h1 align="center">
