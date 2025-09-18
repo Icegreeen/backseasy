@@ -6,7 +6,7 @@ import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
 import Hero from "./components/Landing/Hero";
 import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
-import BackgroundGenerator from "./test";
+// import BackgroundGenerator from "./test";
 import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
@@ -18,18 +18,18 @@ const SenjaForm = dynamic(() => import("@/components/SenjaForm"), {
   ssr: false,
   loading: () => null
 });
-const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-32 w-full rounded"></div>
-});
-const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { 
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { 
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
+// const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
+//   ssr: false,
+//   loading: () => <div className="animate-pulse bg-gray-800 h-32 w-full rounded"></div>
+// });
+// const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { 
+//   ssr: false,
+//   loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+// });
+// const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { 
+//   ssr: false,
+//   loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+// });
 
 export default function Home() {
   const allProjects = getProjectMetadata();
@@ -150,7 +150,6 @@ export default function Home() {
             </a>
           ))}
 
-          {/* h-[500px] w-[1000px] 
           <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
                 border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
                 font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
@@ -163,16 +162,16 @@ export default function Home() {
                 </button> 
                 <SenjaForm />
               </div>
-          */}
         </div>
 
-        {/*
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <BackgroundGenerator />
+            <div className="text-center text-gray-400">
+              <h3 className="text-xl font-semibold mb-4">Background Generator</h3>
+              <p>Coming soon...</p>
+            </div>
           </div>
         </div>
-        */}
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">

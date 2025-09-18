@@ -31,7 +31,11 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
-  output: 'standalone',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
