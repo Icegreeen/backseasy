@@ -10,3 +10,5 @@ Acknowledgments: https://backseasy.com/security/acknowledgments
 Preferred-Languages: en, pt
 Canonical: https://backseasy.com/.well-known/security.txt
 Policy: https://backseasy.com/security/policy
+
+
