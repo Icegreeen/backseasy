@@ -20,11 +20,11 @@ export default function Nav() {
     },
   };
   const navItems = [
-    { text: "Home", link: "/" },
+    //{ text: "Home", link: "/" },
     { text: "Black Hole", link: "/black-hole" },
     { text: "Glass Effect", link: "/glass-effect" },
     { text: "Nebula Effect", link: "/nebula-effect" },
-    { text: "About", link: "/#about" },
+    //{ text: "About", link: "/#about" },
     { text: "Blog", link: "/blogs" },
   ];
   return (
@@ -49,6 +49,7 @@ export default function Nav() {
             return <NavLink text={link.text} link={link.link} key={index} />;
           })}  
 
+              {/*
               <Link
                 href={"/auth"}
                 className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
@@ -58,6 +59,7 @@ export default function Nav() {
                 Get Plus
                 <img className="h-18" src="/star.png" alt="star" />
               </Link>
+              */}
 
               <Link href={"https://buymeacoffee.com/icegreen"}>
                 <Image
@@ -92,6 +94,7 @@ export default function Nav() {
             <NavLink textBig text={link.text} link={link.link} key={index} />
           );
         })}
+              {/*
               <Link
                 href={"/auth"}
                 className="bg-purple/75 border-stroke-2 text-white hover:bg-purple active:bg-purple/50 disabled:bg-purple/25
@@ -101,6 +104,7 @@ export default function Nav() {
                 Get Plus
                 <img className="h-18" src="/star.png" alt="star" />
               </Link>
+              */}
       </motion.div>
     </nav>
   );
