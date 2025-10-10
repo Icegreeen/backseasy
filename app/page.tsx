@@ -11,6 +11,8 @@ import BlackHoleCustomizer from "./black-hole/background-customizatizer";
 import PickerExample from "@/components/PickerExample";
 import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
 import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
+import { StableParticleSystem } from "./components/BackgroundGenerators/ParticleSystem";
+import SimpleMeshGradient from "./components/BackgroundGenerators/MeshGradient/SimpleMeshGradient";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
   ssr: false,
@@ -152,21 +154,6 @@ export default function Home() {
               </div>
             </a>
           ))}
-
-          {/*
-          <div className="inline-flex animate-shine items-center justify-center rounded-[10px] text-sm border 
-                border-neutral-800 bg-[linear-gradient(110deg,#050505,45%,#1e2631,55%,#050505)] bg-[length:200%_100%] 
-                font-medium text-neutral-400 transition-colors  border-stroke-1 max-w-[800px] p-8 gap-32 flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-                <button 
-                  data-senja-collector-open="backseasy"
-                  data-project="backseasy"
-                  data-form="OdQq6O"
-                >
-                  Leave a testimonial! <strong className="text-purple/75">Click here ❤️</strong>
-                </button> 
-                <SenjaForm />
-              </div>
-           */}
         </div>
 
         {/*
@@ -189,6 +176,18 @@ export default function Home() {
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
             <NebulaEffect />
+          </div>
+        </div>
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <StableParticleSystem />
+          </div>
+        </div>
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <SimpleMeshGradient />
           </div>
         </div>
 
@@ -217,6 +216,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/*
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="border border-stroke-1 m-28 p-28 rounded-out">
@@ -242,6 +242,7 @@ export default function Home() {
           </div>
 
         </div>
+        */}
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
@@ -250,7 +251,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["objects"]?.slice(0, 6)}
+            {projectPreviews["objects"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -259,7 +260,7 @@ export default function Home() {
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["atmosphere"]?.slice(0, 6)}
+            {projectPreviews["atmosphere"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -268,7 +269,7 @@ export default function Home() {
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["animated"]?.slice(0, 6)}
+            {projectPreviews["animated"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -279,7 +280,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["svg"]?.slice(0, 6)}
+            {projectPreviews["svg"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -287,7 +288,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["black"]?.slice(0, 6)}
+            {projectPreviews["black"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -296,7 +297,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["square"]?.slice(0, 6)}
+            {projectPreviews["square"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -306,7 +307,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["sky"]?.slice(0, 6)}
+            {projectPreviews["sky"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -316,7 +317,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["butterfly"]?.slice(0, 6)}
+            {projectPreviews["butterfly"]?.slice(0, 10)}
           </div>
 
           <div className="flex">
@@ -325,7 +326,7 @@ export default function Home() {
             <NavigationAllBackgrounds />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["white"]?.slice(0, 6)}
+            {projectPreviews["white"]?.slice(0, 10)}
           </div>
       </div>
       
