@@ -13,16 +13,14 @@ import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
 import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
 import { StableParticleSystem } from "./components/BackgroundGenerators/ParticleSystem";
 import SimpleMeshGradient from "./components/BackgroundGenerators/MeshGradient/SimpleMeshGradient";
+import CodePreview from "@/components/CodePreview/CodePreview";
+import { Background } from "@/lib/backgroundPreview";
 
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
   ssr: false,
   loading: () => <div className="animate-pulse bg-gray-800 h-12 w-full rounded"></div>
 });
 
-const SenjaForm = dynamic(() => import("@/components/SenjaForm"), { 
-  ssr: false,
-  loading: () => null
-});
 // const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
 //   ssr: false,
 //   loading: () => <div className="animate-pulse bg-gray-800 h-32 w-full rounded"></div>
@@ -81,6 +79,7 @@ export default function Home() {
   };
 
   const projectCategories: Record<string, typeof allProjects> = {
+    new: [],
     butterfly: [],
     black: [],
     square: [],
@@ -168,25 +167,42 @@ export default function Home() {
         */}
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">           
+            <CodePreview initialCode={Background} />
+
+            <h2 className="text-3 font-medium">News Background</h2>
+              <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+              {projectPreviews["new"]?.slice(0, 10)}
+              </div>
+            </div>
+        </div>
+
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+          <h2 className="text-3 font-medium -mb-12">Hero customization</h2>
           <BlackHoleCustomizer />
           </div>
         </div>
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <h2 className="text-3 font-medium -mb-12">Nebula Effect</h2>
             <NebulaEffect />
           </div>
         </div>
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <h2 className="text-3 font-medium -mb-12">Stable Particle System</h2>
             <StableParticleSystem />
           </div>
         </div>
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <h2 className="text-3 font-medium -mb-12">Simple Mesh Gradient</h2>
             <SimpleMeshGradient />
           </div>
         </div>
@@ -201,7 +217,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
             <div className="w-full lg:w-1/2 flex  p-4">
-              <PickerExample />
+             {/*  <PickerExample /> */}
             </div>
 
             <div className="w-full lg:w-1/2 flex  p-4">
@@ -212,6 +228,7 @@ export default function Home() {
 
         <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
           <div className="w-full flex flex-col p-[30px] gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
+            <h2 className="text-3 font-medium -mb-12">Frosted Glass Effect</h2>
             <FrostedGlassGenerator />
           </div>
         </div>

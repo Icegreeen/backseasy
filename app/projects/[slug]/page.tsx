@@ -10,7 +10,7 @@ import { Metadata } from "next";
 
 const getProjectContent = (slug: string) => {
   const folder = "projects/";
-  const possibleFolders = ['butterfly', 'black', 'square', 'sky', 'white', 'animated', 'svg', 'atmosphere', 'objects'];
+  const possibleFolders = ['butterfly', 'black', 'square', 'sky', 'white', 'animated', 'svg', 'atmosphere', 'objects', 'new'];
 
   const findFile = (folderName: string) => path.join(folder, folderName, `${slug}.md`);
 
