@@ -13,7 +13,6 @@ const FrostedGlassGenerator: React.FC = () => {
   const [grainyActive, setGrainyActive] = useState(false);
   const [grainyOpacity, setGrainyOpacity] = useState(0.2); // Novo estado para opacidade do granulado
 
-  // Define o fundo granulado com opacidade ajustável
   const grainyBackground = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='${grainyOpacity}'/%3E%3C/svg%3E")`;
 
   const gradientBackground =
@@ -50,10 +49,6 @@ const FrostedGlassGenerator: React.FC = () => {
 
   return (
     <div className="w-full rounded-[8px] p-8 rounded-lg shadow-md text-gray-100">
-      <h1 className="text-[18px] font-bold text-gray-100 mb-6 text-start">
-        Frosted Glass Effect
-      </h1>
-
       <div className="flex flex-col md:grid md:grid-cols-2 gap-[30px]">
         {/* Pré-visualizações */}
         <div
