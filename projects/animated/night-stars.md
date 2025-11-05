@@ -103,5 +103,3 @@ Responsive: Mobile and desktop:
 #### Note
 
 If this background has served you in any way, consider following me on github or supporting me to continue working at BacksEasy.
-
-Any questions, criticisms or improvements, please suggest them through my [Linkdin.](https://www.linkedin.com/in/flavioaquila/).

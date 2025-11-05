@@ -99,5 +99,3 @@ Congratulations! Now you've successfully configured Tailwind CSS in a Next.js pr
 ### Note
 
 If this content has served you in any way, consider following me on [Github.](https://github.com/Icegreeen) or supporting me to continue working at BacksEasy.
-
-Any questions, criticisms or improvements, please suggest them through my [Linkdin.](https://www.linkedin.com/in/flavioaquila/).
