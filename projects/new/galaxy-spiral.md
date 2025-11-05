@@ -1,5 +1,5 @@
 ---
-title: "Galaxy spiral"
+title: "Spiral Galaxy"
 type: "new"
 date: "2025-10-31"
 image: "https://github.com/user-attachments/assets/950b4d99-e20f-4d30-87c9-1f274ee49510"
