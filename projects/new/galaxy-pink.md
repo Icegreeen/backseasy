@@ -1,5 +1,16 @@
+---
+title: "Galaxy"
+type: "new"
+date: "2025-10-31"
+image: "https://github.com/user-attachments/assets/60406edb-3e5a-4c6f-b967-11a2ac514ad6"
+---
+#### How to implement:
 
-export const Background = `
+With tailwind installed in your project [tutorial](https://backseasy.com/blog/install-tailwind-nextjs), implement these tailwind classes in your parent div where it will reflect the background.
+
+Code:
+
+```
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -41,8 +52,17 @@ export const Background = `
 </head>
 <body>
     <div class="spline-container">
-        <iframe src="https://my.spline.design/3dgradient-AcpgG6LxFkpnJSoowRHPfcbO" frameborder="0" width="100%" height="100%" id="aura-spline"></iframe>
+        <iframe src="https://my.spline.design/galaxy-YxBchtLLMNxuqLPeF7XcyWOm" frameborder="0" width="100%" height="100%" id="aura-spline"></iframe>
     </div>
 </body>
-</html>s
-`;
+</html>
+
+```
+
+View background:
+
+<img width="2189" height="1150" alt="Image" src="https://github.com/user-attachments/assets/60406edb-3e5a-4c6f-b967-11a2ac514ad6" />
+
+#### Note
+
+If this background has served you in any way, consider following me on github or supporting me to continue working at BacksEasy.

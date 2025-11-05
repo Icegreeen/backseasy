@@ -1,24 +1,47 @@
 
 import Image from "next/image";
-
+import Script from "next/script";
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
 import Hero from "./components/Landing/Hero";
-import NebulaEffect from "./components/NebulaEffect/NebulaEffect";
-// import BackgroundGenerator from "./test";
-import BlackHoleCustomizer from "./black-hole/background-customizatizer";
-import PickerExample from "@/components/PickerExample";
-import BackgroundCustomizer from "./components/Gradient/GradientCustomizer";
-import FrostedGlassGenerator from "./components/Gradient/FrostedGlassBackground";
-import { StableParticleSystem } from "./components/BackgroundGenerators/ParticleSystem";
-import SimpleMeshGradient from "./components/BackgroundGenerators/MeshGradient/SimpleMeshGradient";
 import CodePreview from "@/components/CodePreview/CodePreview";
 import { Background } from "@/lib/backgroundPreview";
 
+// Lazy load components below the fold para melhorar performance inicial
 const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
   ssr: false,
   loading: () => <div className="animate-pulse bg-gray-800 h-12 w-full rounded"></div>
+});
+
+const NebulaEffect = dynamic(() => import("./components/NebulaEffect/NebulaEffect"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+
+const BlackHoleCustomizer = dynamic(() => import("./black-hole/background-customizatizer"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+
+const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+
+const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+
+const StableParticleSystem = dynamic(() => import("./components/BackgroundGenerators/ParticleSystem").then(mod => ({ default: mod.StableParticleSystem })), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
+
+const SimpleMeshGradient = dynamic(() => import("./components/BackgroundGenerators/MeshGradient/SimpleMeshGradient"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
 });
 
 // const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
@@ -127,11 +150,11 @@ export default function Home() {
 
         <div className="max-w-[1800px] w-full flex flex-wrap justify-between gap-4 pb-4" id="projects">
           {[
-            { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect" },
-            { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!" },
-            { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Create beautiful Black Hole" },
-            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!" }
-          ].map(({ href, img, title, desc }, index) => (
+            { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect", priority: true },
+            { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!", priority: true },
+            { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Create beautiful Black Hole", priority: true },
+            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!", priority: false }
+          ].map(({ href, img, title, desc, priority }, index) => (
             <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
               <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-18 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
                 <div className="flex flex-col">
@@ -147,37 +170,32 @@ export default function Home() {
                   width={45} 
                   height={45} 
                   className="h-[40px] md:h-[45px] rounded-md transition-all duration-300 ease-in-out hover:scale-110"
-                  loading="lazy"
-                  quality={85}
+                  loading={priority ? "eager" : "lazy"}
+                  priority={priority}
+                  quality={75}
+                  sizes="(max-width: 768px) 45px, 45px"
                 />
               </div>
             </a>
           ))}
         </div>
 
-        {/*
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <div className="text-center text-gray-400">
-              <h3 className="text-xl font-semibold mb-4">Background Generator</h3>
-              <p>Coming soon...</p>
-            </div>
-          </div>
-        </div>
-        */}
-
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">           
             <CodePreview initialCode={Background} />
 
-            <h2 className="text-3 font-medium">News Background</h2>
+            <h2 className="text-3 font-medium">News Background  (Animated)</h2>
               <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-              {projectPreviews["new"]?.slice(0, 10)}
+              {projectPreviews["new"]?.slice(0, 20)}
               </div>
             </div>
         </div>
 
-      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        {/* Script externo carregado de forma não bloqueante */}
+        <Script 
+          src="https://public.codepenassets.com/embed/index.js" 
+          strategy="lazyOnload"
+        />
 
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
@@ -370,10 +388,12 @@ export default function Home() {
             alt="Backseasy Background Generator - About Section"
             width={900}
             height={900}
-            quality={85}
+            quality={75}
             className="rounded-md"
             loading="lazy"
-            priority={false}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 900px"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           /> 
       </div>
        
