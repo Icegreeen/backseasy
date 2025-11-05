@@ -1,5 +1,14 @@
+---
+title: "Blue Waves"
+type: "new"
+date: "2025-11-05"
+image: "https://github.com/user-attachments/assets/b57b6bab-70bb-4901-b891-97dcb047735c"
+---
+#### How to implement:
 
-export const Background = `
+Code:
+
+```
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -41,8 +50,17 @@ export const Background = `
 </head>
 <body>
     <div class="spline-container">
-        <iframe src="https://my.spline.design/3dgradient-AcpgG6LxFkpnJSoowRHPfcbO" frameborder="0" width="100%" height="100%" id="aura-spline"></iframe>
+        <iframe src="https://my.spline.design/animatedbackgroundgradientforweb-jvJDeBWjMvShkjPKxPRUswLq" frameborder="0" width="100%" height="100%" id="aura-spline"></iframe>
     </div>
 </body>
-</html>s
-`;
+</html>
+
+```
+
+View background:
+
+<img width="2398" height="1195" alt="Image" src="https://github.com/user-attachments/assets/b57b6bab-70bb-4901-b891-97dcb047735c" />
+
+#### Note
+
+If this background has served you in any way, consider following me on github or supporting me to continue working at BacksEasy.
