@@ -44,18 +44,10 @@ const SimpleMeshGradient = dynamic(() => import("./components/BackgroundGenerato
   loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
 });
 
-// const PickerExample = dynamic(() => import("@/components/PickerExample"), { 
-//   ssr: false,
-//   loading: () => <div className="animate-pulse bg-gray-800 h-32 w-full rounded"></div>
-// });
-// const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), { 
-//   ssr: false,
-//   loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-// });
-// const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), { 
-//   ssr: false,
-//   loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-// });
+const PatternLibrary = dynamic(() => import("./components/PatternLibrary/PatternLibrary"), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
+});
 
 export default function Home() {
   const allProjects = getProjectMetadata();
@@ -191,12 +183,18 @@ export default function Home() {
             </div>
         </div>
 
-        {/* Script externo carregado de forma não bloqueante */}
+        <div className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+            <PatternLibrary />
+          </div>
+        </div>
+
         <Script 
           src="https://public.codepenassets.com/embed/index.js" 
           strategy="lazyOnload"
         />
 
+        {/*
         <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
           <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
           <h2 className="text-3 font-medium -mb-12">Hero customization</h2>
@@ -235,48 +233,21 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
             <div className="w-full lg:w-1/2 flex  p-4">
-             {/*  <PickerExample /> */}
+       
             </div>
 
-            <div className="w-full lg:w-1/2 flex  p-4">
-              <BackgroundCustomizer />
-            </div>
+          <div className="w-full lg:w-1/2 flex  p-4">
+            <BackgroundCustomizer />
           </div>
-        </div>
+          </div>
+          </div>
 
-        <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
+          <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
           <div className="w-full flex flex-col p-[30px] gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-            <h2 className="text-3 font-medium -mb-12">Frosted Glass Effect</h2>
-            <FrostedGlassGenerator />
+          <h2 className="text-3 font-medium -mb-12">Frosted Glass Effect</h2>
+          <FrostedGlassGenerator />
           </div>
-        </div>
-
-        {/*
-        <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex overflow-clip flex-col md:flex-row">
-          <div className="w-full md:w-1/2">
-            <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">Free SVG Backgrounds Collection (<span className="text-yellow">New release</span>)</h2>
-              <p className="text-white my-18">High-quality vector backgrounds for modern web design ⭐</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-               {projectPreviews["svg"]?.slice(0, 6)}
-              </div>
-            </div>
           </div>
-
-          <div className="w-full md:w-1/2">
-            <div className="border border-stroke-1 m-28 p-28 rounded-out">
-              <h2 className="text-2 font-medium">3D Web Backgrounds Collection (<span className="text-yellow">Next release</span>)</h2>
-              <p className="text-white my-18">Immersive 3D backgrounds for modern web applications and landing pages.</p>
-              
-              <br /><br />
-              <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-32 w-full h-fit max-w-[980px]">
-                <Image className="w-full h-auto max-w-full" src="/ghost.png" alt="3D Ghost Background Preview" width={400} height={300} quality={85} loading="lazy" />
-                <Image className="w-full h-auto max-w-full" src="/aquiles2.png" alt="3D Character Background Preview" width={400} height={300} quality={85} loading="lazy" />    
-              </div>
-            </div>
-          </div>
-
-        </div>
         */}
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
