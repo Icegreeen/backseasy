@@ -5,21 +5,20 @@ export default function Footer() {
   return (
     <footer className="flex max-[450px]:flex-col gap-32 p-28 place-content-between border border-stroke-1 rounded-out place-items-center max-[450px]:align-middle max-[450px]:place-content-center max-w-[1800px] w-full">
       <div className="flex flex-col gap-16 max-[450px]:items-center">
-        <Link href={"https://google.com"}>
+        <Link href={"/"}>
           <Image
             src={"/logo.png"}
             width={100}
             height={100}
-            alt="Logo"
+            alt="Backseasy logo"
             className="hover-active-effect"
           />
-
-          <Link
-            href={"https://google.com"}
-            className="text-4 hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
-          >
-            @ Backseasy 
-          </Link>
+        </Link>
+        <Link
+          href={"/"}
+          className="text-4 hover:text-selected active:text-selected/75 duration-150 max-[450px]:text-center"
+        >
+          @ Backseasy
         </Link>
       </div>
 
@@ -42,7 +41,7 @@ export default function Footer() {
         */}
           <Link
             href={"https://www.buymeacoffee.com/icegreen"}
-            className="bg-yellow border-stroke-2 text-white hover:bg-yellow/75 active:bg-yellow/50 disabled:bg-yellow/25
+            className="bg-yellow border-stroke-2 text-black hover:bg-yellow/75 active:bg-yellow/50 disabled:bg-yellow/25
             text-body border w-fit h-[42px] shadow-fg flex items-center gap-6 ease-out duration-150 px-24 rounded-in
             hover:-translate-y-[2px] active:translate-y-6 disabled:cursor-not-allowed disabled:text-white/30"
           >

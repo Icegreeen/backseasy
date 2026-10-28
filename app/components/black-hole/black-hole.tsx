@@ -3,7 +3,7 @@ import React from 'react';
 function BlackHole() {
   return (
     <div className="">
-      <video 
+      <video aria-hidden="true" 
         autoPlay 
         loop 
         muted 

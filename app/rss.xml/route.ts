@@ -1,6 +1,9 @@
 import getProjectMetadata from '@/components/projects/getProjectMetadata';
 import getBlogMetadata from '@/components/blog/getBlogMetadata';
 
+const esc = (v: string) =>
+  String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 export async function GET() {
   const projects = getProjectMetadata();
   const blogs = getBlogMetadata();
@@ -22,20 +25,20 @@ export async function GET() {
     
     ${projects.slice(0, 10).map(project => `
     <item>
-      <title>${project.title} - Free ${project.type} Background</title>
-      <description>Free ${project.type} background for web design. Download and customize this ${project.title} background pattern for your projects.</description>
-      <link>https://backseasy.com/projects/${project.slug}</link>
-      <guid>https://backseasy.com/projects/${project.slug}</guid>
+      <title>${esc(project.title)} - Free ${esc(project.type)} Background</title>
+      <description>Free ${esc(project.type)} background for web design. Download and customize this ${esc(project.title)} background pattern for your projects.</description>
+      <link>https://backseasy.com/projects/${project.slug}/</link>
+      <guid>https://backseasy.com/projects/${project.slug}/</guid>
       <pubDate>${new Date(project.date).toUTCString()}</pubDate>
-      <category>${project.type}</category>
+      <category>${esc(project.type)}</category>
     </item>`).join('')}
     
     ${blogs.slice(0, 5).map(blog => `
     <item>
-      <title>${blog.title}</title>
-      <description>${blog.description}</description>
-      <link>https://backseasy.com/blog/${blog.slug}</link>
-      <guid>https://backseasy.com/blog/${blog.slug}</guid>
+      <title>${esc(blog.title)}</title>
+      <description>${esc(blog.description)}</description>
+      <link>https://backseasy.com/blog/${blog.slug}/</link>
+      <guid>https://backseasy.com/blog/${blog.slug}/</guid>
       <pubDate>${new Date(blog.date).toUTCString()}</pubDate>
       <category>Blog</category>
     </item>`).join('')}
@@ -44,7 +47,7 @@ export async function GET() {
 
   return new Response(rss, {
     headers: {
-      'Content-Type': 'application/xml',
+      'Content-Type': 'application/rss+xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600',
     },
   });

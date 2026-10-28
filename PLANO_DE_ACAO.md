@@ -1,9 +1,43 @@
 # 🛠️ Backseasy — Plano de Ação (versão enxuta)
 
-> Revisado em 27/10/2026 · Site: https://backseasy.com · Baseline: PageSpeed mobile do próprio Flávio
+> Revisado em 27/10/2026, executado em 28/10/2026 · Site: https://backseasy.com · Baseline: PageSpeed mobile do próprio Flávio
 > Visual: [`VISUAL_PROPOSALS.html`](./VISUAL_PROPOSALS.html) (teclas `1`–`6` trocam de proposta)
 
 **Objetivo:** site mais rápido, melhor indexado e mais bonito — sem mexer em hospedagem, segurança, login ou infraestrutura.
+
+---
+
+## 0. Status de execução (28/10/2026)
+
+`tsc` e `next build` passam. **Falta validar no PageSpeed (rodar de novo após o deploy).**
+
+| Item | Status | Observação |
+|---|---|---|
+| 1.1 Cards lazy | ✅ | `ProjectPreview` usa `next/image` (`fill`, lazy, `sizes`, q=60); home mostra 5 cards/categoria. ⚠️ GIFs animados (~10 MB) o Next **não otimiza**: seguem pesados ao carregar, mas só os que estiverem perto da tela. Solução definitiva = trocar por thumbnail estático/vídeo (fora do escopo atual) |
+| 1.2 Spline | ✅ | `CodePreview` só monta o iframe ao chegar a 200px da tela (IntersectionObserver). Também corrigido um `</html>s` no HTML de exemplo |
+| 1.3 Layout/hydration | ✅ | JSON-LD e GA dentro do `<body>`; `<meta>` solto removido. Conferir se #418/#423 sumiram no console |
+| 2.1 Canonical/metadata | ✅ | Removido canonical global; metadata em glass-effect, nebula-effect, black-hole, blogs, `generateMetadata` em blog/[slug], canonical na home |
+| 2.2 Sitemap | ✅ | `app/sitemap.ts` (inclui `projects/new` e blog); `public/sitemap*.xml` apagados. **Reenviar no Search Console** |
+| 2.3 "See more" | ✅ | Texto oculto (`sr-only`) com a categoria; componente agora é import estático (antes `ssr:false`, link nem existia no HTML) |
+| 2.4 favicon.svg | ✅ | Referências removidas (layout + manifest); apple icon = `logo.png` |
+| 2.5 hreflang pt-BR | ✅ | Removido |
+| 2.6 404 vs 500 | ✅ | `notFound()` em projects/blog |
+| 2.7 Footer | ✅ | Links para `/`; corrigido `<a>` dentro de `<a>` |
+| 2.8 Título duplicado | ✅ | Removido `\| Backseasy` dos títulos de projeto e all_backgrounds |
+| 3.1–3.7 A11y | ✅ (3.3 parcial) | Menu mobile, `aria-label` nos selects, `<main>`, h3→h2, vídeo `aria-hidden`, ícones `object-contain`, botão do café com texto preto. Contraste: só os casos óbvios; conferir no novo relatório |
+| `.env` | ✅ | Removido do índice do git e adicionado ao `.gitignore`. **O histórico ainda contém o arquivo: rotacione os segredos** (DB/auth/SMTP) se o repo for público |
+| Fase 4 | ✅ | Apagados: auth/app/api/service, middleware, prisma, `components/ui` (nenhum uso restante), PickerExample, SEOHead, test.tsx, /test-particle, ~21 MB de assets sem referência, `PERFORMANCE_IMPROVEMENTS.md`. Removidas ~35 dependências (radix, next-auth, prisma, zod, etc.), `build` sem `prisma generate`; `yarn.lock` e `package-lock.json` regenerados. Build OK. Ficaram `moment` (3 usos) e `tailwindcss-animate` (sem uso aparente) para outro PR |
+| Condicionais | ✅ | GA carregado só após interação/4 s (`DeferredAnalytics`), `browserslist` moderno (corta ~12 KiB de polyfill), cache das imagens otimizadas de 60 s para 30 dias |
+| PageSpeed 28/10 13:07 | ⚠️ | Esse relatório (Perf 27, TBT 2.030 ms) é do **site antigo**: ainda mostra `bg-cover`, footer → google.com e Spline no load. Medir de novo **depois do deploy** |
+| SEO extra (28/10) | ✅ | `/all_backgrounds` não listava as categorias `new` e `atmosphere` (sem link interno) → agora lista as 10, com `<h1>`; JSON-LD `BlogPosting` e `BreadcrumbList`; `WebApplication` só na home (antes em todas as páginas, com `dateModified` falso); `og:url` global removido (páginas herdavam a home); `<h1>` duplicado ("Back") corrigido; h1 nas 3 ferramentas; RSS com escape XML e URLs com `/`; `themeColor`; `not-found.tsx`; description do post do blog; verificações placeholder (Yandex/Yahoo/Baidu) e `next-sitemap.config.js` removidos; `robots.txt` simplificado; imagens de projeto/blog `quality` 100→75 + `priority` |
+| Fase 5 | ⏳ | Aguardando o novo PageSpeed |
+
+### Problemas encontrados na revisão do plano anterior
+- **Trailing slash:** `next.config.mjs` tem `trailingSlash: true`, então as URLs reais terminam em `/`. Canonicals e sitemap novos usam `/` para não gerar redirecionamento. O canonical antigo (sem `/`) era inconsistente.
+- **`PERFORMANCE_IMPROVEMENTS.md` não refletia o código:** dizia que havia `priority`, `dynamic()` e `lazyOnload` com ganhos "esperados", mas os cards seguiam como `background-image` e as métricas nunca foram medidas. Manter como histórico ou apagar (Fase 4).
+- **`next.config.mjs`:** `generateBuildId` com `Date.now()` invalida cache a cada build; `X-Frame-Options: DENY` impede embutir o site (ok, mas saiba disso); `domains` + `remotePatterns` duplicados (`domains` é legado).
+- **⚠️ `.env` está versionado no git** (só `.env*.local` é ignorado) e tem histórico em 3 commits. Se o repositório for público no GitHub, trate qualquer segredo ali (DB, auth, SMTP) como vazado e rotacione. Correção mínima: `git rm --cached .env` + adicionar `.env` ao `.gitignore` (não fiz sem sua confirmação).
+- **Páginas `/auth`, `/app`, `/test-particle` ainda no ar** (Fase 4).
 
 ---
 

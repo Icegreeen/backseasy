@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { FiCopy, FiCheck } from 'react-icons/fi';
 import { cn } from '@/lib/utils';
 
@@ -44,6 +44,28 @@ export default function CodePreview({
 }: CodePreviewProps) {
   const [code, setCode] = useState(initialCode);
   const [copied, setCopied] = useState(false);
+  // O iframe (ex.: cena 3D do Spline) só é montado quando a seção chega perto da tela
+  const [visible, setVisible] = useState(false);
+  const previewRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = previewRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const iframeContent = useMemo(() => getHtmlContent(code), [code]);
 
@@ -60,7 +82,7 @@ export default function CodePreview({
   return (
     <div className={cn('w-full flex flex-col gap-16', className)}>
       <div className="flex items-center justify-between">
-        <h3 className="text-3 text-text-1 font-medium">Test your background code</h3>
+        <h2 className="text-3 text-text-1 font-medium">Test your background code</h2>
         <button
           onClick={handleCopy}
           className="flex items-center gap-8 px-16 py-8 border border-stroke-1 bg-bg-1 text-text-1 rounded-in hover:bg-fg-1 transition-colors duration-150 hover-active-effect"
@@ -99,14 +121,14 @@ export default function CodePreview({
 
         <div className="flex flex-col gap-8">
           <label className="text-sub text-text-1 font-medium">Preview</label>
-          <div className="relative flex-1 min-h-[400px] border border-stroke-1 rounded-out overflow-hidden bg-black">
-            <iframe
+          <div ref={previewRef} className="relative flex-1 min-h-[400px] border border-stroke-1 rounded-out overflow-hidden bg-black">
+            {visible && <iframe
               className="w-full h-full border-0"
               title="Preview do background"
               sandbox="allow-scripts allow-same-origin"
               style={{ minHeight: defaultHeight }}
               srcDoc={iframeContent}
-            />
+            />}
           </div>
         </div>
       </div>

@@ -357,7 +357,7 @@ export default function StableParticleSystem() {
 
             <div>
               <label className="block text-white mb-1 text-sm">Type:</label>
-              <select
+              <select aria-label="Type"
                 value={settings.type}
                 onChange={(e) => setSettings(prev => ({ ...prev, type: e.target.value }))}
                 className="w-full h-[30px] px-8 py-2 border border-stroke-1 bg-black text-white rounded-out cursor-pointer focus:outline-none focus:border-blue-500"

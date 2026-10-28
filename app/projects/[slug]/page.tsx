@@ -7,6 +7,7 @@ import moment from "moment";
 import Link from "next/link";
 import path from "path";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const getProjectContent = (slug: string) => {
   const folder = "projects/";
@@ -25,7 +26,7 @@ const getProjectContent = (slug: string) => {
   }
 
   if (!file) {
-      throw new Error(`File not found for slug: ${slug}`);
+      notFound();
   }
 
   const content = fs.readFileSync(file, "utf8");
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const description = `Free ${type} background for web design. Download and customize this ${title} background pattern for your projects. Created by ${author}.`;
   
   return {
-    title: `${title} - Free ${type} Background | Backseasy`,
+    title: `${title} - Free ${type === "new" ? "animated" : type} Background`,
     description,
     keywords: [
       `${type} background`,
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${title} - Free ${type} Background`,
       description,
-      url: `https://backseasy.com/projects/${params.slug}`,
+      url: `https://backseasy.com/projects/${params.slug}/`,
       siteName: "Backseasy",
       images: [
         {
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [image.startsWith('http') ? image : `https://backseasy.com${image}`],
     },
     alternates: {
-      canonical: `https://backseasy.com/projects/${params.slug}`,
+      canonical: `https://backseasy.com/projects/${params.slug}/`,
     },
   };
 }
@@ -100,7 +101,7 @@ export default function Project(props: any) {
     "@type": "CreativeWork",
     "name": title,
     "description": `Free ${type} background for web design. Download and customize this ${title} background pattern for your projects.`,
-    "url": `https://backseasy.com/projects/${slug}`,
+    "url": `https://backseasy.com/projects/${slug}/`,
     "image": image.startsWith('http') ? image : `https://backseasy.com${image}`,
     "author": {
       "@type": "Person",
@@ -138,12 +139,26 @@ export default function Project(props: any) {
           __html: JSON.stringify(structuredData),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://backseasy.com/" },
+              { "@type": "ListItem", "position": 2, "name": "All Backgrounds", "item": "https://backseasy.com/all_backgrounds/" },
+              { "@type": "ListItem", "position": 3, "name": title, "item": `https://backseasy.com/projects/${slug}/` },
+            ],
+          }),
+        }}
+      />
       <div className="flex flex-col gap-64 max-[600px]:gap-36 items-center align-middle p-48 my-48 border border-stroke-1 rounded-out max-w-[1300px] min-h-screen w-full">
         <div className="flex flex-col gap-48 max-[600px]:gap-32">
 
           <Link href={"/"} className="flex items-center transition-transform  hover:opacity-45">
             <img src="/icons/back.svg" alt="back" />
-            <h1 className="text-4">Back</h1>
+            <span className="text-4">Back</span>
           </Link>
           
           <h1 className="text-1 font-bold leading-none">{title}</h1>
@@ -158,7 +173,9 @@ export default function Project(props: any) {
             src={image}
             width={1220}
             height={714}
-            quality={100}
+            quality={75}
+            priority
+            sizes="(max-width: 1300px) 100vw, 1220px"
             alt={`${title} - ${type} Background`}
             className="aspect-[12/6] object-cover w-full h-auto border border-stroke-2 rounded-in"
           />

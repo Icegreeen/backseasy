@@ -4,45 +4,15 @@ import Script from "next/script";
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import dynamic from "next/dynamic";
+import NavigationAllBackgrounds from "@/components/NavigationAllBackgrounds";
 import Hero from "./components/Landing/Hero";
 import CodePreview from "@/components/CodePreview/CodePreview";
 import { Background } from "@/lib/backgroundPreview";
+import type { Metadata } from "next";
 
-// Lazy load components below the fold para melhorar performance inicial
-const NavigationAllBackgrounds = dynamic(() => import("@/components/NavigationAllBackgrounds"), { 
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-12 w-full rounded"></div>
-});
-
-const NebulaEffect = dynamic(() => import("./components/NebulaEffect/NebulaEffect"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-
-const BlackHoleCustomizer = dynamic(() => import("./black-hole/background-customizatizer"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-
-const BackgroundCustomizer = dynamic(() => import("./components/Gradient/GradientCustomizer"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-
-const FrostedGlassGenerator = dynamic(() => import("./components/Gradient/FrostedGlassBackground"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-
-const StableParticleSystem = dynamic(() => import("./components/BackgroundGenerators/ParticleSystem").then(mod => ({ default: mod.StableParticleSystem })), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
-
-const SimpleMeshGradient = dynamic(() => import("./components/BackgroundGenerators/MeshGradient/SimpleMeshGradient"), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 h-64 w-full rounded"></div>
-});
+export const metadata: Metadata = {
+  alternates: { canonical: "https://backseasy.com/" },
+};
 
 const PatternLibrary = dynamic(() => import("./components/PatternLibrary/PatternLibrary"), {
   ssr: false,
@@ -52,17 +22,19 @@ const PatternLibrary = dynamic(() => import("./components/PatternLibrary/Pattern
 export default function Home() {
   const allProjects = getProjectMetadata();
   
-  const breadcrumbStructuredData = {
+  const webAppStructuredData = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://backseasy.com"
-      }
-    ]
+    "@type": "WebApplication",
+    "name": "Backseasy",
+    "description": "Free background generator for web designers and developers. Create stunning, customizable backgrounds with CSS gradients, animations, and modern UI patterns.",
+    "url": "https://backseasy.com/",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any (web browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "creator": { "@type": "Person", "name": "Flavio Aquila", "url": "https://github.com/Icegreeen" },
+    "publisher": { "@type": "Organization", "name": "Backseasy", "url": "https://backseasy.com/", "logo": "https://backseasy.com/logo.png" },
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true
   };
 
   const collectionStructuredData = {
@@ -81,7 +53,7 @@ export default function Home() {
           "@type": "CreativeWork",
           "name": project.title,
           "description": `Free ${project.type} background for web design`,
-          "url": `https://backseasy.com/projects/${project.slug}`,
+          "url": `https://backseasy.com/projects/${project.slug}/`,
           "image": project.image.startsWith('http') ? project.image : `https://backseasy.com${project.image}`,
           "author": {
             "@type": "Person",
@@ -127,7 +99,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbStructuredData),
+          __html: JSON.stringify(webAppStructuredData),
         }}
       />
       <script
@@ -154,14 +126,14 @@ export default function Home() {
                     {title} 
                     <span className="border border-[#14532d] ml-6 px-6 md:px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span>
                   </span>
-                  {desc && <span className="text-[12px] text-gray-400">{desc}</span>}
+                  {desc && <span className="text-[12px] text-gray-300">{desc}</span>}
                 </div>
                 <Image 
                   src={img} 
                   alt={`${title} - Background Generator Tool`} 
                   width={45} 
                   height={45} 
-                  className="h-[40px] md:h-[45px] rounded-md transition-all duration-300 ease-in-out hover:scale-110"
+                  className="h-[40px] w-[45px] md:h-[45px] object-contain rounded-md transition-all duration-300 ease-in-out hover:scale-110"
                   loading={priority ? "eager" : "lazy"}
                   priority={priority}
                   quality={75}
@@ -194,88 +166,33 @@ export default function Home() {
           strategy="lazyOnload"
         />
 
-        {/*
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-          <h2 className="text-3 font-medium -mb-12">Hero customization</h2>
-          <BlackHoleCustomizer />
-          </div>
-        </div>
-
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <h2 className="text-3 font-medium -mb-12">Nebula Effect</h2>
-            <NebulaEffect />
-          </div>
-        </div>
-
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <h2 className="text-3 font-medium -mb-12">Stable Particle System</h2>
-            <StableParticleSystem />
-          </div>
-        </div>
-
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <h2 className="text-3 font-medium -mb-12">Simple Mesh Gradient</h2>
-            <SimpleMeshGradient />
-          </div>
-        </div>
-
-        <div
-          className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-[30px] flex flex-wrap gap-8"
-          id="projects"
-        >
-          <div className="w-full">
-            <h1 className="text-[18px] font-semibold">Free Background Generator & Customizer</h1>
-          </div>
-
-          <div className="flex flex-wrap gap-24 w-full lg:flex-nowrap justify-between  divide-x divide-stroke-1">
-            <div className="w-full lg:w-1/2 flex  p-4">
-       
-            </div>
-
-          <div className="w-full lg:w-1/2 flex  p-4">
-            <BackgroundCustomizer />
-          </div>
-          </div>
-          </div>
-
-          <div id="frosted" className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip">
-          <div className="w-full flex flex-col p-[30px] gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
-          <h2 className="text-3 font-medium -mb-12">Frosted Glass Effect</h2>
-          <FrostedGlassGenerator />
-          </div>
-          </div>
-        */}
 
       <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
           <div className="flex">
             <h2 className="text-3 font-medium">Object Backgrounds for Web Design</h2>
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="object backgrounds for web design" />
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["objects"]?.slice(0, 10)}
+            {projectPreviews["objects"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
               <h2 className="text-3 font-medium">Atmospheric Background Effects</h2>
-              <NavigationAllBackgrounds />
+              <NavigationAllBackgrounds category="atmospheric background effects" />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["atmosphere"]?.slice(0, 10)}
+            {projectPreviews["atmosphere"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Animated CSS Backgrounds ⭐</h2>
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="animated css backgrounds" />
           </div>
         
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["animated"]?.slice(0, 10)}
+            {projectPreviews["animated"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
@@ -283,56 +200,56 @@ export default function Home() {
               Vector SVG Backgrounds
             </h2>
 
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="vector svg backgrounds" />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["svg"]?.slice(0, 10)}
+            {projectPreviews["svg"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Dark Mode Backgrounds</h2>
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="dark mode backgrounds" />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["black"]?.slice(0, 10)}
+            {projectPreviews["black"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Geometric Pattern Backgrounds</h2>
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="geometric pattern backgrounds" />
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["square"]?.slice(0, 10)}
+            {projectPreviews["square"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Sky & Nature Backgrounds</h2>
 
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="sky & nature backgrounds" />
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["sky"]?.slice(0, 10)}
+            {projectPreviews["sky"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Artistic Butterfly Backgrounds</h2>
 
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="artistic butterfly backgrounds" />
           </div>
 
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["butterfly"]?.slice(0, 10)}
+            {projectPreviews["butterfly"]?.slice(0, 5)}
           </div>
 
           <div className="flex">
             <h2 className="text-3 font-medium">Light Mode & Minimalist Backgrounds</h2>
 
-            <NavigationAllBackgrounds />
+            <NavigationAllBackgrounds category="light mode & minimalist backgrounds" />
           </div>
           <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["white"]?.slice(0, 10)}
+            {projectPreviews["white"]?.slice(0, 5)}
           </div>
       </div>
       

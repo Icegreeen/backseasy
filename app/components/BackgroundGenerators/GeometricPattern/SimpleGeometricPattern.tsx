@@ -109,7 +109,7 @@ export default function SimpleGeometricPattern() {
               {/* Pattern Selection */}
               <div>
                 <label className="block text-white mb-2">Padrão:</label>
-                <select
+                <select aria-label="Padrão"
                   value={settings.pattern}
                   onChange={(e) => setSettings(prev => ({ ...prev, pattern: e.target.value }))}
                   className="w-full h-10 p-2 border border-stroke-1 bg-transparent text-white rounded-out appearance-none focus:outline-none"

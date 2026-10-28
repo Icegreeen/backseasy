@@ -44,5 +44,5 @@ export const Background = `
         <iframe src="https://my.spline.design/3dgradient-AcpgG6LxFkpnJSoowRHPfcbO" frameborder="0" width="100%" height="100%" id="aura-spline"></iframe>
     </div>
 </body>
-</html>s
+</html>
 `;

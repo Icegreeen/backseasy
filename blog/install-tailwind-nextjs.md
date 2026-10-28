@@ -1,5 +1,6 @@
 ---
 title: "How to install tailwind in your project. (Next.JS)"
+description: "Step-by-step guide to install and configure Tailwind CSS in a Next.js project, with the config files and the classes used by Backseasy backgrounds."
 type: "Getting tailwind"
 author: "Flavio Áquila"
 date: "2024-03-01"

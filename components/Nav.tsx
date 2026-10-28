@@ -74,6 +74,8 @@ export default function Nav() {
         </motion.div>
         <button
           onClick={() => setNavbar(!navbar)}
+          aria-label={navbar ? "Close menu" : "Open menu"}
+          aria-expanded={navbar}
           className="hidden text-[28px] max-[700px]:block"
         >
           {navbar ? <HiXMark /> : <HiBars3 />}

@@ -98,7 +98,7 @@ export default function BlackHoleCustomizer() {
 
         <div className="flex-auto">
             <label className="block text-sm font-medium mb-4 text-white">Position:</label>
-            <select
+            <select aria-label="Position"
               value={position} onChange={(e) => setPosition(e.target.value)}
               className="w-full h-22 p-6 border cursor-pointer border-stroke-1 bg-transparent text-white rounded-[8px] appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
             >

@@ -1,5 +1,12 @@
 import getBlogMetadata from "@/components/blog/getBlogMetadata";
 import BlogPreview from "@/components/blog/BlogPreview";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog - Background Tutorials",
+  description: "Tutorials and guides on CSS backgrounds, Tailwind CSS and Next.js for web designers and developers.",
+  alternates: { canonical: "https://backseasy.com/blogs/" },
+};
 
 export default function Blogs() {
   const blogMetadata = getBlogMetadata();

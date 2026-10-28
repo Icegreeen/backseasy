@@ -1,21 +1,4 @@
-# *
 User-agent: *
 Allow: /
-Disallow: /dashboard
-Disallow: /auth
-Disallow: /admin
-Disallow: /api/
 
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /dashboard
-Disallow: /auth
-Disallow: /admin
-Disallow: /api/
-
-# Host
-Host: https://backseasy.com
-
-# Sitemaps
 Sitemap: https://backseasy.com/sitemap.xml

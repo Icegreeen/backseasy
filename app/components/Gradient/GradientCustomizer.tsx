@@ -93,7 +93,7 @@ const BackgroundCustomizer = () => {
         <div className="col-span-1 justify-center items-center sm:col-span-1 flex flex-col sm:flex-row gap-8">
           <div className="flex-auto">
             <label className="block text-sm font-medium mb-4 text-white">Gradient Direction:</label>
-            <select
+            <select aria-label="Gradient Direction"
               value={gradientDirection}
               onChange={(e) => setGradientDirection(e.target.value)}
               className="w-full h-22 p-4 border cursor-pointer border-stroke-1 bg-transparent text-white rounded-[8px] appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"

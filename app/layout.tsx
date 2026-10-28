@@ -3,7 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import DeferredAnalytics from "@/components/DeferredAnalytics";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -13,6 +13,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   minimumScale: 1,
   userScalable: true,
+  themeColor: "#000000",
 };
 
 export const metadata: Metadata = {
@@ -65,18 +66,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" }
     ],
-    apple: "/favicon.svg",
+    apple: "/logo.png",
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
   alternates: {
-    canonical: "https://backseasy.com",
-    languages: {
-      "en-US": "https://backseasy.com",
-      "pt-BR": "https://backseasy.com/pt-BR",
-    },
     types: {
       "application/rss+xml": "https://backseasy.com/rss.xml",
     },
@@ -84,7 +79,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://backseasy.com",
     siteName: "Backseasy",
     title: "Backseasy - Free Background Generator for Web Designers & Developers",
     description: "Create stunning, customizable backgrounds for websites and apps instantly! Free CSS gradient generator, animated backgrounds, and modern UI patterns.",
@@ -128,8 +122,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "7dViSr2b9UG4Q41X5i-3U2ii-MO4je52CwcQeOd0GRg",
-    yandex: "yandex-verification-code",
-    yahoo: "yahoo-site-verification-code",
   },
   category: "technology",
 };
@@ -139,59 +131,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Backseasy",
-    "description": "Free background generator for web designers and developers. Create stunning, customizable backgrounds with CSS gradients, animations, and modern UI patterns.",
-    "url": "https://backseasy.com",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "creator": {
-      "@type": "Person",
-      "name": "Flavio Aquila",
-      "url": "https://github.com/Icegreeen"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Backseasy",
-      "url": "https://backseasy.com"
-    },
-    "keywords": "background generator, CSS gradients, web design, UI/UX, frontend tools, animated backgrounds",
-    "inLanguage": "en-US",
-    "isAccessibleForFree": true,
-    "browserRequirements": "Requires JavaScript. Requires HTML5.",
-    "softwareVersion": "1.0.0",
-    "dateCreated": "2024-01-01",
-    "dateModified": new Date().toISOString().split('T')[0],
-    "mainEntity": {
-      "@type": "SoftwareApplication",
-      "name": "Backseasy Background Generator",
-      "description": "Create and customize beautiful backgrounds for websites and applications",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "Web Browser"
-    }
-  };
-
   return (
     <html lang="en" className={outfit.className}>
-      <GoogleAnalytics gaId="G-JKC1QKPHY4" />
-      <meta name="google-site-verification" content="7dViSr2b9UG4Q41X5i-3U2ii-MO4je52CwcQeOd0GRg" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
       <body className="bg-[#000] text-white flex flex-col items-center w-screen gap-2 p-24 max-[630px]:px-[20px] overflow-x-hidden">
         <Nav />
-        {children}
+        <main className="w-full flex flex-col items-center gap-2">{children}</main>
         <Footer />
+        <DeferredAnalytics gaId="G-JKC1QKPHY4" />
       </body>
     </html>
   );
