@@ -21,7 +21,7 @@ const PatternLibrary = dynamic(() => import("./components/PatternLibrary/Pattern
 
 export default function Home() {
   const allProjects = getProjectMetadata();
-  
+
   const webAppStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -108,151 +108,152 @@ export default function Home() {
           __html: JSON.stringify(collectionStructuredData),
         }}
       />
-        <div>
-         <Hero />
-        </div>
-
-        <div className="max-w-[1800px] w-full flex flex-wrap justify-between gap-4 pb-4" id="projects">
-          {[
-            { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect", priority: true },
-            { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!", priority: true },
-            { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Create beautiful Black Hole", priority: true },
-            { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!", priority: false }
-          ].map(({ href, img, title, desc, priority }, index) => (
-            <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
-              <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-18 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
-                <div className="flex flex-col">
-                  <span className="text-[16px] font-semibold">
-                    {title} 
-                    <span className="border border-[#14532d] ml-6 px-6 md:px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span>
-                  </span>
-                  {desc && <span className="text-[12px] text-gray-300">{desc}</span>}
-                </div>
-                <Image 
-                  src={img} 
-                  alt={`${title} - Background Generator Tool`} 
-                  width={45} 
-                  height={45} 
-                  className="h-[40px] w-[45px] md:h-[45px] object-contain rounded-md transition-all duration-300 ease-in-out hover:scale-110"
-                  loading={priority ? "eager" : "lazy"}
-                  priority={priority}
-                  quality={75}
-                  sizes="(max-width: 768px) 45px, 45px"
-                />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">           
-            <CodePreview initialCode={Background} />
-
-            <h2 className="text-3 font-medium">News Background  (Animated)</h2>
-              <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-              {projectPreviews["new"]?.slice(0, 20)}
-              </div>
-            </div>
-        </div>
-
-        <div className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
-          <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
-            <PatternLibrary />
-          </div>
-        </div>
-
-        <Script 
-          src="https://public.codepenassets.com/embed/index.js" 
-          strategy="lazyOnload"
-        />
-
-
-      <div className="border border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">  
-          <div className="flex">
-            <h2 className="text-3 font-medium">Object Backgrounds for Web Design</h2>
-            <NavigationAllBackgrounds category="object backgrounds for web design" />
-          </div>
-
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["objects"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-              <h2 className="text-3 font-medium">Atmospheric Background Effects</h2>
-              <NavigationAllBackgrounds category="atmospheric background effects" />
-          </div>
-        
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["atmosphere"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Animated CSS Backgrounds ⭐</h2>
-            <NavigationAllBackgrounds category="animated css backgrounds" />
-          </div>
-        
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["animated"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">
-              Vector SVG Backgrounds
-            </h2>
-
-            <NavigationAllBackgrounds category="vector svg backgrounds" />
-          </div>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["svg"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Dark Mode Backgrounds</h2>
-            <NavigationAllBackgrounds category="dark mode backgrounds" />
-          </div>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["black"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Geometric Pattern Backgrounds</h2>
-            <NavigationAllBackgrounds category="geometric pattern backgrounds" />
-          </div>
-
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["square"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Sky & Nature Backgrounds</h2>
-
-            <NavigationAllBackgrounds category="sky & nature backgrounds" />
-          </div>
-
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["sky"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Artistic Butterfly Backgrounds</h2>
-
-            <NavigationAllBackgrounds category="artistic butterfly backgrounds" />
-          </div>
-
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["butterfly"]?.slice(0, 5)}
-          </div>
-
-          <div className="flex">
-            <h2 className="text-3 font-medium">Light Mode & Minimalist Backgrounds</h2>
-
-            <NavigationAllBackgrounds category="light mode & minimalist backgrounds" />
-          </div>
-          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-            {projectPreviews["white"]?.slice(0, 5)}
-          </div>
+      <div>
+        <Hero />
       </div>
-      
+
+      <div className="max-w-[1800px] w-full flex flex-wrap justify-between gap-4 pb-4" id="projects">
+        {[
+          { href: "/glass-effect", img: "/cubo.png", title: "Frosted Glass Effect", desc: "Background with mirror effect", priority: true },
+          { href: "/nebula-effect", img: "/nebula1.png", title: "Nebula Spin Effect", desc: "A dynamic spinning nebula effect!", priority: true },
+          { href: "/black-hole", img: "/nebula2.png", title: "Black Hole Effect", desc: "Create beautiful Black Hole", priority: true },
+          { href: "https://buymeacoffee.com/icegreen", img: "/icons/coffee2.svg", title: "Support the project!", desc: "Become a supporter and get a special mention!", priority: false }
+        ].map(({ href, img, title, desc, priority }, index) => (
+          <a key={index} href={href} className="w-full sm:w-[48%] md:w-[30%] lg:w-[23%]">
+            <div className="relative cursor-pointer flex items-center justify-between rounded-[10px] p-8 md:p-18 border border-stroke-1 text-white shadow-md h-[60px] transition-all duration-300 ease-in-out hover:scale-[1.02]">
+              <div className="flex flex-col">
+                <span className="text-[16px] font-semibold">
+                  {title}
+                  <span className="border border-[#14532d] ml-6 px-6 md:px-12 text-[#22c55e] rounded-[10px] w-[50px]">New</span>
+                </span>
+                {desc && <span className="text-[12px] text-gray-300">{desc}</span>}
+              </div>
+              <Image
+                src={img}
+                alt={`${title} - Background Generator Tool`}
+                width={45}
+                height={45}
+                className="h-[40px] w-[45px] md:h-[45px] object-contain rounded-md transition-all duration-300 ease-in-out hover:scale-110"
+                loading={priority ? "eager" : "lazy"}
+                priority={priority}
+                quality={75}
+                sizes="(max-width: 768px) 45px, 45px"
+              />
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div id="frosted" className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+        <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+          <CodePreview initialCode={Background} />
+
+          <h2 className="text-3 font-medium">News Background  (Animated)</h2>
+          <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+            {projectPreviews["new"]?.slice(0, 20)}
+          </div>
+        </div>
+      </div>
+
+      <div className="border border-stroke-1 my-8 rounded-out max-w-[1800px] w-full flex flex-col md:flex-row overflow-clip">
+        <div className="w-full flex flex-col p-8 md:p-[30px] gap-8 md:gap-24 h-fit">
+          <PatternLibrary />
+        </div>
+      </div>
+
+      <Script
+        src="https://public.codepenassets.com/embed/index.js"
+        strategy="lazyOnload"
+      />
+
+
+      <div className="border mb-12 border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
+        <div className="flex">
+          <h2 className="text-3 font-medium">Object Backgrounds for Web Design</h2>
+          <NavigationAllBackgrounds category="object backgrounds for web design" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["objects"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Atmospheric Background Effects</h2>
+          <NavigationAllBackgrounds category="atmospheric background effects" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["atmosphere"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Animated CSS Backgrounds ⭐</h2>
+          <NavigationAllBackgrounds category="animated css backgrounds" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["animated"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">
+            Vector SVG Backgrounds
+          </h2>
+
+          <NavigationAllBackgrounds category="vector svg backgrounds" />
+        </div>
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["svg"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Dark Mode Backgrounds</h2>
+          <NavigationAllBackgrounds category="dark mode backgrounds" />
+        </div>
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["black"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Geometric Pattern Backgrounds</h2>
+          <NavigationAllBackgrounds category="geometric pattern backgrounds" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["square"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Sky & Nature Backgrounds</h2>
+
+          <NavigationAllBackgrounds category="sky & nature backgrounds" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["sky"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Artistic Butterfly Backgrounds</h2>
+
+          <NavigationAllBackgrounds category="artistic butterfly backgrounds" />
+        </div>
+
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["butterfly"]?.slice(0, 5)}
+        </div>
+
+        <div className="flex">
+          <h2 className="text-3 font-medium">Light Mode & Minimalist Backgrounds</h2>
+
+          <NavigationAllBackgrounds category="light mode & minimalist backgrounds" />
+        </div>
+        <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
+          {projectPreviews["white"]?.slice(0, 5)}
+        </div>
+      </div>
+
+      {/*
         <div className="border border-stroke-1 my-18 rounded-out max-w-[1800px] w-full flex max-[880px]:flex-col overflow-clip" id="about">
         <div className="w-full flex flex-col p-64 gap-24 max-[580px]:p-32 max-[580px]:gap-24 h-fit">
           <h2 className="text-2 font-medium">About Backseasy</h2>
@@ -284,7 +285,8 @@ export default function Home() {
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           /> 
       </div>
-       
+       */}
+
     </>
   );
 }
