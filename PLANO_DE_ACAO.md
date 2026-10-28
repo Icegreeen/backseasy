@@ -30,7 +30,10 @@
 | Condicionais | ✅ | GA carregado só após interação/4 s (`DeferredAnalytics`), `browserslist` moderno (corta ~12 KiB de polyfill), cache das imagens otimizadas de 60 s para 30 dias |
 | PageSpeed 28/10 13:07 | ⚠️ | Esse relatório (Perf 27, TBT 2.030 ms) é do **site antigo**: ainda mostra `bg-cover`, footer → google.com e Spline no load. Medir de novo **depois do deploy** |
 | SEO extra (28/10) | ✅ | `/all_backgrounds` não listava as categorias `new` e `atmosphere` (sem link interno) → agora lista as 10, com `<h1>`; JSON-LD `BlogPosting` e `BreadcrumbList`; `WebApplication` só na home (antes em todas as páginas, com `dateModified` falso); `og:url` global removido (páginas herdavam a home); `<h1>` duplicado ("Back") corrigido; h1 nas 3 ferramentas; RSS com escape XML e URLs com `/`; `themeColor`; `not-found.tsx`; description do post do blog; verificações placeholder (Yandex/Yahoo/Baidu) e `next-sitemap.config.js` removidos; `robots.txt` simplificado; imagens de projeto/blog `quality` 100→75 + `priority` |
-| Fase 5 | ⏳ | Aguardando o novo PageSpeed |
+| Fase 5 · Editorial na home | ✅ (28/10) | Home reescrita: hero Editorial com o buraco negro (vídeo) da hero antiga, The index (filtro + preview), Trending now, "Like it? Keep it free." e Footer global novo (a seção About foi removida a pedido). Código em `components/home/`. Backup da home antiga em `backup/home-2026-10-28/` |
+| Fase 5 · geradores e tipos de volta | ✅ (28/10) | Home ganhou **Make your own** (8 geradores em abas, carregados sob demanda), **Browse by type** (10 categorias) e páginas novas `/backgrounds/[categoria]/` (SEO + sitemap). 4 geradores estavam órfãos (`/mesh-gradient`, `/particle-system`, `/geometric-pattern`, `/3d-background`: sem link, sem sitemap, marca "BacksEasy", classes Tailwind inexistentes) e agora estão no menu/footer/sitemap com metadata corrigida |
+| Pendente (visual dos geradores) | ⏳ | O contêiner e as abas são novos, mas a UI interna de cada gerador (sliders, labels) ainda é a antiga |
+| Fase 5 · próximos passos | ⏳ | Puxar elementos das outras propostas (gerador ao vivo do Bento, mini-IDE do Snippet First); decidir o destino do `CodePreview`/`PatternLibrary`, hoje fora da home |
 
 ### Problemas encontrados na revisão do plano anterior
 - **Trailing slash:** `next.config.mjs` tem `trailingSlash: true`, então as URLs reais terminam em `/`. Canonicals e sitemap novos usam `/` para não gerar redirecionamento. O canonical antigo (sem `/`) era inconsistente.
@@ -153,9 +156,9 @@ Não muda a nota do PageSpeed; reduz peso do repositório e manutenção. **Conf
 
 ### 🎨 Fase 5 — Novo visual (depois que a base estiver limpa)
 
-Ver [`VISUAL_PROPOSALS.html`](./VISUAL_PROPOSALS.html): 5 propostas glassmorphism + galeria de novos backgrounds em CSS puro.
+Ver [`VISUAL_PROPOSALS.html`](./VISUAL_PROPOSALS.html) (teclas `1`–`4`): **1 Editorial refinado** (direção aprovada, com a lista "Trending now"), **2 Event Horizon**, **3 Bento Lab**, **4 Snippet First**. Todas partem do visual atual (preto, hairlines, azul `#0db7ff`, roxo do buraco negro).
 
-- **Recomendação:** *Aurora Glass* (1) na home, com a disciplina de performance do *Editorial* (4): poucos blurs, sem vídeo pesado. O *Playground* (5) é opcional.
+- **Pendente:** escolher a direção. O Editorial é o menor esforço e o melhor para Lighthouse; o Event Horizon troca o vídeo de 757 KB do hero por CSS puro.
 - Pré-requisito técnico: no `tailwind.config.ts`, `spacing` e `fontSize` **substituem** os padrões do Tailwind, então classes como `px-5`, `mt-3`, `gap-1` não geram CSS (o Hero usa algumas). Migrar para `extend` junto com o redesign.
 - Regras de glass performático: máx. 3–4 camadas de `backdrop-filter` por tela, fallback com `@supports`, respeitar `prefers-reduced-motion`, contraste ≥ 4,5:1.
 

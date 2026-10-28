@@ -71,9 +71,10 @@ const config: Config = {
         "text-1-subtle": "rgba(222, 222, 222, 0.75)",
         "text-1-disabled": "rgba(255, 255, 255, 0.3)",
         // colours
-        selected: "#0db7ff",
-        "brand-blue": "#0db7ff",
-        "brand-blue-2": "#007bff",
+        selected: "#ff9d2e",
+        accent: "#ff9d2e",
+        "brand-blue": "#ff9d2e",
+        "brand-blue-2": "#ff7a1a",
         "brand-purple": "#4e00ff",
         red: "#F5254A",
         yellow: "#EACA22",
@@ -91,6 +92,10 @@ const config: Config = {
         "rotate": "rotate 3s linear infinite both"
       },
       "keyframes": {
+        "fadeUp": {
+          "from": { "opacity": "0", "transform": "translateY(6px)" },
+          "to": { "opacity": "1", "transform": "none" }
+        },
         "shine": {
           "from": {
             "backgroundPosition": "0 0"
@@ -115,9 +120,9 @@ const config: Config = {
           css: {
             color: "#DEDEDE",
             a: {
-              color: "#0db7ff",
+              color: "#ff9d2e",
               "&:hover": {
-                color: "#0db7ff80",
+                color: "#ff9d2e80",
               },
             },
           },

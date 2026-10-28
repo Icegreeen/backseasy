@@ -1,7 +1,10 @@
 
 import getProjectMetadata from "@/components/projects/getProjectMetadata";
-import ProjectPreview from "@/components/projects/ProjectPreview";
+import ProjectCard from "@/components/home/ProjectCard";
+import { fraunces } from "@/components/home/fonts";
 import { Metadata } from "next";
+import Link from "next/link";
+import { CATEGORIES } from "@/components/home/data";
 
 export const metadata: Metadata = {
   title: "All Backgrounds - Free Background Collection",
@@ -47,21 +50,15 @@ export const metadata: Metadata = {
   },
 };
 
-const SECTIONS: { type: string; title: string }[] = [
-  { type: "new", title: "New animated backgrounds" },
-  { type: "animated", title: "Animated CSS backgrounds" },
-  { type: "atmosphere", title: "Atmospheric background effects" },
-  { type: "svg", title: "Vector SVG backgrounds" },
-  { type: "black", title: "Dark mode backgrounds" },
-  { type: "square", title: "Geometric pattern backgrounds" },
-  { type: "sky", title: "Sky & nature backgrounds" },
-  { type: "butterfly", title: "Artistic butterfly backgrounds" },
-  { type: "white", title: "Light mode & minimalist backgrounds" },
-  { type: "objects", title: "Object backgrounds for web design" },
-];
-
 export default function AllBackgrounds() {
   const allProjects = getProjectMetadata();
+
+  const sections = CATEGORIES.map((c) => ({
+    ...c,
+    items: allProjects
+      .filter((p) => p.type === c.type)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+  })).filter((c) => c.items.length > 0);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -90,26 +87,54 @@ export default function AllBackgrounds() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <div className="border my-12 border-stroke-1 rounded-out max-w-[1800px] w-full p-64 gap-32 flex flex-col max-[580px]:p-32 max-[580px]:gap-24" id="projects">
-        <h1 className="text-2 font-medium">All free backgrounds ({allProjects.length})</h1>
-        {SECTIONS.map(({ type, title }) => {
-          const projects = allProjects.filter((p) => p.type === type);
-          if (!projects.length) return null;
-          return (
-            <section key={type} className="flex flex-col gap-32">
-              <h2 className="text-3 font-medium">{title}</h2>
-              <div className="grid grid-cols-5 grid-rows-1 gap-32 w-full h-fit max-[980px]:grid-cols-1">
-                {projects.map((project) => (
-                  <ProjectPreview category={type} key={project.slug} {...project} />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+
+      <div className="w-full max-w-[1440px] mt-[56px]">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-8 text-[13px] text-white/50 mb-24">
+          <Link href="/" className="hover:text-white">Home</Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-white/80">All backgrounds</span>
+        </nav>
+
+        <h1 className={`${fraunces.className} text-[clamp(44px,7vw,104px)] leading-[0.96] tracking-[-0.045em]`}>
+          All backgrounds<span className="text-[#ff9d2e]">.</span>
+        </h1>
+        <p className="mt-24 max-w-[620px] text-[18px] leading-[1.6] text-white/70">
+          {allProjects.length} free backgrounds in {sections.length} types. Pick one, copy the code, ship it.
+        </p>
+
+        <ul className="flex flex-wrap gap-8 mt-[32px]" aria-label="Jump to a type">
+          {sections.map((c) => (
+            <li key={c.slug}>
+              <a
+                href={`#${c.slug}`}
+                className="inline-flex items-center gap-8 px-[14px] py-[7px] rounded-full border border-stroke-1 text-[13px] text-white/70 hover:text-white hover:border-white/25 duration-200"
+              >
+                {c.label}
+                <span className="text-white/40">{c.items.length}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {sections.map((c) => (
+          <section key={c.slug} id={c.slug} className="mt-[10px] scroll-mt-[24px]" aria-labelledby={`${c.slug}-title`}>
+            <div className="flex flex-wrap items-baseline gap-16 mb-24">
+              <h2 id={`${c.slug}-title`} className={`${fraunces.className} text-[clamp(28px,3.4vw,44px)] tracking-[-0.03em]`}>
+                {c.title}
+              </h2>
+              <span className="text-[13px] text-white/45">{c.items.length} backgrounds</span>
+              <Link href={`/backgrounds/${c.slug}/`} className="text-sub text-white/60 hover:text-white">
+                View this type →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+              {c.items.map((p) => (
+                <ProjectCard key={p.slug} project={p} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </>
   );

@@ -16,13 +16,13 @@
 
 @keyframes colourChange {
   0% {
-    background-color: #0db7ff;
+    background-color: #ff9d2e;
   }
   50% {
     background-color: #4E00FF;
   }
   100% {
-    background-color: #0db7ff;
+    background-color: #ff9d2e;
   }
 }
 
@@ -36,10 +36,11 @@
 
 html {
   scroll-behavior: smooth;
+  accent-color: #ff9d2e;
 }
 
 ::selection {
-  background: #0db7ff;
+  background: #ff9d2e;
 }
 
 ::-webkit-scrollbar {
@@ -59,4 +60,76 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(250, 250, 250, 0.2);
+}
+
+/* ===== Ceu estrelado (fundo global, CSS puro) =====
+   Profundidade: 3 camadas (longe/meio/perto) com brilho decrescente e deriva em velocidades diferentes,
+   mais uma vinheta leve nas bordas. A deriva anda exatamente 1 "tile" por ciclo, entao o loop e continuo. */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.starfield i {
+  position: absolute;
+  display: block;
+  background-repeat: repeat;
+  will-change: transform;
+}
+.starfield i:nth-child(1) {
+  inset: -347px;
+  background-image: radial-gradient(1px 1px at 231.5px 286.5px,rgba(255,255,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 260.5px 300.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 262.5px 243.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 95.5px 48.5px,rgba(255,255,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 72.5px 46.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 324.5px 21.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 231.5px 334.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 332.5px 80.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 270.5px 32.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 97.5px 123.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 237.5px 167.5px,rgba(255,255,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 100.5px 265.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 150.5px 255.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 43.5px 234.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 208.5px 282.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 130.5px 161.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 147.5px 15.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 55.5px 205.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 197.5px 34.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 0.5px 109.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 240.5px 192.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 214.5px 37.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 101.5px 345.5px,rgba(255,255,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 44.5px 159.5px,rgba(255,255,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 209.5px 60.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 51.5px 5.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 249.5px 90.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 96.5px 229.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 67.5px 214.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 59.5px 202.5px,rgba(255,255,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 0.5px 138.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 10.5px 107.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 308.5px 328.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 21.5px 74.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 132.5px 4.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 151.5px 197.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 46.5px 106.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 124.5px 7.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 190.5px 318.5px,rgba(255,255,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 300.5px 247.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 197.5px 93.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 159.5px 116.5px,rgba(200,226,255,0.16) 50%,transparent 51%),radial-gradient(1px 1px at 97.5px 81.5px,rgba(200,226,255,0.34) 50%,transparent 51%),radial-gradient(1px 1px at 283.5px 100.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 247.5px 309.5px,rgba(200,226,255,0.24) 50%,transparent 51%),radial-gradient(1px 1px at 24.5px 53.5px,rgba(200,226,255,0.16) 50%,transparent 51%);
+  background-size: 347px 347px;
+  filter: blur(0.35px);
+  animation: drift-far 260s linear infinite;
+}
+.starfield i:nth-child(2) {
+  inset: -433px;
+  background-image: radial-gradient(1.2px 1.2px at 262px 130px,rgba(255,255,255,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 360px 200px,rgba(200,226,255,0.52) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 421px 305px,rgba(200,226,255,0.52) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 266px 89px,rgba(255,238,210,0.42) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 64px 116px,rgba(200,226,255,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 334px 315px,rgba(255,238,210,0.42) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 143px 108px,rgba(255,255,255,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 8px 35px,rgba(200,226,255,0.52) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 228px 127px,rgba(255,255,255,0.42) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 90px 144px,rgba(200,226,255,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 292px 67px,rgba(255,255,255,0.52) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 70px 230px,rgba(200,226,255,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 375px 353px,rgba(255,238,210,0.62) 50%,transparent 51%),radial-gradient(1.2px 1.2px at 71px 302px,rgba(255,255,255,0.42) 50%,transparent 51%);
+  background-size: 433px 433px;
+  animation: drift-mid 180s linear infinite, twinkle 10s ease-in-out infinite;
+}
+.starfield i:nth-child(3) {
+  inset: -509px;
+  background-image: radial-gradient(1.6px 1.6px at 243px 466px,rgba(255,238,210,0.7) 50%,transparent 51%),radial-gradient(1.6px 1.6px at 492px 17px,rgba(255,255,255,0.58) 50%,transparent 51%),radial-gradient(1.6px 1.6px at 246px 34px,rgba(200,226,255,0.7) 50%,transparent 51%),radial-gradient(1.6px 1.6px at 163px 69px,rgba(255,255,255,0.58) 50%,transparent 51%),radial-gradient(1.6px 1.6px at 231px 279px,rgba(255,238,210,0.58) 50%,transparent 51%);
+  background-size: 509px 509px;
+  filter: blur(0.3px);
+  animation: drift-near 120s linear infinite, twinkle 13s ease-in-out -5s infinite;
+}
+.starfield::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(125% 95% at 50% 42%, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
+}
+/* estrelas cadentes raras */
+.starfield .shoot {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
+  opacity: 0;
+  transform: rotate(32deg);
+  animation: shoot var(--t) linear var(--d) infinite;
+}
+@keyframes drift-far { to { transform: translate3d(-347px, -347px, 0); } }
+@keyframes drift-mid { to { transform: translate3d(-433px, -433px, 0); } }
+@keyframes drift-near { to { transform: translate3d(-509px, -509px, 0); } }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.95; }
+}
+@keyframes shoot {
+  0% { transform: translate(0, 0) rotate(32deg); opacity: 0; }
+  1% { opacity: 1; }
+  5% { transform: translate(420px, 262px) rotate(32deg); opacity: 0; }
+  100% { transform: translate(420px, 262px) rotate(32deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .starfield i { animation: none; }
+  .starfield .shoot { display: none; }
 }

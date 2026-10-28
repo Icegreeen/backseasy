@@ -50,70 +50,38 @@ const FrostedGlassGenerator: React.FC = () => {
   return (
     <div className="w-full rounded-[8px] p-8 rounded-lg shadow-md text-gray-100">
       <div className="flex flex-col md:grid md:grid-cols-2 gap-[30px]">
-        {/* Pré-visualizações */}
+        {/* Pré-visualização */}
         <div
-          className="frosted-glass-preview h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
+          className="relative col-span-2 h-[420px] overflow-hidden rounded-[12px] border border-stroke-1 flex items-center justify-center p-6"
           style={{
             backgroundImage:
               'url(https://github.com/user-attachments/assets/bb052fda-d221-411e-b244-2d352c4cba2e)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            borderRadius: '10px',
           }}
         >
           <div
-            className="frosted-glass w-full md:w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
+            className="frosted-glass relative w-[86%] md:w-[520px] h-[250px] rounded-lg shadow-lg flex flex-col items-center justify-center gap-4"
             style={{
               backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
               backgroundColor: `${color}${Math.floor(parseFloat(opacity) * 255)
                 .toString(16)
                 .padStart(2, '0')}`,
-              borderRadius: '12px',
+              borderRadius: '16px',
               border: '1px solid rgba(255, 255, 255, 0.3)',
               boxShadow: `inset 0 0 30px rgba(0, 0, 0, ${shadowIntensity})`,
               backgroundImage: combinedBackground,
               backgroundSize: grainyActive ? 'cover, 182px' : 'cover',
               backgroundRepeat: grainyActive ? 'no-repeat, repeat' : 'no-repeat',
               padding: '20px',
-              color: '#333',
               transition: 'all 0.3s ease',
             }}
           >
-            <p className="text-lg text-white">Preview 1</p>
-          </div>
-        </div>
-
-        <div
-          className="frosted-glass-preview h-[400px] p-6 rounded-lg shadow-md flex items-center justify-center"
-          style={{
-            backgroundImage:
-              'url(https://github.com/user-attachments/assets/9abefce5-3d52-449a-a7e4-e728d2974bf1)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            borderRadius: '10px',
-          }}
-        >
-          <div
-            className="frosted-glass w-full md:w-[800px] h-[300px] rounded-lg shadow-lg flex items-center justify-center"
-            style={{
-              backdropFilter: `blur(${blur}) saturate(${saturation}%)`,
-              WebkitBackdropFilter: `blur(${blur}) saturate(${saturation}%)`,
-              backgroundColor: `${color}${Math.floor(parseFloat(opacity) * 255)
-                .toString(16)
-                .padStart(2, '0')}`,
-              borderRadius: '12px',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              boxShadow: `inset 0 0 30px rgba(0, 0, 0, ${shadowIntensity})`,
-              backgroundImage: combinedBackground,
-              backgroundSize: grainyActive ? 'cover, 182px' : 'cover',
-              backgroundRepeat: grainyActive ? 'no-repeat, repeat' : 'no-repeat',
-              padding: '20px',
-              color: '#333',
-              transition: 'all 0.3s ease',
-            }}
-          >
-            <p className="text-lg text-white">Preview 2</p>
+            <p className="text-3 font-medium text-white">Frosted glass</p>
+            <p className="text-sub text-white/80">
+              blur {blur} · saturate {saturation}% · opacity {opacity}
+            </p>
           </div>
         </div>
 

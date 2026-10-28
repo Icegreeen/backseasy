@@ -1,11 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Permite buildar/testar em outra pasta sem mexer no .next do `next dev` (ex.: NEXT_DIST_DIR=.next-check)
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   images: {
-    domains: ["avatars.githubusercontent.com", "github.com", "i.imgur.com"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "i.imgur.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
         port: "",
         pathname: "/**",
       },
@@ -18,8 +25,12 @@ const nextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  // Em dev o cache persistente do webpack serve módulos antigos (cliente x servidor dessincronizados ->
+  // "Cannot read properties of undefined (reading 'call')" e erros de hydration após F5). Só em dev.
+  webpack: (config, { dev }) => {
+    if (dev) config.cache = false;
+    return config;
   },
   compress: true,
   poweredByHeader: false,

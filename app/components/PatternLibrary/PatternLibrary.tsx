@@ -69,7 +69,7 @@ export default function PatternLibrary() {
   };
 
   return (
-    <div className="w-full max-w-[1800px] mx-auto flex flex-col gap-8 relative" style={{ isolation: 'isolate' }}>
+    <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-8 relative" style={{ isolation: 'isolate' }}>
       <div className="flex flex-wrap gap-2 md:gap-4 relative -mt-12 border border-stroke-1 my-18 rounded-out p-12" style={{ zIndex: 20 }}>
         {categories.map((category) => {
           const isActive = activeCategory === category.id;

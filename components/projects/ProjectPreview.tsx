@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { ProjectMetadata } from "./ProjectMetadata";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
@@ -33,7 +33,7 @@ export default function ProjectPreview(props: ProjectMetadata & { category: stri
           href={`/projects/${props.slug}`}
           className="relative isolate overflow-hidden w-full h-auto aspect-[3/1.7] flex flex-col justify-end items-end p-32 md:p-16 sm:p-8 rounded-in border border-stroke-1 hover:scale-[1.05] active:scale-[.75] duration-150"
         >
-          <Image
+          <SafeImage
             src={props.image}
             alt={`${props.title} background preview`}
             fill

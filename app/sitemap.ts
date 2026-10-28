@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import type { MetadataRoute } from "next";
+import { CATEGORIES } from "@/components/home/data";
 
 const BASE = "https://backseasy.com";
 const PROJECT_FOLDERS = ["butterfly", "black", "square", "sky", "white", "animated", "svg", "atmosphere", "objects", "new"];
@@ -23,7 +24,7 @@ const readEntries = (dir: string, urlPrefix: string): MetadataRoute.Sitemap => {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "all_backgrounds", "glass-effect", "nebula-effect", "black-hole", "blogs"].map((p) => ({
+  const staticPages = ["", "all_backgrounds", "glass-effect", "nebula-effect", "black-hole", "mesh-gradient", "particle-system", "geometric-pattern", "3d-background", "blogs"].map((p) => ({
     url: p ? `${BASE}/${p}/` : `${BASE}/`,
     changeFrequency: "weekly" as const,
     priority: p === "" ? 1 : 0.9,
@@ -32,5 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const projects = PROJECT_FOLDERS.flatMap((f) => readEntries(path.join(process.cwd(), "projects", f), "projects"));
   const blogs = readEntries(path.join(process.cwd(), "blog"), "blog");
 
-  return [...staticPages, ...projects, ...blogs];
+  const categories = CATEGORIES.map((c) => ({
+    url: `${BASE}/backgrounds/${c.slug}/`,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...categories, ...projects, ...blogs];
 }

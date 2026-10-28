@@ -266,7 +266,7 @@ ${shapesCSS}
   if (!isClient) {
     return (
       <div className="w-full max-w-6xl mx-auto p-8">
-        <h1 className="text-white text-2xl mb-8 text-center">3D Background Customizer</h1>
+        <h2 className="text-white text-2xl mb-8 text-center">3D Background Customizer</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="border border-stroke-1 rounded-out overflow-hidden min-h-[400px] bg-gray-800">
             <div className="w-full h-full flex items-center justify-center">
@@ -284,7 +284,7 @@ ${shapesCSS}
 
   return (
     <div className="w-full max-w-6xl mx-auto p-8">
-      <h1 className="text-white text-2xl mb-8 text-center">3D Background Customizer</h1>
+      <h2 className="text-white text-2xl mb-8 text-center">3D Background Customizer</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Preview Area */}

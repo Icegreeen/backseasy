@@ -4,13 +4,13 @@
   "author": "Icegreen",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3100",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^14.1.1",
+    "@next/third-parties": "^14.2.35",
     "@tailwindcss/typography": "^0.5.10",
     "clsx": "^2.1.0",
     "critters": "^0.0.25",
@@ -19,7 +19,7 @@
     "lucide-react": "^0.367.0",
     "markdown-to-jsx": "^7.4.1",
     "moment": "^2.30.1",
-    "next": "^14.1.1",
+    "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
@@ -33,7 +33,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "14.2.35",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

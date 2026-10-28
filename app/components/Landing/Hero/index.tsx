@@ -19,7 +19,7 @@ export default function Hero() {
                 <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
                   <div className="relative items-center gap-1 m-auto lg:inline-flex">
                     <div className="max-w-xl lg:text-left">
-                      <div className="flex flex-col max-w-[1800px] w-full pt-[120px] py-[50px] gap-24">
+                      <div className="flex flex-col max-w-[1440px] w-full pt-[120px] py-[50px] gap-24">
                       <div className="flex flex-col ">
 
                         <p className="text-body mb-8">Made by <Link className="text-purple text-[18px]" href="https://github.com/Icegreeen">Flávio Áquila</Link></p>

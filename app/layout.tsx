@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Starfield from "@/components/Starfield";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 
 const outfit = Outfit({ subsets: ["latin"] });
@@ -62,13 +63,6 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: "/logo.png",
-    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
   alternates: {
@@ -133,9 +127,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={outfit.className}>
-      <body className="bg-[#000] text-white flex flex-col items-center w-screen gap-2 p-24 max-[630px]:px-[20px] overflow-x-hidden">
+      <body className="bg-[#000] text-white min-h-screen flex flex-col items-center w-full gap-2 py-24 px-[clamp(16px,3vw,40px)] overflow-x-hidden">
+        {process.env.NODE_ENV === "development" && (
+          // Só em dev: remove Service Workers e caches antigos deste origin (evita servir JS velho depois de mudanças)
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.unregister()})})}if(window.caches){caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})})}}catch(e){}})();",
+            }}
+          />
+        )}
+        <Starfield />
         <Nav />
-        <main className="w-full flex flex-col items-center gap-2">{children}</main>
+        <main className="w-full flex-1 flex flex-col items-center gap-2">{children}</main>
         <Footer />
         <DeferredAnalytics gaId="G-JKC1QKPHY4" />
       </body>
